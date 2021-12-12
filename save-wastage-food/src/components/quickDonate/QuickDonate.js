@@ -3,7 +3,7 @@ import React from 'react'
 function QuickDonate() {
     return (
         <div >
-            <div className="container " style={{ height: "60px" }} >
+            <div className="container " style={{ height: "70px" }} >
                 <div className="row  justify-content-center align-items-center pt-3 ">
                     <div className="col-2 text-center  " style={{ height: "40px" }}>
                         <h5 style={{ height: "100%", width: "100%", lineHeight: "40px" }}>QUICK DONATE</h5>
@@ -15,11 +15,11 @@ function QuickDonate() {
                             <option value={1}>Regular Payment</option>
                         </select>
                     </div>
-                    <div className="col-2 text-center " style={{ height: "40px" }}>
-                        <div 
-                          style={{ height: "100%", width: "100%" }}>
-                            <input  type="number" name="" id="" placeholder="Amount"
-                                style={{ height: "100%", width: "100%" }} />
+                    <div className="col-2 text-center  " style={{ height: "40px" }}>
+                        <div  
+                          style={{ height: "100%", width: "100%", borderRadius:"3px"}}>
+                            <input  className="border border-success border-2 px-2 rounded" type="number" name="" id="" placeholder="Amount"
+                                style={{ height: "100%", width: "100%" ,border:"none" }} />
                         </div>
                     </div>
                     <div className="col-2 text-center " style={{ height: "40px" }}>
