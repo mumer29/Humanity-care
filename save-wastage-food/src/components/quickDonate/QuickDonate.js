@@ -2,7 +2,7 @@ import React from 'react'
 
 function QuickDonate() {
     return (
-        <div className="container-fluid " style={{backgroundColor:"#0895a4"}} >
+        <div className="container-fluid " style={{backgroundColor:"#0eb5c7"}} >
             <div className="container " style={{ height: "70px"}} >
                 <div className="row  justify-content-center align-items-center pt-3 ">
                     <div className="col-2 text-center  " style={{ height: "40px" }}>

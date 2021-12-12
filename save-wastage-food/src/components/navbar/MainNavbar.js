@@ -1,14 +1,18 @@
 import React from 'react';
 
+
 function MainNavbar() {
   return (
     <navbar>
       <div className="container-fluid" style={{ backgroundColor: "#0895a4" }}>
+
         <div style={{ margin: 'auto', maxWidth: '1000px', height: "87px" }}>
 
           <div className="d-flex justify-content-between align-items-center pt-3 ">
             <div className="logo">
-              <h1>LOGO</h1>
+              <img src='/logo/whiteLogo.png' alt="not found" style={{ width: "100px" }} />
+              {/* care humanity */}
+              {/* <h1>LOGO</h1> */}
             </div>
             <div className="data">
               <nav className="navbar navbar-expand-lg navbar-light text-uppercase  "  >
@@ -47,6 +51,7 @@ function MainNavbar() {
           </div>
         </div>
       </div>
+
     </navbar>
 
 

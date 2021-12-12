@@ -68,12 +68,15 @@ function WhoWeAre() {
                         </div>
 
                         <div className="col-4 text-center ">
-                            <button style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px"}}  >button 1</button>
+                            <button 
+                            style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px " , color:"#0eb5c7", fontWeight:"bold"}}  
+                            >Button 1</button>
                         </div>
                         <div className="col-4 text-center">
-                            <button  style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px"}}>button 1</button>
+                            <button  
+                            style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px " , color:"#0eb5c7", fontWeight:"bold"}}
+                            >Button 2</button>
                         </div>
-
                     </div>
                 </div>
             </div>
