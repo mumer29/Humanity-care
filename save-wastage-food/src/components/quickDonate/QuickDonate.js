@@ -2,11 +2,11 @@ import React from 'react'
 
 function QuickDonate() {
     return (
-        <div >
-            <div className="container " style={{ height: "70px" }} >
+        <div className="container-fluid " style={{backgroundColor:"#0895a4"}} >
+            <div className="container " style={{ height: "70px"}} >
                 <div className="row  justify-content-center align-items-center pt-3 ">
                     <div className="col-2 text-center  " style={{ height: "40px" }}>
-                        <h5 style={{ height: "100%", width: "100%", lineHeight: "40px" }}>QUICK DONATE</h5>
+                        <h5 style={{ height: "100%", width: "100%", lineHeight: "40px", color:"white" }}>QUICK DONATE</h5>
                     </div>
                     <div className="col-3 text-center " style={{ height: "40px" }}>
                         <select className="form-select border-success border-2 " aria-label="Default select example"

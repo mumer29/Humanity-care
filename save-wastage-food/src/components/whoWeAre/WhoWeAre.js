@@ -5,10 +5,10 @@ function WhoWeAre() {
     return (
         <div>
             <div className="container-fluid  d-flex  justify-content-center  align-items-center w-100 "
-                style={{ height: "350px", backgroundColor: "aquamarine", textAlign: "justify" }}>
+                style={{ height: "350px", backgroundColor: "#0895a4", textAlign: "justify" }}>
                 <div className="container "  >
-                    <h4 style={{ color: "red", fontWeight: "bold" }}>WHO WE ARE</h4>
-                    <h4>The Journey that began in a small room on the pavement of Britto Road, Karachi,
+                    <h1 style={{ color: "white", fontWeight: "bold" , }}>WHO WE ARE</h1>
+                    <h4 style={{color:"white"}}>The Journey that began in a small room on the pavement of Britto Road, Karachi,
                         has gradually blossomed into the largest voluntary health service, non profit
                         organization in Pakistan and has been providing thalassaemia treatment and haematological
                         services along with  blood transfusion services in the Sector, Donating thousands
@@ -60,7 +60,7 @@ function WhoWeAre() {
             </div>
 
 
-            <div className="container-fluid bg-danger d-flex align-items-center " style={{ height: "200px" }}>
+            <div className="container-fluid  d-flex align-items-center " style={{ height: "200px",backgroundColor: "#0895a4",  color:"white"}}>
                 <div className="container">
                     <div className="row justify-content-center ">
                         <div className="col-12 text-center pb-5 ">
