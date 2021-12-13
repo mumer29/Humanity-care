@@ -6,7 +6,7 @@ function SpendMoney() {
             <div className="container-fluid d-flex " style={{ backgroundColor: "#0895a4", height: "250px" }}>
                 <div className="container m-auto" >
                     <div className="row">
-                        <div className="col" style={{ textAlign: "center" }}>
+                        <div className="col" style={{ textAlign: "center",  color:"white" }}>
                             <div>
                                 <i className="fas fa-hospital-user" style={{ fontSize: "50px", padding: "20px 0", color: "#c93939" }}></i>
                             </div>
@@ -14,14 +14,14 @@ function SpendMoney() {
                             <p>Surgeries & Medical
                                 Procedures Performed </p>
                         </div>
-                        <div className="col" style={{ textAlign: "center" }}>
+                        <div className="col" style={{ textAlign: "center",  color:"white" }}>
                             <div>
                                 <i className="fas fa-clinic-medical" style={{ fontSize: "50px", padding: "20px 0", color: "#190bf5" }}></i>
                             </div>
                             <h3>105</h3>
                             <p>Medical Camps Organized </p>
                         </div>
-                        <div className="col" style={{ textAlign: "center" }}>
+                        <div className="col" style={{ textAlign: "center",  color:"white" }}>
                             <div>
 
                                 <i className="fas fa-user-injured" style={{ fontSize: "50px", padding: "20px 0", color: "#64ff15" }}></i>
@@ -29,7 +29,7 @@ function SpendMoney() {
                             <h3>38,899</h3>
                             <p>Medical Camps Patients Treated  </p>
                         </div>
-                        <div className="col" style={{ textAlign: "center" }}>
+                        <div className="col" style={{ textAlign: "center",  color:"white" }}>
                             <div>
 
                                 <i className="fas fa-hand-holding-usd" style={{ fontSize: "50px", padding: "20px 0", color: "#71058d" }}></i>
@@ -37,7 +37,7 @@ function SpendMoney() {
                             <h3>Rs.343.12 M</h3>
                             <p>Funds Spent </p>
                         </div>
-                        <div className="col" style={{ textAlign: "center" }}>
+                        <div className="col" style={{ textAlign: "center",  color:"white" }}>
                             <div>
                                 <i className="fas fa-hand-holding-heart" style={{ fontSize: "50px", padding: "20px 0", color: "#f1cc3c" }}></i>
                             </div>
