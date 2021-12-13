@@ -4,6 +4,7 @@ import Header from './components/header/Header';
 import MainCarousels from './components/mainCarousel/MainCarousels';
 import MainNavbar from './components/navbar/MainNavbar';
 import QuickDonate from './components/quickDonate/QuickDonate';
+import SpendMoney from './components/spendMoney/SpendMoney';
 import WhoWeAre from './components/whoWeAre/WhoWeAre';
 
 function App() {
@@ -11,9 +12,10 @@ function App() {
     <div className="App">
       <Header />
       <MainNavbar />
-    <MainCarousels/>
-      <QuickDonate/>
-      <WhoWeAre/>
+      <MainCarousels />
+      <QuickDonate />
+      <WhoWeAre />
+      <SpendMoney />
     </div>
   );
 }

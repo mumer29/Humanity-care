@@ -68,13 +68,11 @@ function WhoWeAre() {
                         </div>
 
                         <div className="col-4 text-center ">
-                             <button  className="button1" 
-                            // style={{fontSize:"30px", borderRadius:"10px" ,padding:"5px 80px " , border:"none", color:"#0895a4", fontSize:"30px"}}  
+                             <button  className="button1"  
                             >Donate Food</button>
                         </div>
                         <div className="col-4 text-center">
                              <button  className="button2" 
-                            // style={{fontSize:"30px", borderRadius:"10px" ,padding:"5px 80px " , border:"none", color:"#0895a4", fontSize:"30px"}}
                             >Donate Money</button>
                         </div>
                     </div>
