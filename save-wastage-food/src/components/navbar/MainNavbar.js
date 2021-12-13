@@ -6,13 +6,11 @@ function MainNavbar() {
     <navbar>
       <div className="container-fluid" style={{ backgroundColor: "#0895a4" }}>
 
-        <div style={{ margin: 'auto', maxWidth: '1000px', height: "87px" }}>
+        <div style={{ margin: 'auto', maxWidth: '1000px' }}>
 
-          <div className="d-flex justify-content-between align-items-center pt-3 ">
+          <div className="d-flex justify-content-between align-items-center py-2 ">
             <div className="logo">
               <img src='/logo/whiteLogo.png' alt="not found" style={{ width: "100px" }} />
-              {/* care humanity */}
-              {/* <h1>LOGO</h1> */}
             </div>
             <div className="data">
               <nav className="navbar navbar-expand-lg navbar-light text-uppercase  "  >

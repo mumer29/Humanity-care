@@ -63,19 +63,19 @@ function WhoWeAre() {
             <div className="container-fluid  d-flex align-items-center " style={{ height: "200px",backgroundColor: "#0895a4",  color:"white"}}>
                 <div className="container">
                     <div className="row justify-content-center ">
-                        <div className="col-12 text-center pb-5 ">
+                        <div className="col-12 text-center pb-4 ">
                             <h2 className="text-uppercase" style={{color:"white"}}>Change the Life of Those Who Have No Hope.</h2>
                         </div>
 
                         <div className="col-4 text-center ">
-                            <button 
-                            style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px " , color:"#0eb5c7", fontWeight:"bold"}}  
-                            >Button 1</button>
+                             <button  className="button1" 
+                            // style={{fontSize:"30px", borderRadius:"10px" ,padding:"5px 80px " , border:"none", color:"#0895a4", fontSize:"30px"}}  
+                            >Donate Food</button>
                         </div>
                         <div className="col-4 text-center">
-                            <button  
-                            style={{fontSize:"30px", borderRadius:"10px" ,padding:"3px 80px " , color:"#0eb5c7", fontWeight:"bold"}}
-                            >Button 2</button>
+                             <button  className="button2" 
+                            // style={{fontSize:"30px", borderRadius:"10px" ,padding:"5px 80px " , border:"none", color:"#0895a4", fontSize:"30px"}}
+                            >Donate Money</button>
                         </div>
                     </div>
                 </div>
