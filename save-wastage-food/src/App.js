@@ -9,6 +9,7 @@ import OurServices from "./components/ourServices/OurServices";
 import QuickDonate from './components/quickDonate/QuickDonate';
 import SpendMoney from './components/spendMoney/SpendMoney';
 import PatientDonnerStories from "./components/stories/PatientDonnerStories";
+import Testimonial from "./components/testimonial/Testimonial";
 import WhoWeAre from './components/whoWeAre/WhoWeAre';
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
       <OurServices/>
       <OurResources/>
       <PatientDonnerStories/>
+      <Testimonial/>
 
     </div>
   );
