@@ -6,7 +6,7 @@ function OurResources() {
         <div style={{ backgroundColor: "#0895a4" }}>
             <div className="container"  >
                 <div className="row p4-5" style={{color:"white"}} >
-                    <h2 className="text-center py-3">Our Resourcess</h2>
+                    <u className="text-center py-3"> <h2>Our Resourcess</h2></u>
                     <p className="text-center" style={{ margin: "auto", width: "800px" }}>We have grown to be a leading grassroot humanitarian aid organisation.
                         Every year we are helping more and more people struck with hardship, all with your help.
                         We are developing this project to help poor and needy peoples in the Pakistan, and reduce the food wastage,

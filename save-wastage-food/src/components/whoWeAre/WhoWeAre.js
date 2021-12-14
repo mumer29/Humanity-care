@@ -9,7 +9,8 @@ function WhoWeAre() {
                 <div className="container "  >
                     <h1 style={{
                         color: "white", fontWeight: "bold", textAlign: "center",
-                        width: "300px", borderBottom: "5px solid", textAlign: "center", margin: "auto"
+                        width: "262px", borderBottom: "5px solid", textAlign: "center", margin: "auto",
+
                     }}
                     >WHO WE ARE</h1>
                     <h4 style={{ color: "white", paddingTop: "25px" }}>
