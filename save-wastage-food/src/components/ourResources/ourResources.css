@@ -1,0 +1,10 @@
+.resourcesvalues{
+    height: 50px;
+    width: 50px;
+    margin: auto;
+    bottom: 42px;
+    position: relative;
+    border: 1px solid;
+    border-radius: 34px;
+    background-color: lime;
+}
