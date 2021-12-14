@@ -8,6 +8,7 @@ import OurResources from "./components/ourResources/OurResources";
 import OurServices from "./components/ourServices/OurServices";
 import QuickDonate from './components/quickDonate/QuickDonate';
 import SpendMoney from './components/spendMoney/SpendMoney';
+import PatientDonnerStories from "./components/stories/PatientDonnerStories";
 import WhoWeAre from './components/whoWeAre/WhoWeAre';
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <OurHistory/>
       <OurServices/>
       <OurResources/>
+      <PatientDonnerStories/>
 
     </div>
   );
