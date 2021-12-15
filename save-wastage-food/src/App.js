@@ -1,5 +1,7 @@
 
 import "./App.css";
+import ContactUs from "./components/contactUs/ContactUs";
+import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 import Locations from "./components/locations/Locations";
 import MainCarousels from './components/mainCarousel/MainCarousels';
@@ -28,6 +30,8 @@ function App() {
       <PatientDonnerStories/>
       <Testimonial/>
       <Locations/>
+      <ContactUs/>
+      <Footer/>
 
     </div>
   );

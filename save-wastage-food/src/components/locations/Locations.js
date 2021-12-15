@@ -17,35 +17,35 @@ function Locations() {
                         <div className="col-8 text-center" style={{color:"0895a4"}}>
                             <div className="row "  >
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Karachi Office</div>
+                                    <div className="py-3 rounded locationCity" >Karachi Office</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Multen Center</div>
+                                    <div className="py-3 rounded locationCity" >Multen Center</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Quetta Center</div>
+                                    <div className="py-3 rounded locationCity" >Quetta Center</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Rashidabad Center</div>
+                                    <div className="py-3 rounded locationCity" >Rashidabad Center</div>
                                 </div>
                             </div>
                             <div className="row ">
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Larkana Center</div>
+                                    <div className="py-3 rounded locationCity" >Larkana Center</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Lahore Center</div>
+                                    <div className="py-3 rounded locationCity" >Lahore Center</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Peshawer Center</div>
+                                    <div className="py-3 rounded locationCity" >Peshawer Center</div>
                                 </div>
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Hyderabad Center</div>
+                                    <div className="py-3 rounded locationCity" >Hyderabad Center</div>
                                 </div>
                             </div>
                             <div className="row justify-content-center">
                                 <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" style={{border:'2px solid white'}}>Faisalabad Center</div>
+                                    <div className="py-3 rounded locationCity" >Faisalabad Center</div>
                                 </div>
                             </div>
                         </div>
