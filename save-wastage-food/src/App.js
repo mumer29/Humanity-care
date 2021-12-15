@@ -1,6 +1,7 @@
 
 import "./App.css";
 import Header from './components/header/Header';
+import Locations from "./components/locations/Locations";
 import MainCarousels from './components/mainCarousel/MainCarousels';
 import MainNavbar from './components/navbar/MainNavbar';
 import OurHistory from './components/ourHistory/OurHistory';
@@ -26,6 +27,7 @@ function App() {
       <OurResources/>
       <PatientDonnerStories/>
       <Testimonial/>
+      <Locations/>
 
     </div>
   );
