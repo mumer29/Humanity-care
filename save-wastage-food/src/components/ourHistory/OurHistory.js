@@ -3,10 +3,10 @@ import "./ourHistory.css"
 
 function OurHistory() {
     return (
-        <div style={{ backgroundColor: "#0895a4" }}>
+        <div style={{ backgroundColor: "#0195d3" }}>
             <div className="container-fluid " >
                 <div className='container'>
-                    <div className="row py-5" style={{ color: "white" }}>
+                    <div className="row py-2" style={{ color: "white" }}>
                         <h2 className="text-center py-3">Our History as a  Care Humanity Organisation</h2>
                         <p className="text-center">We have grown to be a leading grassroot humanitarian aid organisation.
                             Every year we are helping more and more people struck with hardship, all with your help.
@@ -15,10 +15,10 @@ function OurHistory() {
                     </div>
                 </div>
             </div>
-            <div className="container-fluid d-flex" style={{ height: "650px" }}>
+            <div className="container-fluid d-flex" >
                 <div className="container m-auto">
                     <div className="row gx-5">
-                        <div className="col" style={{ color: "white" }}>
+                        <div className="col-lg-4 col-sm-12 py-3" style={{ color: "white" }}>
                             <div className='text-center' >
                                 <img className="founder" src="./founder/ahsan.png" alt="ahan (founder)" />
                                 <h5 className='founderName pt-3'>Ahsan Ali</h5>
@@ -31,7 +31,7 @@ function OurHistory() {
                                 or food in excess in banquets and hotels or in events, with the help of Non-Profit Organizations or some other
                                 organizations (Receive donations and distribute food).</p>
                         </div>
-                        <div className="col" style={{ color: "white" }}>
+                        <div className="col-lg-4 col-sm-12 py-3" style={{ color: "white" }}>
                             <div className='text-center' >
                                 <img className="founder" src="./founder/abdulRehman.png" alt=" abdul rehman (chair person)" />
                                 <h5 className='founderName pt-3'>Abdul Rehman </h5>
@@ -44,7 +44,7 @@ function OurHistory() {
                                 or food in excess in banquets and hotels or in events, with the help of Non-Profit Organizations or some other
                                 organizations (Receive donations and distribute food).</p>
                         </div>
-                        <div className="col" style={{ color: "white" }}>
+                        <div className="col-lg-4 col-sm-12 py-3" style={{ color: "white" }}>
                             <div className='text-center' >
                                 <img className="founder" src="./founder/kashif.png" alt="kashif(...)" />
                                 <h5 className='founderName pt-3'>Kashif Ali </h5>

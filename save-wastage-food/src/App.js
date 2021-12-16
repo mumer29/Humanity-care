@@ -18,8 +18,10 @@ import WhoWeAre from './components/whoWeAre/WhoWeAre';
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
+     
       <MainNavbar />
+      
       <MainCarousels />
       <QuickDonate />
       <WhoWeAre />
@@ -27,11 +29,11 @@ function App() {
       <OurHistory/>
       <OurServices/>
       <OurResources/>
-      <PatientDonnerStories/>
-      <Testimonial/>
-      <Locations/>
-      <ContactUs/>
-      <Footer/>
+      {/* <PatientDonnerStories/> */}
+      {/* <Testimonial/> */}
+      {/* <Locations/> */}
+      {/* <ContactUs/> */}
+      {/* <Footer/> */}
 
     </div>
   );

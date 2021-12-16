@@ -8,19 +8,21 @@
 .card{
     background-color: unset;
 }
-.button1, .button2{
-    font-size: 30px;
-    border-radius: 10px;
-    padding: 5px 30px;
-    border: 2px solid #0895a4 ;
-    color: rgb(8, 149, 164);
-
-  
-
+.donateFoodButton1, .donateFoodButton2{
+    width: 250px;
+    height: 50px;
+    border-radius: 5px;
+    border: 2px solid white ;
+    color: #0195d3 ;
+    font-size:20px;
+    font-weight:bold;
+    transition: 0.7s
 }
-.button1:hover, .button2:hover{
-    background-color: #0895a4;
-    color: white;
-    border: 2px solid white;
+.donateFoodButton1:hover, .donateFoodButton2:hover{
 
+    background-color: #0195d3 ;
+    color:white;
+    transition: 0.7s
+   
+ 
 }

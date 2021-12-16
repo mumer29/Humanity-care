@@ -1,59 +1,101 @@
-import React from 'react';
+import React from 'react'
+
+function nav() {
+    return (
+        <div>
+            <nav className="navbar navbar-expand-lg navbar-light  fixed-top " 
+            style={{ backgroundColor: "#0195d3" }}
+            >
+                <div className="container ">
+                    <a className="navbar-brand" href="#">
+                        <img src='/logo/whiteLogo.png' alt="not found" style={{ width: "100px" }} /> 
+                       <h4 className="fw-bolder " style={{display:"unset", color:"white" }}>Care Humanity</h4>
+
+                    </a>
+                    <button
+                        className="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span className="navbar-toggler-icon" />
+                    </button>
+                    <div className="collapse navbar-collapse" id="navbarNav">
+                        <ul className="navbar-nav ms-auto align-items-center">
+                            <li className="nav-item px-2 text-center border-end">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    Home
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center border-end">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                      Discover
+                                    <i className="fas fa-angle-down ps-2"></i>
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center border-end">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    Donate
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center ">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    Get Involved
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center ">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    <button className='btn btn-danger  text-uppercase btn-sm '
+                                        style={{ fontWeight: 500 , fontSize: '15px' }} >donate</button>
+
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center ">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    <i class="fas fa-search"></i>
+
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center ">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    <i class="fas fa-user"></i>
+
+                                </a>
+                            </li>
+                            <li className="nav-item px-2 text-center ">
+                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500  }}
+                                >
+                                    <i class="fas fa-shopping-bag"></i>
+
+                                </a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
 
 
-function MainNavbar() {
-  return (
-    <navbar>
-      <div className="container-fluid" style={{ backgroundColor: "#0895a4" }}>
-
-        <div style={{ margin: 'auto', maxWidth: '1000px' }}>
-
-          <div className="d-flex justify-content-between align-items-center py-2 ">
-            <div className="logo">
-              <img src='/logo/whiteLogo.png' alt="not found" style={{ width: "100px" }} />
-            </div>
-            <div className="data">
-              <nav className="navbar navbar-expand-lg navbar-light text-uppercase  "  >
-                <ul className="navbar-nav align-items-center" >
-                  <li className="nav-item ">
-                    <a className="nav-link border-end " href="#" style={{ color: "white", fontSize: "13px", fontWeight: 500, padding: "0 20px" }} >home</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link border-end" href="#" style={{ color: "white", fontSize: "13px", fontWeight: 500, padding: "0 20px" }}>discover <i class="fas fa-angle-down"></i></a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link border-end" href="#" style={{ color: "white", fontSize: "13px", fontWeight: 500, padding: "0 20px" }}>donate</a>
-                  </li>
-                  <li className="nav-item">
-                    <a className="nav-link " href="#" style={{ color: "white", fontSize: "13px", fontWeight: 500, padding: "0 20px" }}>get involved</a>
-                  </li>
-                  <li className="nav-item ">
-                    <button className='btn btn-danger  text-uppercase btn-sm mx-2' style={{ fontWeight: 500, fontSize: '13px' }} >donate</button>
-                  </li>
-                  <div className='d-flex align-items-center' style={{ color: 'white' }}>
-                    <li className="nav-item mx-3">
-                      <i class="fas fa-search"></i>
-                    </li>
-                    <li className="nav-item mx-3">
-                      <i class="fas fa-user"></i>
-                    </li>
-                    <li className="nav-item mx-3">
-                      <i class="fas fa-shopping-bag"></i>
-                    </li>
-                  </div>
-
-
-                </ul>
-              </nav>
-            </div>
-          </div>
         </div>
-      </div>
-
-    </navbar>
-
-
-  )
+    )
 }
 
-export default MainNavbar
+export default nav

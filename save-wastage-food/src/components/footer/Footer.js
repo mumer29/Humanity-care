@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
     return (
-        <div style={{ display: "flex", height: "80vh", backgroundColor: "aqua" }}>
+        <div style={{ display: "flex", height: "80vh", backgroundColor: "#0195d3" }}>
             <div class="container m-auto">
                 <div class="row align-items-start">
                     <div class="col-4">
