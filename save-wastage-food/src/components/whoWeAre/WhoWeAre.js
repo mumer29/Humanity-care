@@ -5,7 +5,8 @@ function WhoWeAre() {
     return (
         <div  style={{ backgroundColor: "#0195d3"}}>
             <div className="container-fluid  d-flex  justify-content-center align-items-center w-100 py-5  "
-                style={{textAlign: "justify" }}>
+                style={{textAlign: "justify" }}
+                >
                 <div className="container "  >
                     <u style={{
                         color: "white", fontWeight: "bold", textAlign: "center",
@@ -14,7 +15,7 @@ function WhoWeAre() {
                         <h1
                         >WHO WE ARE</h1>
                     </u>
-                    <h4 style={{ color: "white", paddingTop: "25px" }}>
+                    <p style={{ color: "white", paddingTop: "25px", fontSize:' 20px' }}>
                         We are developing this project to help poor and needy peoples in the Pakistan,
                         and reduce the food wastage,
                         according to a report, 40 percent of food in Pakistan is wasted.
@@ -24,7 +25,7 @@ function WhoWeAre() {
                         with the help of Non-Profit Organizations or some other organizations
                         (Receive donations and distribute food).
 
-                    </h4>
+                    </p>
 
                 </div>
             </div>
@@ -72,11 +73,11 @@ function WhoWeAre() {
                     </div>
                     <div className="row mt-2 justify-content-center ">
                         <div className="col-lg-4 text-center py-3 ">
-                            <button  className='donateFoodButton1' 
+                            <button style={{borderRadius:"10px"}} className='donateFoodButton1' 
                             >DONATE FOOD</button>
                         </div>
                         <div className="col-lg-4 text-center py-3  ">
-                            <button className='donateFoodButton2' 
+                            <button style={{borderRadius:"10px"}} className='donateFoodButton2' 
                             >SPONSOR A FAMILY</button>
 
                         </div>

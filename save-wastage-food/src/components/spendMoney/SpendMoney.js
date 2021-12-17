@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import CountUp from 'react-countup';
 
 function SpendMoney() {
     return (
@@ -11,7 +12,15 @@ function SpendMoney() {
                             <div>
                                 <i className="fas fa-hospital-user" style={{ fontSize: "50px", padding: "20px 0", color: "#c93939" }}></i>
                             </div>
-                            <h3>1,882</h3>
+                            <h3>
+                            <CountUp 
+                            start={0}
+                            end={1882}
+                            duration={2.75}
+                            
+                             />
+                            </h3>
+
                             <p>Surgeries & Medical
                                 Procedures Performed </p>
                         </div>

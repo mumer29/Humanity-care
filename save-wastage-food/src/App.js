@@ -5,7 +5,7 @@ import Footer from "./components/footer/Footer";
 import Header from './components/header/Header';
 import Locations from "./components/locations/Locations";
 import MainCarousels from './components/mainCarousel/MainCarousels';
-import MainNavbar from './components/navbar/MainNavbar';
+import Navbar from "./components/navbar/MainNavbar";
 import OurHistory from './components/ourHistory/OurHistory';
 import OurResources from "./components/ourResources/OurResources";
 import OurServices from "./components/ourServices/OurServices";
@@ -18,8 +18,7 @@ import WhoWeAre from './components/whoWeAre/WhoWeAre';
 function App() {
   return (
     <div className="App">
-      {/* <Header /> */}
-      <MainNavbar />
+      <Navbar/>
       <MainCarousels />
       <QuickDonate />
       <WhoWeAre />
