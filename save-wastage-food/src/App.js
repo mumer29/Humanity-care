@@ -19,21 +19,19 @@ function App() {
   return (
     <div className="App">
       {/* <Header /> */}
-     
       <MainNavbar />
-      
       <MainCarousels />
       <QuickDonate />
       <WhoWeAre />
-      <SpendMoney />
       <OurHistory/>
       <OurServices/>
+      <SpendMoney />
       <OurResources/>
-      {/* <PatientDonnerStories/> */}
-      {/* <Testimonial/> */}
-      {/* <Locations/> */}
-      {/* <ContactUs/> */}
-      {/* <Footer/> */}
+      <PatientDonnerStories/>
+      <Testimonial/>
+      <Locations/>
+      <ContactUs/>
+      <Footer/>
 
     </div>
   );

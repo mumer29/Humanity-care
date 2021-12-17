@@ -16,11 +16,11 @@ function OurServices() {
         pauseOnHover: false
     };
     return (
-        <div className="container-fluid py-5" style={{ backgroundColor: "#0195d3" }}>
+        <div className="container-fluid py-3" style={{ backgroundColor: "#0195d3" }}>
 
 
             <div className="container"  >
-                <div className="row py-5" style={{color:"white"}}>
+                <div className="row pb-5" style={{color:"white"}}>
                     <u className="text-center py-3">
                         <h2>Our Services</h2>
                     </u>

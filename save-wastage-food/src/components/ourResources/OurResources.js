@@ -4,7 +4,7 @@ import './ourResources.css'
 function OurResources() {
     return (
         <div style={{ backgroundColor: "#0195d3" }}>
-            <div className="container"  >
+            <div className="container pt-3"  >
                 <div className="row " style={{ color: "white" }} >
                     <div className="col">
                         <u className="text-center py-3"> <h2>Our Resourcess</h2></u>
@@ -16,7 +16,7 @@ function OurResources() {
                 </div>
             </div>
 
-            <div className="container py-5">
+            <div className="container pt-5">
                 <div className="row gx-3">
                     <div className="col-lg-4 col-sm-12 py-4">
                         <div className="p-3 border bg-light text-center ">

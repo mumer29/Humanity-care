@@ -3,10 +3,10 @@ import React from 'react'
 function SpendMoney() {
     return (
        
-        <div style={{ backgroundColor: " #0195d3"}}>
+        <div style={{ backgroundColor: " black"}}>
             <div className="container-fluid d-flex " >
                 <div className="container m-auto" >
-                    <div className="row justify-content-between py-5">
+                    <div className="row justify-content-between py-3">
                         <div className="col-lg-2 " style={{ textAlign: "center",  color:"white" }}>
                             <div>
                                 <i className="fas fa-hospital-user" style={{ fontSize: "50px", padding: "20px 0", color: "#c93939" }}></i>

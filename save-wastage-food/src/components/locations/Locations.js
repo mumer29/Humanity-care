@@ -3,51 +3,51 @@ import './location.css'
 
 function Locations() {
     return (
-        <div style={{backgroundColor:"#0895a4"}} className='py-5'>
-            <div className="container-fluid d-flex" style={{height:"270px"}}>
+        <div style={{backgroundColor:"#00a7e1"}} className='py-1'>
+            <div className="container-fluid d-flex " >
                 <div className="container m-auto">
-                    <div className="row" > 
-                        <div className="col-4" style={{color:"white"}}>
+                    <div className="row align-items-center" > 
+                        <div className="col-lg-4 col-sm-12" style={{color:"white"}}>
                             <div className="wpb_wrapper">
-                                <h2>9 LOCATIONS</h2>
-                                <h3>Serving you better</h3>
-                                <h4>Stay connected with us</h4>
+                                <h2 style={{textDecoration:"underline"}}>8 LOCATIONS</h2>
+                                <h5>Serving you better</h5>
+                                <h5>Stay connected with us</h5>
                             </div>
                         </div>
-                        <div className="col-8 text-center" style={{color:"0895a4"}}>
+                        <div className="col-lg-8 col-sm-12 text-center py-3" style={{color:"0895a4"}}>
                             <div className="row "  >
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Karachi Office</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Karachi HQ </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Multen Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Multen </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Quetta Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Quetta </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Rashidabad Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Faisalabad </div>
                                 </div>
                             </div>
                             <div className="row ">
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Larkana Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Hala  </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Lahore Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Lahore </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Peshawer Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Peshawer </div>
                                 </div>
-                                <div className="col-3 p-2">
-                                    <div className="py-3 rounded locationCity" >Hyderabad Center</div>
+                                <div className="col-lg-3 col-sm-6 p-2">
+                                    <div className="py-3 rounded locationCity" >Hyderabad </div>
                                 </div>
                             </div>
-                            <div className="row justify-content-center">
-                                <div className="col-3 p-2">
+                            {/* <div className="row justify-content-center">
+                                <div className="col-lg-3 col-sm-6 p-2">
                                     <div className="py-3 rounded locationCity" >Faisalabad Center</div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

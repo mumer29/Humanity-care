@@ -65,16 +65,15 @@ function WhoWeAre() {
             </div>
 
 
-            <div className='container-fluid d-flex py-4' style={{ color: "#fff" }}>
+            <div className='container-fluid d-flex py-4' style={{ color: "#fff", border:"1 solid black", backgroundColor:"#555de5" }}>
                 <div className='container m-auto'  >
                     <div className='text-center pb-2'   >
                         <h2>  CHANGE THE LIFE OF THOSE WHO HAVE NO HOPE.</h2>
                     </div>
-                    <div className="row mt-2 justify-content-center">
+                    <div className="row mt-2 justify-content-center ">
                         <div className="col-lg-4 text-center py-3 ">
                             <button  className='donateFoodButton1' 
                             >DONATE FOOD</button>
-
                         </div>
                         <div className="col-lg-4 text-center py-3  ">
                             <button className='donateFoodButton2' 

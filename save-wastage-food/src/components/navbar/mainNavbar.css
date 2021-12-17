@@ -1,0 +1,9 @@
+.onScrollBgColorChange{
+    background-color: unset;
+    transition: 0.7s;
+    }
+
+.onScrollBgColorChange:hover{
+background-color: #0155e3;
+transition: 0.7s;
+}
