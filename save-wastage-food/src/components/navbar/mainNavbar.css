@@ -20,4 +20,23 @@
     width: 70px;
     transition: all 0.5s ease-in-out ;
 }
+.navbarManue:hover {
+    background-color: orangered;
+    border-radius: 10px;
 
+}
+
+
+
+.navbarManue:hover .navbarList{
+    display: block;
+
+}
+
+  .navbarList{
+    list-style-type: none;
+    background-color: #01e58c;
+    text-align: left;
+      position: absolute;
+      display: none;
+  }

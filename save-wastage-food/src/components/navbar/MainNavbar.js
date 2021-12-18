@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./mainNavbar.css";
 import Header from '../header/Header'
- 
+
 function Navbar() {
     const [state, setstate] = useState(false)
     const [image, setImage] = useState(false)
@@ -23,14 +23,14 @@ function Navbar() {
 
     useEffect(() => {
         window.addEventListener("scroll", ScrollFun)
-       
+
     }, []);
     return (
         <div className='fixed-top'>
-           < Header/>
+            < Header />
             <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange "
-                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "} 
-                style={{marginTop:'33px'}}>
+                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
+                style={{ marginTop: '33px' }}>
                 <div className="container ">
                     <a className="navbar-brand" href="#">
                         <img src="/logo/whiteLogo.png" alt="not found" className={image ? "smallLogo" : " largeLogo"} />
@@ -49,47 +49,128 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto align-items-center">
-                            <li className="nav-item px-2 text-center border-end">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
-                                >
+                            <li className="nav-item px-1 text-center py-2  navbarManue"
+
+                            >
+
+                                <div className='border-end px-2'
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     Home
-                                </a>
+                                </div>
                             </li>
-                            <li className="nav-item px-2 text-center border-end">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
-                                >
+                            <li className="nav-item px-1 text-center py-2  navbarManue"  >
+                                <div
+                                    className='border-end px-2'
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     About Us
                                     <i className="fas fa-angle-down ps-2"></i>
-                                </a>
+
+
+                                    <div className=' navbarList' >
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Introduction
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Founder
+                                            </a>
+                                        </li>
+
+                                    </div>
+                                </div>
+
                             </li>
-                            <li className="nav-item px-2 text-center border-end">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
-                                >
-                                    Donate
-                                </a>
+                            <li className="nav-item px-1 text-center py-2  navbarManue"  >
+
+                                <div
+                                    className='border-end px-2'
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }} >
+                                    Services
+                                    <i className="fas fa-angle-down ps-2"></i>
+
+
+                                    <div className=' navbarList' >
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Our Resources
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Our Sevices
+                                            </a>
+                                        </li>
+
+                                    </div>
+
+                                </div>
+
                             </li>
-                            <li className="nav-item px-2 text-center ">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
-                                >
-                                    Get Involved
-                                </a>
+                            <li className="nav-item px-1 text-center py-2  navbarManue" >
+                                <div
+                                    className='border-end px-2'
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
+                                    Success Stories
+
+                                    <i className="fas fa-angle-down ps-2"></i>
+
+
+                                    <div className=' navbarList' >
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Patient and Seeker
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Testimonial
+                                            </a>
+                                        </li>
+                                    </div>
+                                </div>
                             </li>
+
+
+                            <li className="nav-item px-1 text-center py-2  navbarManue">
+                                <div
+                                    className='border-end px-2'
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
+                                    Contact
+
+                                    <i className="fas fa-angle-down ps-2"></i>
+
+
+                                    <div className=' navbarList' >
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Our Offices
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a className="dropdown-item" href="#">
+                                                Contact Us
+                                            </a>
+                                        </li>
+
+                                    </div>
+                                </div>
+                            </li>
+
+
                             <li className="nav-item text-center ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
                                 >
                                     <button className='btn btn-success  text-uppercase btn-sm '
-                                        style={{ fontWeight: 500, fontSize: '15px',borderRadius:"20px" }} >donate</button>
+                                        style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px" }} >donate</button>
 
                                 </a>
                             </li>
                             <li className="nav-item text-center ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 , fontSize:"20px" }}
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-search"></i>
 
@@ -97,7 +178,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item text-center ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 , fontSize:"20px" }}
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-user"></i>
 
@@ -105,7 +186,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item text-center ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 , fontSize:"20px" }}
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-shopping-bag"></i>
 
@@ -114,11 +195,11 @@ function Navbar() {
 
                         </ul>
                     </div>
-                </div>
-            </nav>
+                </div >
+            </nav >
 
 
-        </div>
+        </div >
     )
 }
 
