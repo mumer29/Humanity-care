@@ -15,22 +15,27 @@ import PatientDonnerStories from "./components/stories/PatientDonnerStories";
 import Testimonial from "./components/testimonial/Testimonial";
 import WhoWeAre from './components/whoWeAre/WhoWeAre';
 
+
+
+import ScrollButton from "./components/scrollToTopButton/ScrollButton";
+
 function App() {
   return (
     <div className="App">
-      <Navbar/>
-      <MainCarousels />
-      <QuickDonate />
-      <WhoWeAre />
-      <OurHistory/>
-      <OurServices/>
-      <SpendMoney />
-      <OurResources/>
-      <PatientDonnerStories/>
-      <Testimonial/>
-      <Locations/>
-      <ContactUs/>
-      <Footer/>
+        <Navbar />
+        <MainCarousels />
+        <QuickDonate />
+        <WhoWeAre />
+        <OurHistory />
+        <OurServices />
+        <SpendMoney />
+        <OurResources />
+        <PatientDonnerStories />
+        <Testimonial />
+        <Locations />
+        <ContactUs />
+        <Footer />
+        <ScrollButton />
 
     </div>
   );
