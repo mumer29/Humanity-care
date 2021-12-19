@@ -8,10 +8,26 @@
     background-color: #0195d3;
 }
 .onScrollBgColorChange{
+    top: 0;
     background-color: #bd3535;
     transition: all 0.5s ease-in-out ;
     height: 70px;
 }
+
+
+.fixed-scroll-top{
+    position: fixed;
+    top: 33px;
+    right: 0;
+    left: 0;
+    z-index: 1030
+
+}
+
+
+
+
+
 .largeLogo{
     width: 100px;
     transition: all 0.5s ease-in-out ;
@@ -41,19 +57,26 @@
     display: flex;
     flex-direction: column;
     list-style-type: none;
-    background-color: #09a0c9;
+    /* background-color: #09a0c9; */
     text-align: left;
       position: absolute;
       display: none;
-      border: 2px solid black;
   }
   .listSubManue .subManue{
+      font-size: 20px;
    color: white;
  
 }
+.listSubManue{
+    background-color: #0909cf;
+
+
+}
+
+
   .listSubManue:hover .subManue{
-      border-bottom: 2px solid white;
-      background-color: orangered;
-      color: white;
+    background-color: orangered;
+    color: black;
+    font-weight: bold;
 
   }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Link} from 'react-scroll';
+import { Link } from 'react-scroll';
 import "./mainNavbar.css";
 import Header from '../header/Header';
 
@@ -7,6 +7,7 @@ import Header from '../header/Header';
 function Navbar() {
     const [state, setstate] = useState(false)
     const [image, setImage] = useState(false)
+    const [navTop, setnavTop] = useState(false)
     // const [imageColor, setImageColor] = useState("/logo/whiteLogo.png")
 
 
@@ -15,10 +16,13 @@ function Navbar() {
             setstate(true)
             setImage(true)
             // setImageColor("/logo/blueLogo.png")
+            setnavTop(true)
         } else {
             setstate(false)
             setImage(false)
             // setImageColor("/logo/whiteLogo.png")
+            setnavTop(false)
+
 
         }
     }
@@ -28,11 +32,13 @@ function Navbar() {
 
     }, []);
     return (
-        <div className='fixed-top navbar-top'>
-            < Header />
+        <div
+            className={navTop ? "fixed-top" : "fixed-scroll-top"}>
+            {/* < Header  /> */}
             <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange "
                 : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
-                style={{ marginTop: '33px' }}>
+
+            >
                 <div className="container ">
                     <a className="navbar-brand" href="#">
                         <img src="/logo/whiteLogo.png" alt="not found" className={image ? "smallLogo" : " largeLogo"} />
@@ -68,12 +74,23 @@ function Navbar() {
                                     <i className="fas fa-angle-down ps-2"></i>
                                     <div className=' navbarList' >
                                         <li className='listSubManue'>
-                                            <Link to='introduction' spy={true}  className="dropdown-item subManue" >
+                                            <Link
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                to='introduction' spy={true}
+                                                className="dropdown-item subManue" >
                                                 Introduction
                                             </Link>
                                         </li>
                                         <li className='listSubManue'>
-                                            <Link to='founder'  spy={true} className="dropdown-item subManue" >
+                                            <Link
+                                                to='founder'
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                spy={true}
+                                                className="dropdown-item subManue" >
                                                 Founder
                                             </Link>
                                         </li>
@@ -93,12 +110,24 @@ function Navbar() {
 
                                     <div className=' navbarList' >
                                         <li className='listSubManue'>
-                                            <Link to='ourServices'  spy={true} className="dropdown-item subManue" >
+                                            <Link
+                                                to='ourServices'
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                spy={true}
+                                                className="dropdown-item subManue" >
                                                 Our Sevices
                                             </Link>
                                         </li>
                                         <li className='listSubManue'>
-                                            <Link to='ourResources'  spy={true} className="dropdown-item subManue" >
+                                            <Link
+                                                to='ourResources'
+                                                spy={true}
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                className="dropdown-item subManue" >
                                                 Our Resources
                                             </Link>
                                         </li>
@@ -119,12 +148,24 @@ function Navbar() {
 
                                     <div className=' navbarList' >
                                         <li className='listSubManue'>
-                                            <Link to='seekerAndDonors'  spy={true} className="dropdown-item subManue" >
-                                                 Seeker and Donors
+                                            <Link
+                                                to='seekerAndDonors'
+                                                spy={true}
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                className="dropdown-item subManue" >
+                                                Seeker and Donors
                                             </Link>
                                         </li>
                                         <li className='listSubManue'>
-                                            <Link to='testimonial'  spy={true} className="dropdown-item subManue" >
+                                            <Link
+                                             to='testimonial' 
+                                             spy={true} 
+                                             activeClass="active"
+                                             offset={-70}
+                                             duration={500}
+                                             className="dropdown-item subManue" >
                                                 Testimonial
                                             </Link>
                                         </li>
@@ -144,12 +185,24 @@ function Navbar() {
 
                                     <div className=' navbarList' >
                                         <li className='listSubManue'>
-                                            <Link to='ourOffices'  spy={true} className="dropdown-item subManue" >
+                                            <Link
+                                             to='ourOffices' 
+                                             spy={true}
+                                             activeClass="active"
+                                             offset={-70}
+                                             duration={500}
+                                              className="dropdown-item subManue" >
                                                 Our Offices
                                             </Link>
                                         </li>
                                         <li className='listSubManue'>
-                                            <Link to='contactUs'  spy={true} className="dropdown-item subManue" >
+                                            <Link 
+                                            to='contactUs' 
+                                            spy={true} 
+                                            activeClass="active"
+                                            offset={-70}
+                                            duration={500}
+                                            className="dropdown-item subManue" >
                                                 Contact Us
                                             </Link>
                                         </li>

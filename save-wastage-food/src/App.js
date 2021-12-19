@@ -22,6 +22,7 @@ import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 function App() {
   return (
     <div className="App">
+      <Header/>
         <Navbar />
         <MainCarousels />
         <QuickDonate />

@@ -3,7 +3,7 @@ import './whoWeAre.css'
 
 function WhoWeAre() {
     return (
-        <div id='introduction'  style={{ backgroundColor: "#0195d3"}}>
+        <div id='introduction'  style={{ backgroundColor: "#0195d3", wordSpacing:"-2px"}}>
             <div className="container-fluid  d-flex  justify-content-center align-items-center w-100 py-5  "
                 style={{textAlign: "justify" }}
                 >

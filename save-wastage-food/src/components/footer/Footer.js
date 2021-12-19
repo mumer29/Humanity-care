@@ -47,7 +47,7 @@ function Footer() {
 
 
 
-                    <div class="col-lg-6 col-sm-12 bg-success " style={{color:"white", height:"60vh" }}>
+                    <div class="col-lg-6 col-sm-12 bg-success " style={{color:"white", height:"45vh" }}>
                         <h1>Google map</h1>
                     </div>
                     <div class="col-lg-2 col-sm-12" style={{color:"white"}}>

@@ -4,7 +4,7 @@ import './header.css'
 function Header() {
     return (
         <header>
-            <div className="container-fluid header text-capitalize fixed-top" >
+            <div className="container-fluid header text-capitalize " >
                 <div className="container" >
                     <div className="d-flex justify-content-between ">
                         <div >
