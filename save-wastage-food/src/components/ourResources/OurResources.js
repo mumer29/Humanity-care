@@ -3,7 +3,7 @@ import './ourResources.css'
 
 function OurResources() {
     return (
-        <div style={{ backgroundColor: "#0195d3" }}>
+        <div id='ourResources' style={{ backgroundColor: "#0195d3" }}>
             <div className="container pt-3"  >
                 <div className="row " style={{ color: "white" }} >
                     <div className="col">

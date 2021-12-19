@@ -3,7 +3,7 @@ import './contactUs.css'
 
 function ContactUs() {
     return (
-        <div style={{ display: "flex", backgroundColor: '#0195d3', color: 'white' }} >
+        <div id='contactUs' style={{ display: "flex", backgroundColor: '#0195d3', color: 'white' }} >
             <div className="container m-auto pb-2 " >
                 <div className="row align-items-start">
                     <h1 className="blue">Contact Us</h1>

@@ -21,22 +21,39 @@
     transition: all 0.5s ease-in-out ;
 }
 .navbarManue:hover {
+    transition: all 0.5s ease-in-out ;
     background-color: orangered;
-    border-radius: 10px;
+    border-radius: 5px;
 
 }
+.navbarManue {
+   cursor: pointer;
 
-
-
+}
 .navbarManue:hover .navbarList{
     display: block;
 
 }
 
   .navbarList{
+    border-radius: 5px;
+    margin: 7px -12px;
+    display: flex;
+    flex-direction: column;
     list-style-type: none;
-    background-color: #01e58c;
+    background-color: #09a0c9;
     text-align: left;
       position: absolute;
       display: none;
+      border: 2px solid black;
+  }
+  .listSubManue .subManue{
+   color: white;
+ 
+}
+  .listSubManue:hover .subManue{
+      border-bottom: 2px solid white;
+      background-color: orangered;
+      color: white;
+
   }

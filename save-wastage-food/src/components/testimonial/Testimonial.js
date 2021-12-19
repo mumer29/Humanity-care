@@ -4,7 +4,7 @@ import  './testimonial.css'
 function Testimonial() {
     return (
 
-        <div style={{ backgroundColor: "#0195d3", color: "white" }}>
+        <div id='testimonial' style={{ backgroundColor: "#0195d3", color: "white" }}>
             <u className="text-center ">
                 <h2 style={{    position: 'relative', top: '50px'}}>TESTIMONIALS</h2>
                 </u>

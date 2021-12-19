@@ -3,7 +3,7 @@ import "./ourHistory.css"
 
 function OurHistory() {
     return (
-        <div style={{ backgroundColor: "#0195d3" }}>
+        <div id='founder' style={{ backgroundColor: "#0195d3" }}>
             <div className="container-fluid " >
                 <div className='container'>
                     <div className="row py-2" style={{ color: "white" }}>

@@ -3,7 +3,7 @@ import './location.css'
 
 function Locations() {
     return (
-        <div style={{backgroundColor:"#00a7e1"}} className='py-1'>
+        <div id='ourOffices' style={{backgroundColor:"#00a7e1"}} className='py-1'>
             <div className="container-fluid d-flex " >
                 <div className="container m-auto">
                     <div className="row align-items-center" > 

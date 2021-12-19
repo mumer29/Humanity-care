@@ -16,7 +16,7 @@ function OurServices() {
         pauseOnHover: false
     };
     return (
-        <div className="container-fluid py-3" style={{ backgroundColor: "#0195d3" }}>
+        <div id="ourServices" className="container-fluid py-3" style={{ backgroundColor: "#0195d3" }}>
 
 
             <div className="container"  >

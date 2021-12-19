@@ -3,7 +3,7 @@ import React from 'react'
 function PatientDonnerStories() {
     return (
         <div>
-            <div  style={{ backgroundColor: "#0195d3" }}>
+            <div id='seekerAndDonors'  style={{ backgroundColor: "#0195d3" }}>
                 <div className="container"  >
                     <div className="row " style={{ color: "white" }} >
                         <u className="text-center py-3"><h2>SEEKER AND DONOR STORIES</h2></u>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
+import {Link} from 'react-scroll';
 import "./mainNavbar.css";
-import Header from '../header/Header'
+import Header from '../header/Header';
+
 
 function Navbar() {
     const [state, setstate] = useState(false)
@@ -26,7 +28,7 @@ function Navbar() {
 
     }, []);
     return (
-        <div className='fixed-top'>
+        <div className='fixed-top navbar-top'>
             < Header />
             <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange "
                 : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
@@ -64,18 +66,16 @@ function Navbar() {
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     About Us
                                     <i className="fas fa-angle-down ps-2"></i>
-
-
                                     <div className=' navbarList' >
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='introduction' spy={true}  className="dropdown-item subManue" >
                                                 Introduction
-                                            </a>
+                                            </Link>
                                         </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='founder'  spy={true} className="dropdown-item subManue" >
                                                 Founder
-                                            </a>
+                                            </Link>
                                         </li>
 
                                     </div>
@@ -92,15 +92,15 @@ function Navbar() {
 
 
                                     <div className=' navbarList' >
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                Our Resources
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='ourServices'  spy={true} className="dropdown-item subManue" >
                                                 Our Sevices
-                                            </a>
+                                            </Link>
+                                        </li>
+                                        <li className='listSubManue'>
+                                            <Link to='ourResources'  spy={true} className="dropdown-item subManue" >
+                                                Our Resources
+                                            </Link>
                                         </li>
 
                                     </div>
@@ -118,15 +118,15 @@ function Navbar() {
 
 
                                     <div className=' navbarList' >
-                                        <li>
-                                            <a className="dropdown-item" href="#">
-                                                Patient and Seeker
-                                            </a>
+                                        <li className='listSubManue'>
+                                            <Link to='seekerAndDonors'  spy={true} className="dropdown-item subManue" >
+                                                 Seeker and Donors
+                                            </Link>
                                         </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='testimonial'  spy={true} className="dropdown-item subManue" >
                                                 Testimonial
-                                            </a>
+                                            </Link>
                                         </li>
                                     </div>
                                 </div>
@@ -135,7 +135,7 @@ function Navbar() {
 
                             <li className="nav-item px-1 text-center py-2  navbarManue">
                                 <div
-                                    className='border-end px-2'
+                                    className=' px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     Contact
 
@@ -143,15 +143,15 @@ function Navbar() {
 
 
                                     <div className=' navbarList' >
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='ourOffices'  spy={true} className="dropdown-item subManue" >
                                                 Our Offices
-                                            </a>
+                                            </Link>
                                         </li>
-                                        <li>
-                                            <a className="dropdown-item" href="#">
+                                        <li className='listSubManue'>
+                                            <Link to='contactUs'  spy={true} className="dropdown-item subManue" >
                                                 Contact Us
-                                            </a>
+                                            </Link>
                                         </li>
 
                                     </div>
