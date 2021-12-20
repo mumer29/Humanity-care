@@ -220,7 +220,7 @@ function Navbar() {
 
 
                             <li className="nav-item text-center ">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
                                 >
                                     <button className='btn btn-success  text-uppercase btn-sm '
@@ -229,24 +229,27 @@ function Navbar() {
                                 </a>
                             </li>
                             <li className="nav-item text-center ">
-                                <a className="nav-link active py-0  " aria-current="page" href="#home"
+                                <a className="nav-link active py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
-                                    <div className="search-box">
-                                        <button className="btn-search">
-                                            <i className="fas fa-search" />
-                                        </button>
-                                        <input
-                                            type="text"
-                                            className="input-search"
-                                            placeholder="Type to Search..."
-                                        />
-                                    </div>
+                                    {/* <i className="fas fa-search" /> */}
+
+                                        <div className="search-box">
+                                            <button className="btn-search">
+                                                <i className="fas fa-search" />
+                                            </button>
+                                            <input
+                                                type="text"
+                                                className="input-search"
+                                                placeholder="Type to Search..."
+                                            />
+                                        </div>
+                                    
 
                                 </a>
                             </li>
                             <li className="nav-item text-center ">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-user"></i>
@@ -254,7 +257,7 @@ function Navbar() {
                                 </a>
                             </li>
                             <li className="nav-item text-center ">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-shopping-bag"></i>

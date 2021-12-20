@@ -4,7 +4,7 @@
 
 .product {
   transform: translate(0%, 0%);
-    height: 400px;
+    /* height: 400px; */
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 5px;
     background: #0e0e0f;
@@ -18,7 +18,7 @@
 }
 
 .product .imgbox img {
-  height: 77%;
+  /* height: 77%; */
   display: block;
   width: 100%;
 }
@@ -50,71 +50,4 @@
     font-weight: normal
 }
 
-.specifies .price {
-    position: absolute;
-    top: 12px;
-    right: 25px;
-    font-weight: bold;
-    color: #000;
-    font-size: 30px
-}
 
-label {
-    display: block;
-    margin-top: 5px;
-    font-weight: bold;
-    font-size: 15px
-}
-
-ul {
-    display: flex;
-    margin: 0;
-    padding: 0
-}
-
-ul li {
-    list-style: none;
-    margin: 5px 5px 0;
-    font-size: 15px;
-    font-style: normal;
-    color: #ccc
-}
-
-ul li:first-child {
-    margin-left: 0
-}
-
-ul.colors li {
-    width: 15px;
-    height: 15px
-}
-
-ul.colors li:nth-child(1) {
-    background: #4A148C
-}
-
-ul.colors li:nth-child(2) {
-    background: #F50057
-}
-
-ul.colors li:nth-child(3) {
-    background: #536DFE
-}
-
-ul.colors li:nth-child(4) {
-    background: #388E3C
-}
-
-ul.colors li:nth-child(5) {
-    background: #FF6D00
-}
-
-.btn {
-    display: block;
-    padding: 5px;
-    color: #fff;
-    margin: 10px 0 0;
-    width: 100%;
-    font-size: 13px;
-    border-radius: 2px
-}

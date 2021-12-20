@@ -20,25 +20,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -50,25 +35,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -80,25 +50,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -110,25 +65,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -140,25 +80,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -170,25 +95,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -200,25 +110,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                                 
                                 </div>
                             </div>
                         </div>
@@ -230,25 +125,10 @@ function PatientDonnerStories() {
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                        Analog Watch <br /> <span>Rolex</span>
+                                       Founder
                                     </h2>
-                                    <div className="price">$1500</div> <label>Size</label>
-                                    <ul>
-                                        <li>10MM</li>
-                                        <li>20MM</li>
-                                        <li>30MM</li>
-                                        <li>40MM</li>
-                                        <li>50MM</li>
-                                    </ul>
-                                    <label>Colors</label>
-                                    <ul className="colors">
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                        <li />
-                                    </ul>
-                                    <button className="btn btn-primary">Buy Now</button>
+                                   
+                           
                                 </div>
                             </div>
                         </div>
