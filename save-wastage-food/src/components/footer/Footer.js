@@ -5,7 +5,7 @@ function Footer() {
         <div style={{   backgroundColor: "black" }}>
             <div class="container m-auto">
                 <div class="row align-items-start ">
-                    <div class="col-lg-4 col-sm-12">
+                    <div class="col-lg-4 col-sm-12 col-md-12">
                         <div className="d-flex flex-column bd-highlight mb-3 " style={{color:"white"}} >
                             <div className="p-1 bd-highlight">
                                 <img src="./logo/whiteLogo.png" alt="logo" style={{ width: "50px" }} />
@@ -47,10 +47,10 @@ function Footer() {
 
 
 
-                    <div class="col-lg-6 col-sm-12 bg-success " style={{color:"white", height:"45vh" }}>
+                    <div class="col-lg-6 col-sm-12 col-md-12 bg-success " style={{color:"white", height:"50vh" }}>
                         <h1>Google map</h1>
                     </div>
-                    <div class="col-lg-2 col-sm-12" style={{color:"white"}}>
+                    <div class="col-lg-2 col-sm-12 col-md-12" style={{color:"white"}}>
                         <div className="d-flex flex-column bd-highlight mb-3">
                             <div className="p-1 bd-highlight">
                                 <h4 style={{ display: "contents" }}>SITE LINKS</h4>

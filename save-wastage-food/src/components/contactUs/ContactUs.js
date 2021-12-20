@@ -7,7 +7,7 @@ function ContactUs() {
             <div className="container m-auto pb-2 " >
                 <div className="row align-items-start">
                     <h1 className="blue">Contact Us</h1>
-                    <div className="col-lg-4 col-sm-12 py-3">
+                    <div className="col-lg-4 col-sm-12 col-md-4 py-3">
                         <div className="d-flex flex-column bd-highlight mb-3">
                             <div className="p-2 bd-highlight">
                                 <span>
@@ -55,51 +55,51 @@ function ContactUs() {
                         </div>
                     </div>
 
-                    <div className="col-lg-8  ">
-                        <h3>Send Us an Online Message</h3>
+                    <div className="col-lg-8 col-md-8 ">
+                        <h3 >Send Us an Online Message</h3>
 
                         <form className="row g-4">
-                            <div className="col-lg-6 col-sm-12 ">
+                            <div className="col-lg-6 col-sm-12 col-md-6 ">
                                 <label htmlFor="inputEmail4" className="form-label">
                                     FULL NAME *
                                 </label>
                                 <input type="text" className="form-control" id="inputEmail4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 ">
+                            <div className="col-lg-6 col-sm-12 col-md-6 ">
                                 <label htmlFor="inputPassword4" className="form-label">
 
                                     EMAIL ADDRESS *
                                 </label>
                                 <input type="email" className="form-control" id="inputPassword4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 mt-1">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1">
                                 <label htmlFor="inputEmail4" className="form-label">
                                     MOBILE NUMBER *
 
                                 </label>
                                 <input type="number" className="form-control" id="inputEmail4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 mt-1">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1">
                                 <label htmlFor="inputPassword4" className="form-label">
 
                                     WHATSAPP NUMBER *
                                 </label>
                                 <input type="number" className="form-control" id="inputPassword4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 mt-1">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1">
                                 <label htmlFor="inputEmail4" className="form-label">
                                     CITY *
                                 </label>
                                 <input type="text" className="form-control" id="inputEmail4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 mt-1">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1">
                                 <label htmlFor="inputPassword4" className="form-label">
 
                                     COUNTRY *
                                 </label>
                                 <input type="text" className="form-control" id="inputPassword4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 mt-1">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1">
                                 <label htmlFor="inputPassword4" className="form-label">
 
                                     SUBJECT *

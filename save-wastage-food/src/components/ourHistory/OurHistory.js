@@ -20,7 +20,7 @@ function OurHistory() {
                  style={{paddingTop:"115px"}}
                  >
                     <div className="row gx-3">
-                        <div className="col-lg-4 col-sm-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
                             <div className="p-3 border bg-light text-center "
                             style={{borderRadius:"25px"}}> 
                                 <div className='text-center' style={{marginTop: '-115px'}}> 
@@ -36,7 +36,7 @@ function OurHistory() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4 col-sm-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
                             <div className="p-3  border bg-light text-center "
                             style={{borderRadius:"25px"}}> 
                                 <div className='text-center'style={{marginTop: '-115px'}} >
@@ -52,7 +52,7 @@ function OurHistory() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4 col-sm-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
                             <div className="p-3 border bg-light text-center "
                             style={{borderRadius:"25px"}}> 
                                 <div className='text-center' style={{marginTop: '-115px'}} >

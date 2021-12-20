@@ -19,7 +19,7 @@ function OurResources() {
             <div className="container pt-5">
                 <div className="row gx-3">
                     <div className="col-lg-4 col-sm-12 py-4">
-                        <div className="p-3 border bg-light text-center ">
+                        <div className="p-3 border bg-light text-center " style={{borderRadius:"15px"}} >
                             <div className='resourcesvalues'>
                                 <h2 >1</h2>
                             </div>
@@ -32,7 +32,7 @@ function OurResources() {
 
                     </div>
                     <div className="col-lg-4 col-sm-12 py-4">
-                        <div className="p-3  border bg-light text-center ">
+                        <div className="p-3  border bg-light text-center " style={{borderRadius:"15px"}}>
                             <div className='resourcesvalues'>
                                 <h2 >2</h2>
                             </div>
@@ -45,7 +45,7 @@ function OurResources() {
 
                     </div>
                     <div className="col-lg-4 col-sm-12 py-4">
-                        <div className="p-3 border bg-light text-center ">
+                        <div className="p-3 border bg-light text-center " style={{borderRadius:"15px"}}>
                             <div className='resourcesvalues'>
                                 <h2 >3</h2>
                             </div>

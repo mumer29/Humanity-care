@@ -34,7 +34,7 @@ function WhoWeAre() {
             <div className='container-fluid  d-flex backgroundImg py-5' style={{ color: "white" }}>
                 <div className='container m-auto' >
                     <div className="row">
-                        <div className=" col-lg-4 col-sm-12 py-3 d-flex " style={{ border: "none", flexDirection: 'column' }}>
+                        <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex " style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ height: "100px", width: "100px", margin: "auto" }} src="https://fatimid.org/wp-content/uploads/2019/08/vision.png" className="card-img-top" alt="..." />
                             <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
                                 <h2 className="card-title">Our Vision</h2>
@@ -43,7 +43,7 @@ function WhoWeAre() {
                                 </p>
                             </div>
                         </div>
-                        <div className=" col-lg-4 col-sm-12 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
+                        <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ height: "100px", width: "100px", margin: "auto" }} src="https://fatimid.org/wp-content/uploads/2019/08/mission.png" className="card-img-top" alt="..." />
                             <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
                                 <h2 className="card-title">Our Mission</h2>
@@ -52,7 +52,7 @@ function WhoWeAre() {
                                 </p>
                             </div>
                         </div>
-                        <div className=" col-lg-4 col-sm-12 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
+                        <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ width: "170px", margin: "auto", marginTop: "20px" }} src="https://fatimid.org/wp-content/uploads/2018/09/core-values.png" className="card-img-top" alt="..." />
                             <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
                                 <h2 className="card-title">Core Values</h2>
@@ -72,11 +72,11 @@ function WhoWeAre() {
                         <h2>  CHANGE THE LIFE OF THOSE WHO HAVE NO HOPE.</h2>
                     </div>
                     <div className="row mt-2 justify-content-center ">
-                        <div className="col-lg-4 text-center py-3 ">
+                        <div className="col-lg-4 col-md-6 text-center py-3 ">
                             <button style={{borderRadius:"10px"}} className='donateFoodButton1' 
                             >DONATE FOOD</button>
                         </div>
-                        <div className="col-lg-4 text-center py-3  ">
+                        <div className="col-lg-4 col-md-6 text-center py-3  ">
                             <button style={{borderRadius:"10px"}} className='donateFoodButton2' 
                             >SPONSOR A FAMILY</button>
 
