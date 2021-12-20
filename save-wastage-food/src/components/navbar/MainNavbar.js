@@ -38,7 +38,7 @@ function Navbar() {
                 : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
 
             >
-                <div className="container ">
+                <div className="container-fluid px-4 ">
                     <a className="navbar-brand" href="#">
                         <img src="/logo/whiteLogo.png" alt="not found" className={image ? "smallLogo" : " largeLogo"} />
                         <h4 className="fw-bolder " style={{ display: "unset", color: "white" }}>Care Humanity</h4>
