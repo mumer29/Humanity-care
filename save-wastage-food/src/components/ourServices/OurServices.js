@@ -13,7 +13,7 @@ function OurServices() {
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 2000,
-        pauseOnHover: false
+        pauseOnHover: true
     };
     return (
         <div id="ourServices" className="container-fluid py-3" style={{ backgroundColor: "#0195d3" }}>

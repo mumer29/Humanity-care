@@ -4,9 +4,7 @@ import { Carousel } from "react-bootstrap"
 function MainCarousels() {
     return (
            
-            <div 
-            //  style={{paddingTop:"33px"}} 
-              >
+            <div id="home"  >
 
             <Carousel  >
                 <Carousel.Item interval={3000}

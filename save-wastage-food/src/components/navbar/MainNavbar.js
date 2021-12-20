@@ -34,7 +34,6 @@ function Navbar() {
     return (
         <div
             className={navTop ? "fixed-top" : "fixed-scroll-top"}>
-            {/* < Header  /> */}
             <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange "
                 : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
 
@@ -61,9 +60,17 @@ function Navbar() {
 
                             >
 
-                                <div className='border-end px-2'
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
-                                    Home
+                                <div className='border-end px-2' >
+                                    <Link style={{ color: "white", fontSize: "15px", fontWeight: 500, textDecoration: 'none' }}
+                                        activeClass="active"
+                                        offset={-70}
+                                        duration={500}
+                                        to='home'
+                                        spy={true}
+                                        className=" subManue homeMamue" >
+                                        Home
+
+                                    </Link>
                                 </div>
                             </li>
                             <li className="nav-item px-1 text-center py-2  navbarManue"  >
@@ -160,12 +167,12 @@ function Navbar() {
                                         </li>
                                         <li className='listSubManue'>
                                             <Link
-                                             to='testimonial' 
-                                             spy={true} 
-                                             activeClass="active"
-                                             offset={-70}
-                                             duration={500}
-                                             className="dropdown-item subManue" >
+                                                to='testimonial'
+                                                spy={true}
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                className="dropdown-item subManue" >
                                                 Testimonial
                                             </Link>
                                         </li>
@@ -186,23 +193,23 @@ function Navbar() {
                                     <div className=' navbarList' >
                                         <li className='listSubManue'>
                                             <Link
-                                             to='ourOffices' 
-                                             spy={true}
-                                             activeClass="active"
-                                             offset={-70}
-                                             duration={500}
-                                              className="dropdown-item subManue" >
+                                                to='ourOffices'
+                                                spy={true}
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                className="dropdown-item subManue" >
                                                 Our Offices
                                             </Link>
                                         </li>
                                         <li className='listSubManue'>
-                                            <Link 
-                                            to='contactUs' 
-                                            spy={true} 
-                                            activeClass="active"
-                                            offset={-70}
-                                            duration={500}
-                                            className="dropdown-item subManue" >
+                                            <Link
+                                                to='contactUs'
+                                                spy={true}
+                                                activeClass="active"
+                                                offset={-70}
+                                                duration={500}
+                                                className="dropdown-item subManue" >
                                                 Contact Us
                                             </Link>
                                         </li>
@@ -222,10 +229,19 @@ function Navbar() {
                                 </a>
                             </li>
                             <li className="nav-item text-center ">
-                                <a className="nav-link active px-3 py-0  " aria-current="page" href="#home"
+                                <a className="nav-link active py-0  " aria-current="page" href="#home"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
-                                    <i class="fas fa-search"></i>
+                                    <div className="search-box">
+                                        <button className="btn-search">
+                                            <i className="fas fa-search" />
+                                        </button>
+                                        <input
+                                            type="text"
+                                            className="input-search"
+                                            placeholder="Type to Search..."
+                                        />
+                                    </div>
 
                                 </a>
                             </li>
