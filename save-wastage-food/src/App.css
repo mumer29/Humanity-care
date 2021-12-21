@@ -2,7 +2,13 @@
  /* X-Small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px) { 
 
-    
+    .fixed-scroll-top {
+        position: fixed;
+        top: 94px;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
  }
 
  /* Small devices (landscape phones, less than 768px) */
@@ -13,7 +19,7 @@
 
  /* Medium devices (tablets, less than 992px) */
 @media (max-width: 991.98px) { 
- 
+
     
  }
 

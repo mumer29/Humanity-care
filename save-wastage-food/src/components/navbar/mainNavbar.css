@@ -1,87 +1,164 @@
-
-.onHoverBgColorChange{
-    background-color: unset;
-    transition: all 0.5s ease-in-out ;
-    height: 100px;
+@media (min-width: 0px) {
+    .fixed-scroll-top {
+        position: fixed;
+        top: 64px;
+        right: 0;
+        left: 0;
+        z-index: 1030
     }
+    .largeLogo {
+        width: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+    .smallLogo {
+        width: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+}
 
-.onHoverBgColorChange:hover{
+
+/* // Small devices (landscape phones, 576px and up) */
+
+@media (min-width: 576px) {
+    .fixed-scroll-top {
+        position: fixed;
+        top: 33px;
+        right: 0;
+        left: 0;
+        z-index: 1030
+    }
+    .largeLogo {
+        width: 50px;
+        transition: all 0.5s ease-in-out;
+    }
+    .smallLogo {
+        width: 70px;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+
+/* // Medium devices (tablets, 768px and up) */
+
+@media (min-width: 768px) {
+    .fixed-scroll-top {
+        position: fixed;
+        top: 33px;
+        right: 0;
+        left: 0;
+        z-index: 1030
+    }
+    .largeLogo {
+        width: 100px;
+        transition: all 0.5s ease-in-out;
+    }
+    .smallLogo {
+        width: 70px;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+
+/* // Large devices (desktops, 992px and up) */
+
+@media (min-width: 992px) {
+    .fixed-scroll-top {
+        position: fixed;
+        top: 33px;
+        right: 0;
+        left: 0;
+        z-index: 1030
+    }
+    .largeLogo {
+        width: 100px;
+        transition: all 0.5s ease-in-out;
+    }
+    .smallLogo {
+        width: 70px;
+        transition: all 0.5s ease-in-out;
+    }
+}
+
+
+/* // X-Large devices (large desktops, 1200px and up) */
+
+@media (min-width: 1200px) {}
+
+
+/* // XX-Large devices (larger desktops, 1400px and up) */
+
+@media (min-width: 1400px) {}
+
+.onHoverBgColorChange {
+    background-color: unset;
+    transition: all 0.5s ease-in-out;
+    /* height: 100px; */
+}
+
+.onHoverBgColorChange:hover {
     background-color: #0195d3;
 }
-.onScrollBgColorChange{
+
+.onScrollBgColorChange {
     top: 0;
     background-color: #bd3535;
-    transition: all 0.5s ease-in-out ;
-    height: 70px;
+    transition: all 0.5s ease-in-out;
+    /* height: 70px; */
 }
 
 
-.fixed-scroll-top{
+/* .fixed-scroll-top{
     position: fixed;
     top: 33px;
     right: 0;
     left: 0;
     z-index: 1030
+} */
 
-}
-
-.largeLogo{
-    width: 100px;
-    transition: all 0.5s ease-in-out ;
-}
-.smallLogo{
-    width: 70px;
-    transition: all 0.5s ease-in-out ;
-}
 .navbarManue:hover {
-    transition: all 0.5s ease-in-out ;
+    transition: all 0.5s ease-in-out;
     background-color: orangered;
     border-radius: 5px;
-
 }
+
 .navbarManue {
-   cursor: pointer;
-
+    cursor: pointer;
 }
-.navbarManue:hover .navbarList{
+
+.navbarManue:hover .navbarList {
     display: block;
-
 }
 
-  .navbarList{
+.navbarList {
     border-radius: 5px;
     margin: 7px -12px;
     display: flex;
     flex-direction: column;
     list-style-type: none;
     text-align: left;
-      position: absolute;
-      display: none;
-  }
-  .listSubManue .subManue{
-      font-size: 20px;
-   color: white;
- 
+    position: absolute;
+    display: none;
 }
-.listSubManue{
+
+.listSubManue .subManue {
+    font-size: 20px;
+    color: white;
+}
+
+.listSubManue {
     background-color: #0909cf;
-
-
 }
 
-
-  .listSubManue:hover .subManue{
+.listSubManue:hover .subManue {
     background-color: orangered;
     color: black;
     font-weight: bold;
+}
 
-  }
 
-  /* seacrch box */
+/* seacrch box */
 
- 
- 
-  .mainSearchIcon{
+.mainSearchIcon {
     margin: 0px;
     padding: 0px;
     width: 100vw;
@@ -91,13 +168,15 @@
     align-items: center;
     background-color: #130f40;
     font-family: 'Lato' !important;
-  }
-  .search-box{
+}
+
+.search-box {
     width: fit-content;
     height: fit-content;
     position: relative;
-  }
-  .input-search{
+}
+
+.input-search {
     height: 50px;
     width: 50px;
     border-style: none;
@@ -109,15 +188,17 @@
     transition: all .5s ease-in-out;
     background-color: unset;
     padding-right: 40px;
-    color:#fff;
-  }
-  .input-search::placeholder{
-    color:rgba(255,255,255,.5);
+    color: #fff;
+}
+
+.input-search::placeholder {
+    color: rgba(255, 255, 255, .5);
     font-size: 15px;
     /* letter-spacing: 2px; */
     font-weight: 100;
-  }
-  .btn-search{
+}
+
+.btn-search {
     width: 50px;
     height: 50px;
     border-style: none;
@@ -128,23 +209,23 @@
     border-radius: 50%;
     position: absolute;
     right: 0px;
-    color:#ffffff ;
-    background-color:transparent;
-    pointer-events: painted;  
-  }
-  .btn-search:focus ~ .input-search{
+    color: #ffffff;
+    background-color: transparent;
+    pointer-events: painted;
+}
+
+.btn-search:focus~.input-search {
     width: 200px;
     border-radius: 0px;
     background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  .input-search:focus{
+}
+
+.input-search:focus {
     width: 200px;
     border-radius: 0px;
     background-color: transparent;
-    border-bottom:1px solid rgba(255,255,255,.5);
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
     transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-  }
-  
-  
+}
