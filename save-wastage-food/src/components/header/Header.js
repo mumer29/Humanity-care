@@ -12,8 +12,7 @@ function Header() {
                 <span>
                     < strong > Head Office: </strong>
                     < i className="fas fa-map-marker-alt " > </i>
-                    Sarafa Bazar, Boulton Market, Mithadar, Karachi.
-                    < i className="fas fa-phone-alt " > </i>
+                    Allama I.I. Kazi Campus،، Jamshoro, 76080 ,Pakistan                  < i className="fas fa-phone-alt " > </i>
                     0092(21) 32413232 </span>
 
                 <div className="d-flex  " >
