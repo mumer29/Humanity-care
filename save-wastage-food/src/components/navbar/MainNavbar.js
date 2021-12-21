@@ -56,7 +56,7 @@ function Navbar() {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
                         <ul className="navbar-nav ms-auto align-items-center">
-                            <li className="nav-item px-1 text-center py-2  navbarManue"
+                            <li className="nav-item px-1  py-2  navbarManue"
 
                             >
 
@@ -73,7 +73,7 @@ function Navbar() {
                                     </Link>
                                 </div>
                             </li>
-                            <li className="nav-item px-1 text-center py-2  navbarManue"  >
+                            <li className="nav-item px-1  py-2  navbarManue"  >
                                 <div
                                     className='border-end px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
@@ -106,7 +106,7 @@ function Navbar() {
                                 </div>
 
                             </li>
-                            <li className="nav-item px-1 text-center py-2  navbarManue"  >
+                            <li className="nav-item px-1  py-2  navbarManue"  >
 
                                 <div
                                     className='border-end px-2'
@@ -144,7 +144,7 @@ function Navbar() {
                                 </div>
 
                             </li>
-                            <li className="nav-item px-1 text-center py-2  navbarManue" >
+                            <li className="nav-item px-1  py-2  navbarManue" >
                                 <div
                                     className='border-end px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
@@ -181,7 +181,7 @@ function Navbar() {
                             </li>
 
 
-                            <li className="nav-item px-1 text-center py-2  navbarManue">
+                            <li className="nav-item px-1  py-2  navbarManue">
                                 <div
                                     className=' px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
@@ -219,7 +219,7 @@ function Navbar() {
                             </li>
 
 
-                            <li className="nav-item text-center ">
+                            <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
                                 >
@@ -228,7 +228,7 @@ function Navbar() {
 
                                 </a>
                             </li>
-                            <li className="nav-item text-center ">
+                            <li className="nav-item  ">
                                 <a className="nav-link active py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
@@ -248,7 +248,7 @@ function Navbar() {
 
                                 </a>
                             </li>
-                            <li className="nav-item text-center ">
+                            <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
@@ -256,7 +256,7 @@ function Navbar() {
 
                                 </a>
                             </li>
-                            <li className="nav-item text-center ">
+                            <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
