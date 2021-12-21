@@ -33,7 +33,7 @@ function MainCarousels() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                <Carousel.Item interval={3000}>
+                {/* <Carousel.Item interval={3000}>
                     <img
                     style={{height:"500px"}}
                         className="  d mainCarouselsImg -block w-100"
@@ -44,7 +44,7 @@ function MainCarousels() {
                         <h3>Third slide label</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
-                </Carousel.Item>
+                </Carousel.Item> */}
             </Carousel>
 
         </div>
