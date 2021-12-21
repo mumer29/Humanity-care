@@ -8,23 +8,66 @@ import "slick-carousel/slick/slick-theme.css";
 function OurServices() {
 
     var settings = {
-        infinite: true,
+
+
+        dots: true,
+        infinite: false,
+        speed: 500,
         slidesToShow: 3,
         slidesToScroll: 1,
+        initialSlide: 0,
         autoplay: true,
         autoplaySpeed: 2000,
-        pauseOnHover: true
+        pauseOnHover: true,
+        infinite: true,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    initialSlide: 2
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+
+
+
+
+        // infinite: true,
+        // slidesToShow: 3,
+        // slidesToScroll: 1,
+        // autoplay: true,
+        // autoplaySpeed: 2000,
+        // pauseOnHover: true
+
     };
     return (
         <div id="ourServices" className="container-fluid py-3" style={{ backgroundColor: "#0195d3" }}>
 
 
             <div className="container"  >
-                <div className="row pb-5" style={{color:"white"}}>
+                <div className="row pb-5" style={{ color: "white" }}>
                     <u className="text-center py-3">
                         <h2>Our Services</h2>
                     </u>
-                    <p className="text-center" style={{ margin: "auto"}}>We have grown to be a leading grassroot humanitarian aid organisation.
+                    <p className="text-center" style={{ margin: "auto" }}>We have grown to be a leading grassroot humanitarian aid organisation.
                         Every year we are helping more and more people struck with hardship, all with your help.
                         We are developing this project to help poor and needy peoples in the Pakistan, and reduce the food wastage,
                         according to a report, 40 percent of food in Pakistan is wasted. </p>
