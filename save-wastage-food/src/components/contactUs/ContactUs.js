@@ -56,16 +56,16 @@ function ContactUs() {
                     </div>
 
                     <div className="col-lg-8 col-md-8 ">
-                        <h3 >Send Us an Online Message</h3>
+                        <h3 className='pb-4' >Send Us an Online Message</h3>
 
                         <form className="row g-4">
-                            <div className="col-lg-6 col-sm-12 col-md-6 ">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1 ">
                                 <label htmlFor="inputEmail4" className="form-label">
                                     FULL NAME *
                                 </label>
                                 <input type="text" className="form-control" id="inputEmail4" />
                             </div>
-                            <div className="col-lg-6 col-sm-12 col-md-6 ">
+                            <div className="col-lg-6 col-sm-12 col-md-6 mt-1 ">
                                 <label htmlFor="inputPassword4" className="form-label">
 
                                     EMAIL ADDRESS *

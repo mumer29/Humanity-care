@@ -34,8 +34,8 @@ function Navbar() {
     return (
         <div
             className={navTop ? "fixed-top" : "fixed-scroll-top"}>
-            <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange "
-                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange "}
+            <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange p-0 "
+                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange p-0 "}
 
             >
                 <div className="container-fluid px-4 ">

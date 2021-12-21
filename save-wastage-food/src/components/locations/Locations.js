@@ -43,11 +43,6 @@ function Locations() {
                                     <div className="py-3 rounded locationCity" >Hyderabad </div>
                                 </div>
                             </div>
-                            {/* <div className="row justify-content-center">
-                                <div className="col-lg-3 col-sm-6 p-2">
-                                    <div className="py-3 rounded locationCity" >Faisalabad Center</div>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
