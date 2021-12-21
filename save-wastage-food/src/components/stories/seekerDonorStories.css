@@ -4,7 +4,6 @@
 
 .product {
   transform: translate(0%, 0%);
-    /* height: 400px; */
     box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
     border-radius: 5px;
     background: #0e0e0f;
@@ -18,7 +17,6 @@
 }
 
 .product .imgbox img {
-  /* height: 77%; */
   display: block;
   width: 100%;
 }
@@ -27,10 +25,11 @@
     position: absolute;
     width: 100%;
     bottom: -160px;
-    background: #fff;
+    background: #1010109e;
     padding: 10px;
     box-sizing: border-box;
-    transition: .5s
+    transition: .5s;
+    color: white;
 }
 
 .product:hover .specifies {
