@@ -1,19 +1,21 @@
+/* for mobiles */
 @media (min-width: 0px) {
     .fixed-scroll-top {
         position: fixed;
-        top: 64px;
+        /* top: 64px; */
         right: 0;
         left: 0;
         z-index: 1030
     }
     .largeLogo {
-        width: 50px;
+        width: 70px;
         transition: all 0.5s ease-in-out;
     }
     .smallLogo {
         width: 50px;
         transition: all 0.5s ease-in-out;
     }
+  
 }
 
 
@@ -64,7 +66,7 @@
 @media (min-width: 992px) {
     .fixed-scroll-top {
         position: fixed;
-        top: 33px;
+        /* top: 33px; */
         right: 0;
         left: 0;
         z-index: 1030
@@ -76,6 +78,9 @@
     .smallLogo {
         width: 70px;
         transition: all 0.5s ease-in-out;
+    }
+    .NavUlAlignment{
+      align-items: center;
     }
 }
 
@@ -92,7 +97,6 @@
 .onHoverBgColorChange {
     background-color: unset;
     transition: all 0.5s ease-in-out;
-    /* height: 100px; */
 }
 
 .onHoverBgColorChange:hover {
@@ -103,17 +107,7 @@
     top: 0;
     background-color: #bd3535;
     transition: all 0.5s ease-in-out;
-    /* height: 70px; */
 }
-
-
-/* .fixed-scroll-top{
-    position: fixed;
-    top: 33px;
-    right: 0;
-    left: 0;
-    z-index: 1030
-} */
 
 .navbarManue:hover {
     transition: all 0.5s ease-in-out;
@@ -194,7 +188,6 @@
 .input-search::placeholder {
     color: rgba(255, 255, 255, .5);
     font-size: 15px;
-    /* letter-spacing: 2px; */
     font-weight: 100;
 }
 

@@ -1,11 +1,51 @@
-/* .scrollBtn{
-    position: fixed;
-width: 100%;
-left: 50%;
-bottom: 15vh;
-height: 20px;
-font-size: 3rem;
-z-index: 1;
-cursor: pointer;
-color: #ff0000;
-} */
+
+/* // X-Small devices (portrait phones, less than 576px) */
+@media (min-width: 0px) { 
+    .scrollBtn {
+        position: fixed;
+        width: 100%;
+        left: 84%;
+        bottom: 15vh;
+        height: 20px;
+        font-size: 3rem;
+        z-index: 1;
+        cursor: pointer;
+        color: #ff0000;
+    }
+ }
+
+/* // Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+    .scrollBtn {
+        position: fixed;
+        width: 100%;
+        left: 93%;
+        bottom: 15vh;
+        height: 20px;
+        font-size: 3rem;
+        z-index: 1;
+        cursor: pointer;
+        color: #ff0000;
+    }
+ }
+
+/* // Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {  }
+
+/* // Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .scrollBtn {
+        position: fixed;
+        width: 100%;
+        left: 94%;
+        bottom: 15vh;
+        height: 20px;
+        font-size: 3rem;
+        z-index: 1;
+        cursor: pointer;
+        color: #ff0000;
+    }
+ }
+
+
+
