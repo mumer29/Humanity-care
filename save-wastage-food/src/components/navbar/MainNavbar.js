@@ -55,12 +55,12 @@ function Navbar() {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto align-items-center">
+                        <ul className="navbar-nav ms-auto NavUlAlignment">
                             <li className="nav-item px-1  py-2  navbarManue"
 
                             >
 
-                                <div className='border-end px-2' >
+                                <div className=' px-2' >
                                     <Link style={{ color: "white", fontSize: "15px", fontWeight: 500, textDecoration: 'none' }}
                                         activeClass="active"
                                         offset={-70}
@@ -75,7 +75,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item px-1  py-2  navbarManue"  >
                                 <div
-                                    className='border-end px-2'
+                                    className=' px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     About Us
                                     <i className="fas fa-angle-down ps-2"></i>
@@ -109,7 +109,7 @@ function Navbar() {
                             <li className="nav-item px-1  py-2  navbarManue"  >
 
                                 <div
-                                    className='border-end px-2'
+                                    className=' px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }} >
                                     Services
                                     <i className="fas fa-angle-down ps-2"></i>
@@ -146,7 +146,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item px-1  py-2  navbarManue" >
                                 <div
-                                    className='border-end px-2'
+                                    className=' px-2'
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
                                     Success Stories
 
@@ -232,7 +232,6 @@ function Navbar() {
                                 <a className="nav-link active py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
-                                    {/* <i className="fas fa-search" /> */}
 
                                         <div className="search-box">
                                             <button className="btn-search">

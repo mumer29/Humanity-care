@@ -22,21 +22,21 @@ import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 function App() {
   return (
     <div className="App">
-      <Header/>
-        <Navbar />
-        <MainCarousels />
-        <QuickDonate />
-        <WhoWeAre />
-        <OurHistory />
-        <OurServices />
-        <SpendMoney />
-        <OurResources />
-        <PatientDonnerStories />
-        <Testimonial />
-        <Locations />
-        <ContactUs />
-        <Footer />
-        <ScrollButton />
+      <Header />
+      <Navbar />
+      <MainCarousels />
+      <QuickDonate />
+      <WhoWeAre />
+      <OurHistory />
+      <OurServices />
+      <SpendMoney />
+      <OurResources />
+      <PatientDonnerStories />
+      <Testimonial />
+      <Locations />
+      <ContactUs />
+      <Footer />
+      <ScrollButton />
 
     </div>
   );

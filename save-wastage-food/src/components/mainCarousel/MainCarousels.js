@@ -33,18 +33,18 @@ function MainCarousels() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </Carousel.Caption>
                 </Carousel.Item>
-                {/* <Carousel.Item interval={3000}>
+                <Carousel.Item interval={3000}>
                     <img
                     style={{height:"500px"}}
                         className="  d mainCarouselsImg -block w-100"
-                        src="https://www.nea.gov.sg/images/default-source/our-serivces/love-your-food---waste-less-save-more.png"
+                        src="https://lh3.googleusercontent.com/proxy/3BkZmy-66BS4q7Rmvy1vDTsc8s9B4Zn_JC-Ef4y97lNo9C7LT8gVcS2MGpcy1wjlmxByMcpfZs0o88Q-LpmSEqI60TxGMLbaVpl7FvA1MoEMxPK96QJm2NogKIlkmaCtqKuULsX9o4ShtZltUYyExc1ddePsFzaG5RTH5H8KM5ANbes"
                         alt="Third slide"
                     />
                     <Carousel.Caption>
                         <h3>Third slide label</h3>
                         <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
                     </Carousel.Caption>
-                </Carousel.Item> */}
+                </Carousel.Item>
             </Carousel>
 
         </div>
