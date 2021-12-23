@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
 import "./mainNavbar.css";
-import Header from '../header/Header';
+import Registraion from './Registraion'
 
 
 function Navbar() {
@@ -233,25 +233,24 @@ function Navbar() {
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
                                 >
 
-                                        <div className="search-box">
-                                            <button className="btn-search">
-                                                <i className="fas fa-search" />
-                                            </button>
-                                            <input
-                                                type="text"
-                                                className="input-search"
-                                                placeholder="Type to Search..."
-                                            />
-                                        </div>
-                                    
+                                    <div className="search-box">
+                                        <button className="btn-search">
+                                            <i className="fas fa-search" />
+                                        </button>
+                                        <input
+                                            type="text"
+                                            className="input-search"
+                                            placeholder="Type to Search..."
+                                        />
+                                    </div>
+
 
                                 </a>
                             </li>
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
-                                >
-                                    <i class="fas fa-user"></i>
+                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }} >
+                                    <Registraion/>
 
                                 </a>
                             </li>

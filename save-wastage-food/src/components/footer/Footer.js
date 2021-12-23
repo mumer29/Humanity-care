@@ -1,8 +1,9 @@
-import React from 'react'
+import React from 'react';
+import './footer.css'
 
 function Footer() {
     return (
-        <div style={{   backgroundColor: "black" }}>
+        <footer className='mt-auto'  style={{   backgroundColor: "black" }}>
             <div class="container m-auto">
                 <div class="row align-items-start ">
                     <div class="col-lg-4 col-sm-12 col-md-12">
@@ -95,7 +96,7 @@ function Footer() {
                     </div>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }
 

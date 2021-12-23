@@ -30,3 +30,9 @@
 
  /* XX-Large devices (larger desktops) */
 /* No media query since the xxl breakpoint has no upper bound on its width */
+
+.App{
+    display: flex;
+    flex-direction: column;
+    height: 100vh; 
+}
