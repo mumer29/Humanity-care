@@ -1,15 +1,19 @@
 import React from "react";
 import Slider from "react-slick";
-import './ourServices.css'
-
+import './ourServices.css';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import Modal1 from "./Modal1";
+import Modal2 from "./Modal2";
+import Modal3 from "./Modal3";
+import Modal4 from "./Modal4";
+import Modal5 from "./Modal5";
+import Modal6 from "./Modal6";
+
 
 function OurServices() {
 
     var settings = {
-
-
         dots: true,
         infinite: false,
         speed: 500,
@@ -65,93 +69,79 @@ function OurServices() {
                 <Slider {...settings}>
                     <div className="col-sm-12">
                         <div className="card  px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                         
+
                             <div className="product">
-                                <div className="imgbox">
+                                <div className="imgbox d-flex justify-content-center align-items-end">
+                                    <Modal1 />
                                     <img src=" ./founder/kashif.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                        Kashif
-                                    </h2>
-                                </div>
+
                             </div>
                         </div>
 
                     </div>
                     <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                        <div className="product">
-                                <div className="imgbox">
+                            <div className="product">
+                                <div className="imgbox d-flex justify-content-center align-items-end ">
+
+                                    <Modal2 />
                                     <img src=" ./founder/ahsan.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                      Ahsan
-                                    </h2>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                        <div className="product">
-                                <div className="imgbox">
+                            <div className="product">
+                                <div className="imgbox d-flex justify-content-center align-items-end">
+                                   < Modal3/>
                                     <img src=" ./founder/abdulRehman.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                       Abdul Rehman
-                                    </h2>
-                                </div>
+
                             </div>
                         </div>
                     </div>
                     <div className="col-sm-12">
                         <div className="card  px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                         
+
                             <div className="product">
-                                <div className="imgbox">
+                                <div className="imgbox d-flex justify-content-center align-items-end">
+                                    < Modal4/>
+
                                     <img src=" ./founder/kashif.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                        Kashif
-                                    </h2>
-                                </div>
+
                             </div>
                         </div>
 
                     </div>
                     <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                        <div className="product">
-                                <div className="imgbox">
+                            <div className="product">
+                                <div className="imgbox d-flex justify-content-center align-items-end">
+                                    < Modal5/>
+
                                     <img src=" ./founder/ahsan.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                      Ahsan
-                                    </h2>
-                                </div>
                             </div>
+
                         </div>
                     </div>
                     <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
-                        <div className="product">
-                                <div className="imgbox">
+                            <div className="product">
+                                <div className="imgbox d-flex justify-content-center align-items-end">
+                                   < Modal6/>
+
                                     <img src=" ./founder/abdulRehman.png" />
                                 </div>
-                                <div className="specifies">
-                                    <h2>
-                                       Abdul Rehman
-                                    </h2>
-                                </div>
+
                             </div>
                         </div>
                     </div>
-                   
+
                 </Slider>
             </div>
         </div>

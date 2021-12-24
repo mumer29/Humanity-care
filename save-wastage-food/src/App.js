@@ -21,14 +21,14 @@ import WhoWeAre from './components/whoWeAre/WhoWeAre';
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 import ComponentProvider from "./components/componentProvider/ComponentProvider";
 import SignIn from './components/registrationForm/SignIn';
-import SignUp from './components/registrationForm/SignUp'
+import SignUp from './components/registrationForm/SignUp';
 
 function App() {
   return (
     <div className="App">
       <ToastContainer
         position="top-right"
-        autoClose={5000}
+        autoClose={3000}
         hideProgressBar={false}
         newestOnTop={false}
         closeOnClick
@@ -37,7 +37,7 @@ function App() {
         draggable
         pauseOnHover
       />
-      <ToastContainer theme="colored" />
+      {/* <ToastContainer theme="colored" /> */}
       <Router>
         <Routes>
           <Route exact path="/" element={<ComponentProvider />} />
