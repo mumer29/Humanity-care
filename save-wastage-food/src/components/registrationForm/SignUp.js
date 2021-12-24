@@ -33,7 +33,7 @@ function SignUp() {
 
     }
     function registration(){
-        navigate("/sign-up")
+        navigate("/sign-in")
     
     }
 
@@ -53,11 +53,17 @@ function SignUp() {
                                     placeholder="enter your name" />
                                 {errors.exampleRequired && <span>This field is required</span>}
                             </div>
+                            <div className="mb-3">
+                                <label className="form-label">Email address</label>
+                                <input type="email" className="form-control"  {...register("email", { required: true })}
+                                    placeholder="name@example.com" />
+                                {errors.exampleRequired && <span>This field is required</span>}
+                            </div>
 
                             <div className="mb-3">
-                                <label className="form-label">Father Name</label>
-                                <input type="text" className="form-control"  {...register("fName", { required: true })}
-                                    placeholder="enter father name" />
+                                <label className="form-label">Phone number</label>
+                                <input type="number" className="form-control"  {...register("phone", { required: true })}
+                                    placeholder="enter Phone number" />
                                 {errors.exampleRequired && <span>This field is required</span>}
                             </div>
 
@@ -71,12 +77,7 @@ function SignUp() {
                                 </select>
                             </div>
 
-                            <div className="mb-3">
-                                <label className="form-label">Email address</label>
-                                <input type="email" className="form-control"  {...register("email", { required: true })}
-                                    placeholder="name@example.com" />
-                                {errors.exampleRequired && <span>This field is required</span>}
-                            </div>
+                            
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
@@ -86,9 +87,16 @@ function SignUp() {
                                 <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
                                 {errors.exampleRequired && <span>This field is required</span>}
                             </div>
+                            <div className="mb-3">
+                                <label className="form-label">  password</label>
+                                <input id="password" type="password" className="form-control"  {...register("confirmPassword", { required: true })}
+                                    placeholder="password" />
+                                <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
+                                <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
+                                {errors.exampleRequired && <span>This field is required</span>}
+                            </div>
                             <div className="h5 ">
-                                {/* <Link to='/'>Already have an account</Link> */}
-                                <a style={{color:"blue" ,cursor:"pointer"}} onClick={registration}>Already have ands Account</a>
+                                <a style={{color:"blue" ,cursor:"pointer"}} onClick={registration}>Already have and Account</a>
 
                             </div>
                             <div className="text-center">

@@ -64,7 +64,6 @@ function SignIn() {
                                 {errors.exampleRequired && <span>This field is required</span>}
                             </div>
                             <div className="h5">
-                                {/* <Link to ='/sign-up'>Create Account</Link> */}
                                 <a style={{ color: "blue", cursor: "pointer" }} onClick={registration}>Create Account</a>
                             </div>
                             <div className="text-center">
