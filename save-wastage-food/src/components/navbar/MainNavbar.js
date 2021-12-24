@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate  } from "react-router-dom";
 import { Link } from 'react-scroll';
 import "./mainNavbar.css";
-import Registraion from './Registraion'
 
 
 function Navbar() {
+    const navigate  = useNavigate ();
+
     const [state, setstate] = useState(false)
     const [image, setImage] = useState(false)
     const [navTop, setnavTop] = useState(false)
@@ -26,6 +28,11 @@ function Navbar() {
 
         }
     }
+
+    function registration(){
+        navigate("/sign-in")
+    }
+
 
     useEffect(() => {
         window.addEventListener("scroll", ScrollFun)
@@ -250,7 +257,8 @@ function Navbar() {
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }} >
-                                    <Registraion/>
+                                              <i className="fas fa-user" onClick={registration}  ></i>
+
 
                                 </a>
                             </li>

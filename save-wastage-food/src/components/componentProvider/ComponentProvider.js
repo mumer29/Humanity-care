@@ -2,6 +2,8 @@ import React from 'react';
 
 
 import ContactUs from "../contactUs/ContactUs";
+import Footer from '../footer/Footer';
+import Header from '../header/Header';
 import Locations from "../locations/Locations";
 import MainCarousels from '../mainCarousel/MainCarousels';
 import Navbar from '../navbar/MainNavbar';
@@ -17,7 +19,8 @@ import WhoWeAre from '../whoWeAre/WhoWeAre';
 function ComponentProvider() {
     return (
         <div>
-            <Navbar/>
+            <Header />
+            <Navbar />
             <MainCarousels />
             <QuickDonate />
             <WhoWeAre />
@@ -29,6 +32,7 @@ function ComponentProvider() {
             <Testimonial />
             <Locations />
             <ContactUs />
+            <Footer />
         </div>
     )
 }

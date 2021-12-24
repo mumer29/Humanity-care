@@ -1,6 +1,8 @@
 
 import "./App.css";
 import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import ContactUs from "./components/contactUs/ContactUs";
 import Footer from "./components/footer/Footer";
@@ -18,23 +20,31 @@ import Testimonial from "./components/testimonial/Testimonial";
 import WhoWeAre from './components/whoWeAre/WhoWeAre';
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 import ComponentProvider from "./components/componentProvider/ComponentProvider";
-import RegistrationForm from "./components/registrationForm/RegistrationForm";
+import SignIn from './components/registrationForm/SignIn';
+import SignUp from './components/registrationForm/SignUp'
 
 function App() {
   return (
     <div className="App">
-
-
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
+      <ToastContainer theme="colored" />
       <Router>
-        <Header />
-        <Navbar/>
         <Routes>
           <Route exact path="/" element={<ComponentProvider />} />
-          {/* <Route path="/registration-form" element={<RegistrationForm />} /> */}
-
+          <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/sign-up" element={<SignUp />} />
         </Routes>
       </Router>
-      <Footer />
       <ScrollButton />
 
     </div>
