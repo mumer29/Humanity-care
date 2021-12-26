@@ -1,24 +1,30 @@
 import React from 'react'
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
 
 
 
 function SignUp() {
-    const navigate  = useNavigate ();
+    const navigate = useNavigate();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const createUser = (userAdd) => {
-        console.log(userAdd)
+    const createUser = async (userData) => {
+        console.log(userData)
 
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
         navigate("/sign-in")
-
-
-       
+        const res = await fetch("https://humanity-care-default-rtdb.firebaseio.com/careHumanity.json",
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userData)
+            }
+        )
     }
 
     function myFunction() {
@@ -32,9 +38,9 @@ function SignUp() {
         }
 
     }
-    function registration(){
+    function registration() {
         navigate("/sign-in")
-    
+
     }
 
     return (
@@ -46,7 +52,10 @@ function SignUp() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form autoComplete="on" id="signUpForm" onSubmit={handleSubmit(createUser)}>
+                        <form 
+                        autoComplete="on"
+                         id="signUpForm"
+                         onSubmit={handleSubmit(createUser)}>
                             <div className="mb-3">
                                 <label className="form-label" >Name</label>
                                 <input type="text" className="form-control"  {...register("name", { required: true })}
@@ -77,7 +86,7 @@ function SignUp() {
                                 </select>
                             </div>
 
-                            
+
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
@@ -89,14 +98,14 @@ function SignUp() {
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">  password</label>
-                                <input id="password" type="password" className="form-control"  {...register("confirmPassword", { required: true })}
+                                <input id="confirmPassword" type="password" className="form-control"  {...register("confirmPassword", { required: true })}
                                     placeholder="password" />
                                 <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
                                 <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
                                 {errors.exampleRequired && <span>This field is required</span>}
                             </div>
                             <div className="h5 ">
-                                <a style={{color:"blue" ,cursor:"pointer"}} onClick={registration}>Already have and Account</a>
+                                <a style={{ color: "blue", cursor: "pointer" }} onClick={registration}>Already have and Account</a>
 
                             </div>
                             <div className="text-center">
