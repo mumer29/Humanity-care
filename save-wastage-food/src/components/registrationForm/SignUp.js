@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
+import { firestore } from '../../firebase'
 
 
 
@@ -10,21 +11,32 @@ function SignUp() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const createUser = async (userData) => {
-        console.log(userData)
+    const createUser = async (user) => {
+        console.log(user)
 
+
+        await firestore.collection("are-humanity").add({
+            email: user.email,
+            gender:user.gender,
+            name:user.name,
+            password:user.password
+           
+        })
+
+
+        // await fetch("https://care-humanity-1e56e-default-rtdb.firebaseio.com/careHumanity.json",
+        //     {
+        //         method: "POST",
+        //         headers: {
+        //             "Content-Type": "application/json",
+        //         },
+        //         body: JSON.stringify(user)
+        //     }
+        // )
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
         navigate("/sign-in")
-        const res = await fetch("https://humanity-care-default-rtdb.firebaseio.com/careHumanity.json",
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify(userData)
-            }
-        )
+
     }
 
     function myFunction() {
@@ -52,10 +64,10 @@ function SignUp() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form 
-                        autoComplete="on"
-                         id="signUpForm"
-                         onSubmit={handleSubmit(createUser)}>
+                        <form
+                            autoComplete="on"
+                            id="signUpForm"
+                            onSubmit={handleSubmit(createUser)}>
                             <div className="mb-3">
                                 <label className="form-label" >Name</label>
                                 <input type="text" className="form-control"  {...register("name", { required: true })}

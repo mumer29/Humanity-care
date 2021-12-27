@@ -15,20 +15,20 @@ function OurHistory() {
                     </div>
                 </div>
             </div>
-            <div  style={{ backgroundColor: "#0195d3" }}>
+            <div style={{ backgroundColor: "#0195d3" }}>
                 <div className="container "
-                 style={{paddingTop:"115px"}}
-                 >
+                    style={{ paddingTop: "115px" }}
+                >
                     <div className="row gx-3">
-                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{ padding: "70px 10px" }}>
                             <div className="p-3 border bg-light text-center "
-                            style={{borderRadius:"25px"}}> 
-                                <div className='text-center' style={{marginTop: '-115px'}}> 
+                                style={{ borderRadius: "25px" }}>
+                                <div className='text-center' style={{ marginTop: '-115px' }}>
                                     <img className="founder" src="./founder/ahsan.png" alt="ahan (founder)" />
                                     <h5 className='founderName pt-3'>Ahsan Ali</h5>
                                     <p style={{ fontSize: "13px" }}>Founder of care humanity</p>
                                 </div>
-                                <p style={{ textAlign: "justify" }}>We are developing this project to help poor and needy peoples in the Pakistan,
+                                <p className="da" style={{ textAlign: "justify" }}>We are developing this project to help poor and needy peoples in the Pakistan,
                                     and reduce the food wastage, according to a report, 40 percent of food in Pakistan is wasted.
                                     Food wastage is common in wedding ceremonies (Banquets),
                                     and hotels. The main goal of this project is to reduce hunger of poor people by supplying that food being wasted
@@ -36,10 +36,10 @@ function OurHistory() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{ padding: "70px 10px" }}>
                             <div className="p-3  border bg-light text-center "
-                            style={{borderRadius:"25px"}}> 
-                                <div className='text-center'style={{marginTop: '-115px'}} >
+                                style={{ borderRadius: "25px" }}>
+                                <div className='text-center' style={{ marginTop: '-115px' }} >
                                     <img className="founder" src="./founder/abdulRehman.png" alt=" abdul rehman (chair person)" />
                                     <h5 className='founderName pt-3'>Abdul Rehman </h5>
                                     <p style={{ fontSize: "13px" }}>Chair Person of care humanity</p>
@@ -52,10 +52,10 @@ function OurHistory() {
                             </div>
 
                         </div>
-                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{padding:"70px 10px"}}>
+                        <div className="col-lg-4 col-sm-12 col-md-12 " style={{ padding: "70px 10px" }}>
                             <div className="p-3 border bg-light text-center "
-                            style={{borderRadius:"25px"}}> 
-                                <div className='text-center' style={{marginTop: '-115px'}} >
+                                style={{ borderRadius: "25px" }}>
+                                <div className='text-center' style={{ marginTop: '-115px' }} >
                                     <img className="founder" src="./founder/kashif.png" alt="kashif(...)" />
                                     <h5 className='founderName pt-3'>Kashif Ali </h5>
                                     <p style={{ fontSize: "13px" }}>peroson of care humanity</p>

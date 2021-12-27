@@ -68,7 +68,7 @@ function Navbar() {
                             >
 
                                 <div className=' px-2' >
-                                    <Link style={{ color: "white", fontSize: "15px", fontWeight: 500, textDecoration: 'none' }}
+                                    <Link style={{ color: "white", fontWeight: 500, textDecoration: 'none' }}
                                         activeClass="active"
                                         offset={-70}
                                         duration={500}
@@ -83,7 +83,7 @@ function Navbar() {
                             <li className="nav-item px-1  py-2  navbarManue"  >
                                 <div
                                     className=' px-2'
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
+                                    style={{ color: "white", fontWeight: 500 }}>
                                     About Us
                                     <i className="fas fa-angle-down ps-2"></i>
                                     <div className=' navbarList' >
@@ -117,7 +117,7 @@ function Navbar() {
 
                                 <div
                                     className=' px-2'
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }} >
+                                    style={{ color: "white", fontWeight: 500 }} >
                                     Services
                                     <i className="fas fa-angle-down ps-2"></i>
 
@@ -154,7 +154,7 @@ function Navbar() {
                             <li className="nav-item px-1  py-2  navbarManue" >
                                 <div
                                     className=' px-2'
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
+                                    style={{ color: "white", fontWeight: 500 }}>
                                     Success Stories
 
                                     <i className="fas fa-angle-down ps-2"></i>
@@ -191,7 +191,7 @@ function Navbar() {
                             <li className="nav-item px-1  py-2  navbarManue">
                                 <div
                                     className=' px-2'
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}>
+                                    style={{ color: "white", fontWeight: 500 }}>
                                     Contact
 
                                     <i className="fas fa-angle-down ps-2"></i>
@@ -228,7 +228,7 @@ function Navbar() {
 
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500 }}
+                                    style={{ color: "white", fontWeight: 500 }}
                                 >
                                     <button className='btn btn-success  text-uppercase btn-sm '
                                         style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px" }} >donate</button>
@@ -237,7 +237,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item  ">
                                 <a className="nav-link active py-0  " aria-current="page"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
+                                    style={{ color: "white", fontWeight: 500, fontSize: "20px" }}
                                 >
 
                                     <div className="search-box">
@@ -256,7 +256,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }} >
+                                    style={{ color: "white", fontWeight: 500, fontSize: "20px" }} >
                                               <i className="fas fa-user" onClick={registration}  ></i>
 
 
@@ -264,7 +264,7 @@ function Navbar() {
                             </li>
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
-                                    style={{ color: "white", fontSize: "15px", fontWeight: 500, fontSize: "20px" }}
+                                    style={{ color: "white", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-shopping-bag"></i>
 

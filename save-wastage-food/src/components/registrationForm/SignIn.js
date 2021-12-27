@@ -17,7 +17,7 @@ function SignIn() {
         toast.success('Sign in successfully')
         
         document.getElementById('loginForm').reset()
-        navigate("/")
+        navigate("/dashboard")
 
 
     }

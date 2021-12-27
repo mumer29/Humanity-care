@@ -13,7 +13,7 @@ function QuickDonate() {
                         <select className="form-select border-success border-2 " aria-label="Default select example"
                             style={{ height: "100%", width: "100%" }}>
                             <option selected>Single Payment</option>
-                            <option value={1}>Regular Payment</option>
+                            <option value="1">Regular Payment</option>
                         </select>
                     </div>
                     <div className="col-lg-2 col-md-4 text-center my-2  " style={{ height: "45px" }}>
@@ -27,20 +27,20 @@ function QuickDonate() {
                         <select className="form-select border-success border-2 " aria-label="Default select example"
                             style={{ height: "100%", width: "100%" }}>
                             <option selected>General Donation</option>
-                            <option value={1}>Regular Payment</option>
-                            <option value={2}>Sadka</option>
-                            <option value={3}>Zakat</option>
+                            <option value="1">Regular Payment</option>
+                            <option value="2">Sadka</option>
+                            <option value="3">Zakat</option>
                         </select>
                     </div>
                     <div className="col-lg-2 text-center my-2 col-sm-12 col-md-6  " style={{ height: "45px" }}>
                         <button className="btn   "
                             style={{
-                                height: "100%", width: "100%", borderRadius: '15px',  padding: '0 30px',
-                                  fontWight:' bold',   color: 'white',  fontSize: '17px', backgroundColor: 'rgb(193, 35, 35)'
+                                height: "100%", width: "100%", borderRadius: '15px', padding: '0 30px',
+                                fontWight: ' bold', color: 'white', fontSize: '17px', backgroundColor: 'rgb(193, 35, 35)'
                             }}> Donate Now</button>
+                    </div>
                 </div>
             </div>
-        </div>
         </div >
 
     )

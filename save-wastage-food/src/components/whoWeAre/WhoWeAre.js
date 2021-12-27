@@ -9,7 +9,7 @@ function WhoWeAre() {
                 >
                 <div className="container "  >
                     <u style={{
-                        color: "white", fontWeight: "bold", textAlign: "center",
+                        color: "white", fontWeight: "bold",
                         borderBottom: "5px solid", textAlign: "center", margin: "auto",
                     }}>
                         <h1
@@ -36,7 +36,7 @@ function WhoWeAre() {
                     <div className="row">
                         <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex " style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ height: "100px", width: "100px", margin: "auto" }} src="https://fatimid.org/wp-content/uploads/2019/08/vision.png" className="card-img-top" alt="..." />
-                            <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
+                            <div className="card-body py-2" style={{  textAlign: "center" }}>
                                 <h2 className="card-title">Our Vision</h2>
                                 <p className="card-text">
                                     To maintain and project Humanity <br />Care Foundation on the world map.
@@ -45,7 +45,7 @@ function WhoWeAre() {
                         </div>
                         <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ height: "100px", width: "100px", margin: "auto" }} src="https://fatimid.org/wp-content/uploads/2019/08/mission.png" className="card-img-top" alt="..." />
-                            <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
+                            <div className="card-body py-2" style={{  textAlign: "center" }}>
                                 <h2 className="card-title">Our Mission</h2>
                                 <p className="card-text">
                                     To achieve managerial & technical<br />excellence in the field of Humanity <br />Care banking & haematological services.
@@ -54,7 +54,7 @@ function WhoWeAre() {
                         </div>
                         <div className=" col-lg-4 col-sm-12 col-md-4 py-3 d-flex" style={{ border: "none", flexDirection: 'column' }}>
                             <img style={{ width: "170px", margin: "auto", marginTop: "20px" }} src="https://fatimid.org/wp-content/uploads/2018/09/core-values.png" className="card-img-top" alt="..." />
-                            <div className="card-body py-2" style={{ textAlign: "justify", textAlign: "center" }}>
+                            <div className="card-body py-2" style={{  textAlign: "center" }}>
                                 <h2 className="card-title">Core Values</h2>
                                 <p className="card-text">
                                     Bring communities together to<br />promote needy people
