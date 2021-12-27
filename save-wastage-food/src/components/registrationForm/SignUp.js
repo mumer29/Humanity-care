@@ -2,7 +2,8 @@ import React from 'react'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
-import { firestore } from '../../firebase'
+
+import firebase, { firestore } from "../../firebase";
 
 
 
@@ -14,25 +15,28 @@ function SignUp() {
     const createUser = async (user) => {
         console.log(user)
 
-
-        await firestore.collection("are-humanity").add({
+        const db = firebase.firestore();
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        const userRef = db.collection("care-humanity").add({
+            name: user.name,
+            phone: user.phone,
             email: user.email,
-            gender:user.gender,
-            name:user.name,
-            password:user.password
-           
-        })
+            gender: user.gender,
+            password: user.password
+        });
+        // await firestore.collection("care-humanity").add({
+        //     name:user.name,
+        //     phone:user.phone,
+        //     email: user.email,
+        //     gender:user.gender,
+        //     password:user.password
+
+        // })
 
 
-        // await fetch("https://care-humanity-1e56e-default-rtdb.firebaseio.com/careHumanity.json",
-        //     {
-        //         method: "POST",
-        //         headers: {
-        //             "Content-Type": "application/json",
-        //         },
-        //         body: JSON.stringify(user)
-        //     }
-        // )
+
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
         navigate("/sign-in")
