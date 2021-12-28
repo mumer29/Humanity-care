@@ -8,6 +8,7 @@ import firebase from "../../firebase";
 function SignUp() {
 
     const navigate = useNavigate();
+    const [password, setPassword] = useState(true)
     const [user, setUser] = useState({
         name: '',
         email: '',
@@ -34,6 +35,14 @@ function SignUp() {
     function registration() {
         navigate("/sign-in")
 
+    }
+    function showHidePassword(e) {
+        const checked = e.target.checked;
+        if (checked) {
+            setPassword(false)
+        } else {
+            setPassword(true)
+        }
     }
 
     return (
@@ -93,10 +102,23 @@ function SignUp() {
                                     onChange={getUserData}
                                     name='password'
                                     id="password"
-                                    type="password"
+                                    type={password ? "password" : "text"}
                                     className="form-control"
                                     placeholder="password" />
 
+                            </div>
+                            <div className="mb-3 form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="exampleCheck1"
+                                    onClick={(e) => {
+                                        showHidePassword(e);
+                                    }}
+                                />
+                                <label className="form-check-label" htmlFor="exampleCheck1">
+                                    Show password
+                                </label>
                             </div>
                             <div className="h5 ">
                                 <a style={{ color: "blue", cursor: "pointer" }}

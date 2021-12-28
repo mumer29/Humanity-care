@@ -8,6 +8,7 @@ import { firestore } from "../../firebase";
 function SignIn() {
 
     const navigate = useNavigate();
+    const [password, setPassword] = useState(true)
     const [user, setUser] = useState({
         email: "",
         password: ""
@@ -48,6 +49,14 @@ function SignIn() {
         navigate("/sign-up")
 
     }
+    function showHidePassword(e) {
+        const checked = e.target.checked;
+        if (checked) {
+            setPassword(false)
+        } else {
+            setPassword(true)
+        }
+    }
 
     return (
         <section className="main-about-heading mt-5 ">
@@ -75,8 +84,9 @@ function SignIn() {
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
                                 <input
+
                                     id="password"
-                                    type="password"
+                                    type={password ? "password" : "text"}
                                     name="password"
                                     value={user.password}
                                     onChange={getUserData}
@@ -84,6 +94,20 @@ function SignIn() {
                                     placeholder="password"
                                 />
                             </div>
+                            <div className="mb-3 form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="exampleCheck1"
+                                    onClick={(e) => {
+                                        showHidePassword(e);
+                                    }}
+                                />
+                                <label className="form-check-label" htmlFor="exampleCheck1">
+                                    Show password
+                                </label>
+                            </div>
+
                             <div className="h5">
                                 <a style={{ color: "blue", cursor: "pointer" }}
                                     onClick={registration}
