@@ -1,8 +1,8 @@
 import React from 'react';
 import { useNavigate } from "react-router-dom";
-
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
+import firebase from "../../firebase";
 
 
 
@@ -11,11 +11,18 @@ function SignIn() {
 
     const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const createUser = (user) => {
-        console.log(user)
+    const createUser = async (user) => {
+        // console.log(user)
+
+      const myitems = await firebase.database().ref("care-humanity");
+      myitems.on("value", datasnap=>{
+          console.log(datasnap.val());
+      })
+
+        // console.log(db);
 
         toast.success('Sign in successfully')
-        
+
         document.getElementById('loginForm').reset()
         navigate("/dashboard")
 

@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
 
-import firebase, { firestore } from "../../firebase";
+import firebase from "../../firebase";
 
 
 
@@ -13,29 +13,18 @@ function SignUp() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const createUser = async (user) => {
-        console.log(user)
+        // console.log(user)
 
         const db = firebase.firestore();
-        db.settings({
-            timestampsInSnapshots: true
-        });
-        const userRef = db.collection("care-humanity").add({
+        const userRef = await db.collection("care-humanity").add({
             name: user.name,
             phone: user.phone,
             email: user.email,
             gender: user.gender,
             password: user.password
         });
-        // await firestore.collection("care-humanity").add({
-        //     name:user.name,
-        //     phone:user.phone,
-        //     email: user.email,
-        //     gender:user.gender,
-        //     password:user.password
-
-        // })
-
-
+       
+        // console.log(userRef);
 
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
