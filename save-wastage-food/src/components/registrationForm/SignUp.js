@@ -1,48 +1,36 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { useForm } from "react-hook-form";
-
 import firebase from "../../firebase";
 
 
 
 function SignUp() {
+
     const navigate = useNavigate();
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        password: '',
+    })
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    let name, value;
+    const getUserData = (evt) => {
+        name = evt.target.name;
+        value = evt.target.value;
+        setUser({ ...user, [name]: value })
+    }
 
-    const createUser = async (user) => {
-        // console.log(user)
-
+    const postData = async (e) => {
+        e.preventDefault();
         const db = firebase.firestore();
-        const userRef = await db.collection("care-humanity").add({
-            name: user.name,
-            phone: user.phone,
-            email: user.email,
-            gender: user.gender,
-            password: user.password
-        });
-       
-        // console.log(userRef);
-
+        const userRef = await db.collection("care-humanity").add(user);
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
         navigate("/sign-in")
-
     }
 
-    function myFunction() {
-        let x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-
-        }
-        else {
-            x.type = "password";
-        }
-
-    }
     function registration() {
         navigate("/sign-in")
 
@@ -58,63 +46,70 @@ function SignUp() {
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
                         <form
+                            method='POST'
                             autoComplete="on"
                             id="signUpForm"
-                            onSubmit={handleSubmit(createUser)}>
+                        >
                             <div className="mb-3">
                                 <label className="form-label" >Name</label>
-                                <input type="text" className="form-control"  {...register("name", { required: true })}
-                                    placeholder="enter your name" />
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    value={user.value}
+                                    onChange={getUserData}
+                                    name='name'
+                                    type="text"
+                                    className="form-control"
+                                    placeholder="enter your name"
+                                />
                             </div>
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
-                                <input type="email" className="form-control"  {...register("email", { required: true })}
-                                    placeholder="name@example.com" />
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    value={user.value}
+                                    onChange={getUserData}
+                                    name="email"
+                                    type="email"
+                                    className="form-control"
+                                    placeholder="name@example.com"
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Phone number</label>
-                                <input type="number" className="form-control"  {...register("phone", { required: true })}
-                                    placeholder="enter Phone number" />
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    value={user.value}
+                                    onChange={getUserData}
+                                    name='phone'
+                                    type="number"
+                                    className="form-control"
+                                    placeholder="enter Phone number"
+
+                                />
                             </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Gender</label>
-                                <select className="form-select" aria-label="Default select example" {...register("gender")}>
-                                    <option defaultValue>Select Gender</option>
-                                    <option value="male">Male</option>
-                                    <option value="female">Female</option>
-                                    <option value="other">Other</option>
-                                </select>
-                            </div>
-
-
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input id="password" type="password" className="form-control"  {...register("password", { required: true })}
+                                <input
+                                    value={user.value}
+                                    onChange={getUserData}
+                                    name='password'
+                                    id="password"
+                                    type="password"
+                                    className="form-control"
                                     placeholder="password" />
-                                <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
-                                <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
-                                {errors.exampleRequired && <span>This field is required</span>}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">  password</label>
-                                <input id="confirmPassword" type="password" className="form-control"  {...register("confirmPassword", { required: true })}
-                                    placeholder="password" />
-                                <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
-                                <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
-                                {errors.exampleRequired && <span>This field is required</span>}
+
                             </div>
                             <div className="h5 ">
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={registration}>Already have and Account</a>
+                                <a style={{ color: "blue", cursor: "pointer" }}
+                                    onClick={registration}>
+                                    Already have and Account</a>
 
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary ">Submit</button>
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary"
+                                    onClick={postData}
+                                >Submit</button>
                             </div>
                         </form>
                     </div>

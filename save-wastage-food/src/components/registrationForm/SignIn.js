@@ -1,43 +1,48 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { useForm } from "react-hook-form";
 import { firestore } from "../../firebase";
 
 
 
 function SignIn() {
+
     const navigate = useNavigate();
+    const [user, setUser] = useState({
+        email: "",
+        password: ""
+    })
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
 
-    const createUser = async (user) => {
-        console.log(user)
-        firestore.collection("care-humanity").get().then((querySnapshot) => {
+    let name, value;
+    const getUserData = (evt) => {
+        name = evt.target.name;
+        value = evt.target.value;
+        setUser({ ...user, [name]: value })
+    }
+
+    const postData = async (e) => {
+        e.preventDefault();
+        let db = []
+        await firestore.collection("care-humanity").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
                 var data = element.data()
-                console.log(data);
+                db.push(data)
             })
         })
-
-
-        toast.success('Sign in successfully')
-
-        document.getElementById('loginForm').reset()
-        navigate("/dashboard")
-
-
-    }
-    function myFunction() {
-        let x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
-
+        let result = db.find((item) => {
+            if (item.email === user.email && item.password === user.password) {
+                return item;
+            }
+        })
+        if (result) {
+            toast.success('log in successfully')
+            document.getElementById('loginForm').reset()
+            navigate("/dashboard")
+        } else {
+            toast.error("Email or Password is incorect")
+            navigate("/sign-in")
         }
-        else {
-            x.type = "password";
-        }
-
     }
     function registration() {
         navigate("/sign-up")
@@ -53,28 +58,43 @@ function SignIn() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form autoComplete="on" id="loginForm" onSubmit={handleSubmit(createUser)}>
+                        <form autoComplete="on" id="loginForm" method='POST'>
 
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
-                                <input type="email" className="form-control"  {...register("email", { required: true })}
-                                    placeholder="name@example.com" />
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={user.email}
+                                    onChange={getUserData}
+                                    className="form-control"
+                                    placeholder="name@example.com"
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input id="password" type="password" className="form-control"  {...register("password", { required: true })}
-                                    placeholder="password" />
-                                <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
-                                <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    id="password"
+                                    type="password"
+                                    name="password"
+                                    value={user.password}
+                                    onChange={getUserData}
+                                    className="form-control"
+                                    placeholder="password"
+                                />
                             </div>
                             <div className="h5">
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={registration}>Create Account</a>
+                                <a style={{ color: "blue", cursor: "pointer" }}
+                                    onClick={registration}
+                                >Create Account</a>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary ">Submit</button>
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary "
+                                    onClick={postData}
+                                >Submit</button>
                             </div>
                         </form>
                     </div>
