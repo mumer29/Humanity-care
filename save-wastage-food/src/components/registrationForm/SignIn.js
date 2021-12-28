@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { useForm } from "react-hook-form";
-import firebase from "../../firebase";
+import { firestore } from "../../firebase";
 
 
 
@@ -12,14 +12,14 @@ function SignIn() {
     const { register, handleSubmit, formState: { errors } } = useForm();
 
     const createUser = async (user) => {
-        // console.log(user)
+        console.log(user)
+        firestore.collection("care-humanity").get().then((querySnapshot) => {
+            querySnapshot.forEach(element => {
+                var data = element.data()
+                console.log(data);
+            })
+        })
 
-      const myitems = await firebase.database().ref("care-humanity");
-      myitems.on("value", datasnap=>{
-          console.log(datasnap.val());
-      })
-
-        // console.log(db);
 
         toast.success('Sign in successfully')
 
