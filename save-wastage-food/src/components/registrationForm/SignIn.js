@@ -77,7 +77,7 @@ function SignIn() {
                                     value={user.email}
                                     onChange={getUserData}
                                     className="form-control"
-                                    placeholder="name@example.com"
+                                    placeholder="abc@example.com"
                                 />
                             </div>
 
@@ -91,7 +91,7 @@ function SignIn() {
                                     value={user.password}
                                     onChange={getUserData}
                                     className="form-control"
-                                    placeholder="password"
+                                    placeholder="Password"
                                 />
                             </div>
                             <div className="mb-3 form-check">

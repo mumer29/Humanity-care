@@ -67,7 +67,7 @@ function SignUp() {
                                     name='name'
                                     type="text"
                                     className="form-control"
-                                    placeholder="enter your name"
+                                    placeholder="XYZ"
                                 />
                             </div>
                             <div className="mb-3">
@@ -78,7 +78,7 @@ function SignUp() {
                                     name="email"
                                     type="email"
                                     className="form-control"
-                                    placeholder="name@example.com"
+                                    placeholder="abc@example.com"
                                 />
                             </div>
 
@@ -90,7 +90,7 @@ function SignUp() {
                                     name='phone'
                                     type="number"
                                     className="form-control"
-                                    placeholder="enter Phone number"
+                                    placeholder="0000-0000000"
 
                                 />
                             </div>
@@ -104,7 +104,7 @@ function SignUp() {
                                     id="password"
                                     type={password ? "password" : "text"}
                                     className="form-control"
-                                    placeholder="password" />
+                                    placeholder="Password" />
 
                             </div>
                             <div className="mb-3 form-check">
