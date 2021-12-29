@@ -3,23 +3,22 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-// import { firestore } from "./firebase"
-
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 import ComponentProvider from "./components/componentProvider/ComponentProvider";
 import SignIn from './components/registrationForm/SignIn';
 import SignUp from './components/registrationForm/SignUp';
 import DashboardProvider from "./components/dashboard/DashboardProvider";
 
-function App() {
- 
+// dashboard
+// import Main from './components/mainDashboard/main'
 
-  // console.log(firebase.options.appId.match(5));
+function App() {
+
 
 
   return (
     <div className="App">
-
+      {/* <Main /> */}
       <ToastContainer
         theame="colored"
         position="top-right"

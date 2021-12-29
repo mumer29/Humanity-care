@@ -14,6 +14,7 @@ function SignUp() {
         email: '',
         phone: '',
         password: '',
+        uid: '',
     })
 
     let name, value;
@@ -25,8 +26,9 @@ function SignUp() {
 
     const postData = async (e) => {
         e.preventDefault();
-        const db = firebase.firestore();
-        const userRef = await db.collection("care-humanity").add(user);
+        console.log(user);
+        const db = await  firebase.firestore();
+        db.collection("care-humanity").add(user);
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
         navigate("/sign-in")
@@ -45,6 +47,33 @@ function SignUp() {
         }
     }
 
+    let s4 = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+      }
+
+    function designation(e) {
+
+        let userData = document.getElementById("userID");
+        const userValue = e.target.value;
+        if (userValue === "donor") {
+
+            userData.value = s4()
+            user.uid = userData.value
+
+        } else if (userValue === "seeker") {
+            userData.value = s4()
+            user.uid = userData.value
+
+        }
+        else {
+            userData.value = s4()
+            user.uid = userData.value
+
+        }
+    }
+
     return (
         <section className="main-about-heading mt-5 ">
             <div className="text-center">
@@ -57,8 +86,75 @@ function SignUp() {
                         <form
                             method='POST'
                             autoComplete="on"
-                            id="signUpForm"
-                        >
+                            id="signUpForm">
+                            <div>
+                                <h4>
+                                    Who you are?
+                                </h4>
+                            </div>
+                            <div className="row py-2">
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="donor"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault1"
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                        Donor
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="seeker"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault2"
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                        Seeker
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="admin"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault3"
+                                        defaultChecked
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault3">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+                            <div className="mb-3">
+                                <label className="form-label">User ID</label>
+                                <input
+                                    // {getUserData}
+                                    id='userID'
+                                    type="text"
+                                    name="userId"
+                                    value={user.value}
+                                    className="form-control"
+                                    placeholder="User ID"
+                                    // readonly
+                                    disabled
+
+                                />
+                            </div>
                             <div className="mb-3">
                                 <label className="form-label" >Name</label>
                                 <input

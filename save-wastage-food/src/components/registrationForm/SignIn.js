@@ -11,7 +11,8 @@ function SignIn() {
     const [password, setPassword] = useState(true)
     const [user, setUser] = useState({
         email: "",
-        password: ""
+        password: "",
+        // userID:""
     })
 
 
@@ -32,7 +33,7 @@ function SignIn() {
             })
         })
         let result = db.find((item) => {
-            if (item.email === user.email && item.password === user.password) {
+            if (item.userID === user.userID && item.email === user.email && item.password === user.password) {
                 return item;
             }
         })
@@ -57,17 +58,76 @@ function SignIn() {
             setPassword(true)
         }
     }
+    function designation(e) {
+        const user = e.target.value;
+       
+
+    }
 
     return (
         <section className="main-about-heading mt-5 ">
             <div className="text-center">
-                <h1 className="display-6 fw-bold text-uppercase">log in</h1>
+                <h1 className="display-6 fw-bold text-uppercase">Sign in</h1>
                 <hr className="w-25 mx-auto " />
             </div>
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
                         <form autoComplete="on" id="loginForm" method='POST'>
+                            <div>
+                                <h4>
+                                    Who you are?
+                                </h4>
+                            </div>
+                            <div className="row py-2">
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value=" donor"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault1"
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                        Donor
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="seeker"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault2"
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                        Seeker
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="admin"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault3"
+                                        defaultChecked
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault3">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+
 
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
