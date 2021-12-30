@@ -238,7 +238,9 @@ function SignUp() {
                                 />
                             </div>
 
-                            <div className="mb-3">
+                            <div className="mb-3"
+                                style={{ position: "relative" }}
+                                >
                                 <label className="form-label">Password</label>
                                 <input
                                     value={user.value}
