@@ -12,7 +12,8 @@ function SignIn() {
     const [user, setUser] = useState({
         email: "",
         password: "",
-        // userID:""
+        uid: '',
+
     })
 
 
@@ -25,6 +26,7 @@ function SignIn() {
 
     const postData = async (e) => {
         e.preventDefault();
+        console.log(user);
         let db = []
         await firestore.collection("care-humanity").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
@@ -33,7 +35,7 @@ function SignIn() {
             })
         })
         let result = db.find((item) => {
-            if (item.userID === user.userID && item.email === user.email && item.password === user.password) {
+            if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
                 return item;
             }
         })
@@ -59,9 +61,14 @@ function SignIn() {
         }
     }
     function designation(e) {
-        const user = e.target.value;
-       
-
+        const userValue = e.target.value;
+        if (userValue === "donor") {
+            user.uid = "D"
+        } else if (userValue === "seeker") {
+            user.uid = "S"
+        } else {
+            user.uid = "A"
+        }
     }
 
     return (
@@ -85,7 +92,7 @@ function SignIn() {
                                         onClick={(e) => {
                                             designation(e);
                                         }}
-                                        value=" donor"
+                                        value="donor"
                                         className="form-check-input me-2"
                                         type="radio"
                                         name="flexRadioDefault"
