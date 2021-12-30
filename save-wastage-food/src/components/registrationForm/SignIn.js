@@ -45,7 +45,7 @@ function SignIn() {
             document.getElementById('loginForm').reset()
             navigate("/dashboard")
         } else {
-            toast.error("Email or Password is incorect")
+            toast.error("Email or Password or designation is incorect")
             navigate("/sign-in")
         }
     }

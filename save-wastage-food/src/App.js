@@ -19,19 +19,6 @@ function App() {
   return (
     <div className="App">
       {/* <Main /> */}
-      <ToastContainer
-        theame="colored"
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
-      {/* Same as */}
       <ToastContainer theme="colored" />
       <Router>
         <Routes>
