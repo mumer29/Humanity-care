@@ -27,7 +27,7 @@ function SignUp() {
     const postData = async (e) => {
         e.preventDefault();
         console.log(user);
-        const db = await  firebase.firestore();
+        const db = await firebase.firestore();
         db.collection("care-humanity").add(user);
         toast.success('Your account has been create successfully')
         document.getElementById('signUpForm').reset()
@@ -51,25 +51,33 @@ function SignUp() {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
-      }
+    }
 
     function designation(e) {
 
         let userData = document.getElementById("userID");
         const userValue = e.target.value;
         if (userValue === "donor") {
-
-            userData.value = s4()
-            user.uid = userData.value
+            let result = s4()
+            let userdesi = "D-"
+            let final = userdesi.concat(result)
+            userData.value = final
+            user.uid = final
 
         } else if (userValue === "seeker") {
-            userData.value = s4()
-            user.uid = userData.value
+            let result = s4()
+            let userdesi = "S-"
+            let final = userdesi.concat(result)
+            userData.value = final
+            user.uid = final
 
         }
         else {
-            userData.value = s4()
-            user.uid = userData.value
+            let result = s4()
+            let userdesi = "A-"
+            let final = userdesi.concat(result)
+            userData.value = final
+            user.uid = final
 
         }
     }
