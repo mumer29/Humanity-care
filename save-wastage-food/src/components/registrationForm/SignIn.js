@@ -1,74 +1,245 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './sign.css'
 import { useNavigate } from "react-router-dom";
-
 import { toast } from 'react-toastify'
-import { useForm } from "react-hook-form";
+import { firestore } from "../../firebase";
 
 
 
 function SignIn() {
+
     const navigate = useNavigate();
+    const [password, setPassword] = useState(true)
+    const [user, setUser] = useState({
+        email: "",
+        password: "",
+        uid: '',
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
-
-    const createUser = (user) => {
-        console.log(user)
-
-        toast.success('Sign in successfully')
-        
-        document.getElementById('loginForm').reset()
-        navigate("/")
+    })
 
 
+    let name, value;
+    const getUserData = (evt) => {
+        name = evt.target.name;
+        value = evt.target.value;
+        setUser({ ...user, [name]: value })
     }
-    function myFunction() {
-        let x = document.getElementById("password");
-        if (x.type === "password") {
-            x.type = "text";
 
+    const postData = async (e) => {
+        e.preventDefault();
+        console.log(user);
+        let db = []
+        await firestore.collection("care-humanity").get().then((querySnapshot) => {
+            querySnapshot.forEach(element => {
+                var data = element.data()
+                db.push(data)
+            })
+        })
+        let result = db.find((item) => {
+            if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
+                return item;
+            }
+        })
+        if (result) {
+            toast.success('log in successfully')
+            document.getElementById('loginForm').reset()
+            navigate("/dashboard")
+        } else {
+            toast.error("Email or Password is incorect")
+            navigate("/sign-in")
         }
-        else {
-            x.type = "password";
-        }
-
     }
     function registration() {
         navigate("/sign-up")
 
     }
+    function showPassword() {
+        setPassword(false)
+        document.getElementById("show").style.display = "none";
+        document.getElementById("hide").style.display = "table";
+
+    }
+    function hidePassword() {
+        setPassword(true)
+        document.getElementById("show").style.display = "table";
+        document.getElementById("hide").style.display = "none";
+    }
+    function designation(e) {
+        const userValue = e.target.value;
+        if (userValue === "donor") {
+            user.uid = "D"
+        } else if (userValue === "seeker") {
+            user.uid = "S"
+        } else {
+            user.uid = "A"
+        }
+    }
+
 
     return (
-        <section className="main-about-heading mt-5 ">
+        <section className="main-about-heading  ">
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <img
+                            style={{
+                                width: "100px",
+                                display: "inline"
+                            }}
+                            src="logo/blueLogo.png"
+                            alt="logo"
+                        />
+                        <h2
+                            style={{
+                                display: "inline",
+                                color: "#05a9cc",
+                                fontWeight: "bold"
+                            }}
+                        >Care Humanity</h2>
+                    </div>
+                </div>
+            </div>
             <div className="text-center">
-                <h1 className="display-6 fw-bold text-uppercase">log in</h1>
+                <h1 className="display-6 fw-bold text-uppercase">Sign in</h1>
                 <hr className="w-25 mx-auto " />
             </div>
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form autoComplete="on" id="loginForm" onSubmit={handleSubmit(createUser)}>
+                        <form
+                            autoComplete="off"
+                            id="loginForm"
+                            method='POST'
+                            onSubmit={postData}>
+                            <div>
+                                <h4>
+                                    Who you are?
+                                </h4>
+                            </div>
+                            <div className="row py-2">
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="donor"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault1"
+                                        defaultChecked
+
+
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                        Donor
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="seeker"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault2"
+
+
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                        Seeker
+                                    </label>
+                                </div>
+                                <div className='col text-center'>
+                                    <input
+                                        onClick={(e) => {
+                                            designation(e);
+                                        }}
+                                        value="admin"
+                                        className="form-check-input me-2"
+                                        type="radio"
+                                        name="flexRadioDefault"
+                                        id="flexRadioDefault3"
+
+
+
+                                    />
+                                    <label className="form-check-label" htmlFor="flexRadioDefault3">
+                                        Admin
+                                    </label>
+                                </div>
+                            </div>
+
 
                             <div className="mb-3">
                                 <label className="form-label">Email address</label>
-                                <input type="email" className="form-control"  {...register("email", { required: true })}
-                                    placeholder="name@example.com" />
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+                                    type="email"
+                                    name="email"
+                                    value={user.email}
+                                    onChange={getUserData}
+                                    className="form-control"
+                                    placeholder="abc@example.com"
+                                    required
+                                />
                             </div>
 
                             <div className="mb-3">
                                 <label className="form-label">Password</label>
-                                <input id="password" type="password" className="form-control"  {...register("password", { required: true })}
-                                    placeholder="password" />
-                                <i id="visible-on" className="bi bi-eye-fill float-end h3 visibility" onClick={myFunction} ></i>
-                                <i id="visible-ff" className="bi bi-eye-slash-fill float-end h3 visibility" onClick={myFunction} style={{ display: "none" }}></i>
-                                {errors.exampleRequired && <span>This field is required</span>}
+                                <input
+
+                                    id="password"
+                                    type={password ? "password" : "text"}
+                                    name="password"
+                                    value={user.password}
+                                    onChange={getUserData}
+                                    className="form-control"
+                                    placeholder="Password"
+                                    required
+
+                                />
+                                <i className="fas fa-eye visible"
+                                    id='show'
+                                    onClick={showPassword}
+                                ></i>
+                                <i class="fas fa-eye-slash visible"
+                                    id="hide"
+                                    onClick={hidePassword}
+                                    style={{ display: "none" }}
+                                ></i>
                             </div>
-                            <div className="h5">
-                                {/* <Link to ='/sign-up'>Create Account</Link> */}
-                                <a style={{ color: "blue", cursor: "pointer" }} onClick={registration}>Create Account</a>
+                            {/* <div className="mb-3 form-check">
+                                <input
+                                    type="checkbox"
+                                    className="form-check-input"
+                                    id="exampleCheck1"
+                                    onClick={(e) => {
+                                        showHidePassword(e);
+                                    }}
+                                />
+                                <label className="form-check-label" htmlFor="exampleCheck1">
+                                    Show password
+                                </label>
+                            </div> */}
+
+                            <div className="h6">
+                                <a style={{ color: "red", cursor: "pointer" }}
+                                    // onClick={registration}
+                                >forgot password</a>
                             </div>
                             <div className="text-center">
-                                <button type="submit" className="btn btn-primary ">Submit</button>
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary "
+                                // onClick={postData}
+                                >Submit</button>
+                                <div className="h6 text-end ">
+                                    <a style={{ color: "blue", cursor: "pointer" }}
+                                        onClick={registration}
+                                    >Create Account</a>
+                                </div>
                             </div>
                         </form>
                     </div>

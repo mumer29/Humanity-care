@@ -1,32 +1,26 @@
 
 import "./App.css";
-import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
-import { toast, ToastContainer } from 'react-toastify';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
-import ContactUs from "./components/contactUs/ContactUs";
-import Footer from "./components/footer/Footer";
-import Header from './components/header/Header';
-import Locations from "./components/locations/Locations";
-import MainCarousels from './components/mainCarousel/MainCarousels';
-import Navbar from "./components/navbar/MainNavbar";
-import OurHistory from './components/ourHistory/OurHistory';
-import OurResources from "./components/ourResources/OurResources";
-import OurServices from "./components/ourServices/OurServices";
-import QuickDonate from './components/quickDonate/QuickDonate';
-import SpendMoney from './components/spendMoney/SpendMoney';
-import PatientDonnerStories from "./components/stories/PatientDonnerStories";
-import Testimonial from "./components/testimonial/Testimonial";
-import WhoWeAre from './components/whoWeAre/WhoWeAre';
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
 import ComponentProvider from "./components/componentProvider/ComponentProvider";
 import SignIn from './components/registrationForm/SignIn';
-import SignUp from './components/registrationForm/SignUp'
+import SignUp from './components/registrationForm/SignUp';
+import DashboardProvider from "./components/dashboard/DashboardProvider";
+
+// dashboard
+// import Main from './components/mainDashboard/main'
 
 function App() {
+
+
+
   return (
     <div className="App">
+      {/* <Main /> */}
       <ToastContainer
+        theame="colored"
         position="top-right"
         autoClose={5000}
         hideProgressBar={false}
@@ -37,12 +31,14 @@ function App() {
         draggable
         pauseOnHover
       />
+      {/* Same as */}
       <ToastContainer theme="colored" />
       <Router>
         <Routes>
           <Route exact path="/" element={<ComponentProvider />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
+          <Route path="/dashboard" element={<DashboardProvider />} />
         </Routes>
       </Router>
       <ScrollButton />

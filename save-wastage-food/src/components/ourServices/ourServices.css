@@ -1,3 +1,12 @@
 .slick-next{
     position: relative
 }
+
+.serviceHover{
+    color: white
+    }
+
+.serviceHover:hover{
+color: blue;
+transition: all 0.5s ease-in-out;
+}
