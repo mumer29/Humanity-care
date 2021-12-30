@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import './sign.css'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { firestore } from "../../firebase";
@@ -52,13 +53,16 @@ function SignIn() {
         navigate("/sign-up")
 
     }
-    function showHidePassword(e) {
-        const checked = e.target.checked;
-        if (checked) {
-            setPassword(false)
-        } else {
-            setPassword(true)
-        }
+    function showPassword() {
+        setPassword(false)
+        document.getElementById("show").style.display = "none";
+        document.getElementById("hide").style.display = "table";
+
+    }
+    function hidePassword() {
+        setPassword(true)
+        document.getElementById("show").style.display = "table";
+        document.getElementById("hide").style.display = "none";
     }
     function designation(e) {
         const userValue = e.target.value;
@@ -71,8 +75,30 @@ function SignIn() {
         }
     }
 
+
     return (
-        <section className="main-about-heading mt-5 ">
+        <section className="main-about-heading  ">
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <img
+                            style={{
+                                width: "100px",
+                                display: "inline"
+                            }}
+                            src="logo/blueLogo.png"
+                            alt="logo"
+                        />
+                        <h2
+                            style={{
+                                display: "inline",
+                                color: "#05a9cc",
+                                fontWeight: "bold"
+                            }}
+                        >Care Humanity</h2>
+                    </div>
+                </div>
+            </div>
             <div className="text-center">
                 <h1 className="display-6 fw-bold text-uppercase">Sign in</h1>
                 <hr className="w-25 mx-auto " />
@@ -80,7 +106,11 @@ function SignIn() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form autoComplete="on" id="loginForm" method='POST'>
+                        <form
+                            autoComplete="off"
+                            id="loginForm"
+                            method='POST'
+                            onSubmit={postData}>
                             <div>
                                 <h4>
                                     Who you are?
@@ -97,6 +127,9 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault1"
+                                        defaultChecked
+
+
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault1">
                                         Donor
@@ -112,6 +145,8 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault2"
+
+
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault2">
                                         Seeker
@@ -127,7 +162,9 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault3"
-                                        defaultChecked
+
+
+
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault3">
                                         Admin
@@ -145,6 +182,7 @@ function SignIn() {
                                     onChange={getUserData}
                                     className="form-control"
                                     placeholder="abc@example.com"
+                                    required
                                 />
                             </div>
 
@@ -159,9 +197,20 @@ function SignIn() {
                                     onChange={getUserData}
                                     className="form-control"
                                     placeholder="Password"
+                                    required
+
                                 />
+                                <i className="fas fa-eye visible"
+                                    id='show'
+                                    onClick={showPassword}
+                                ></i>
+                                <i class="fas fa-eye-slash visible"
+                                    id="hide"
+                                    onClick={hidePassword}
+                                    style={{ display: "none" }}
+                                ></i>
                             </div>
-                            <div className="mb-3 form-check">
+                            {/* <div className="mb-3 form-check">
                                 <input
                                     type="checkbox"
                                     className="form-check-input"
@@ -173,7 +222,7 @@ function SignIn() {
                                 <label className="form-check-label" htmlFor="exampleCheck1">
                                     Show password
                                 </label>
-                            </div>
+                            </div> */}
 
                             <div className="h5">
                                 <a style={{ color: "blue", cursor: "pointer" }}
@@ -184,7 +233,7 @@ function SignIn() {
                                 <button
                                     type="submit"
                                     className="btn btn-primary "
-                                    onClick={postData}
+                                // onClick={postData}
                                 >Submit</button>
                             </div>
                         </form>

@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import './sign.css'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
 import firebase from "../../firebase";
@@ -38,16 +39,27 @@ function SignUp() {
         navigate("/sign-in")
 
     }
-    function showHidePassword(e) {
-        const checked = e.target.checked;
-        if (checked) {
-            setPassword(false)
-        } else {
-            setPassword(true)
-        }
+    // function showHidePassword(e) {
+    //     const checked = e.target.checked;
+    //     if (checked) {
+    //         setPassword(false)
+    //     } else {
+    //         setPassword(true)
+    //     }
+    // }
+    function showPassword() {
+        setPassword(false)
+         document.getElementById("show").style.display="none";
+         document.getElementById("hide").style.display="table";
+      
+    }
+    function hidePassword(){
+        setPassword(true)
+        document.getElementById("show").style.display="table";
+        document.getElementById("hide").style.display="none";
     }
 
-    let s4 = () => {
+    let uniqueIdGenerator = () => {
         return Math.floor((1 + Math.random()) * 0x10000)
             .toString(16)
             .substring(1);
@@ -58,22 +70,22 @@ function SignUp() {
         let userData = document.getElementById("userID");
         const userValue = e.target.value;
         if (userValue === "donor") {
-            let result = s4()
-            let userdesi = "D-"
-            let final = userdesi.concat(result)
+            let result = uniqueIdGenerator()
+            let userdezi = "D-"
+            let final = userdezi.concat(result)
             userData.value = final
             user.uid = final
 
         } else if (userValue === "seeker") {
-            let result = s4()
-            let userdesi = "S-"
-            let final = userdesi.concat(result)
+            let result = uniqueIdGenerator()
+            let userdezi = "S-"
+            let final = userdezi.concat(result)
             userData.value = final
             user.uid = final
 
         }
         else {
-            let result = s4()
+            let result = uniqueIdGenerator()
             let userdesi = "A-"
             let final = userdesi.concat(result)
             userData.value = final
@@ -83,7 +95,28 @@ function SignUp() {
     }
 
     return (
-        <section className="main-about-heading mt-5 ">
+        <section className="main-about-heading  ">
+            <div className="container">
+                <div className="row">
+                    <div className="col">
+                        <img
+                            style={{
+                                width: "100px",
+                                display: "inline"
+                            }}
+                            src="logo/blueLogo.png"
+                            alt="logo"
+                        />
+                        <h2
+                            style={{
+                                display: "inline",
+                                color: "#05a9cc",
+                                fontWeight: "bold"
+                            }}
+                        >Care Humanity</h2>
+                    </div>
+                </div>
+            </div>
             <div className="text-center">
                 <h1 className="display-6 fw-bold text-uppercase">sign up</h1>
                 <hr className="w-25 mx-auto " />
@@ -93,8 +126,10 @@ function SignUp() {
                     <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
                         <form
                             method='POST'
-                            autoComplete="on"
-                            id="signUpForm">
+                            autoComplete="off"
+                            id="signUpForm"
+                            onSubmit={postData}
+                        >
                             <div>
                                 <h4>
                                     Who you are?
@@ -111,6 +146,7 @@ function SignUp() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault1"
+                                        defaultChecked
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault1">
                                         Donor
@@ -141,7 +177,7 @@ function SignUp() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault3"
-                                        defaultChecked
+
                                     />
                                     <label className="form-check-label" htmlFor="flexRadioDefault3">
                                         Admin
@@ -172,6 +208,7 @@ function SignUp() {
                                     type="text"
                                     className="form-control"
                                     placeholder="XYZ"
+                                    required
                                 />
                             </div>
                             <div className="mb-3">
@@ -183,6 +220,7 @@ function SignUp() {
                                     type="email"
                                     className="form-control"
                                     placeholder="abc@example.com"
+                                    required
                                 />
                             </div>
 
@@ -195,6 +233,7 @@ function SignUp() {
                                     type="number"
                                     className="form-control"
                                     placeholder="0000-0000000"
+                                    required
 
                                 />
                             </div>
@@ -208,10 +247,21 @@ function SignUp() {
                                     id="password"
                                     type={password ? "password" : "text"}
                                     className="form-control"
-                                    placeholder="Password" />
+                                    placeholder="Password"
+                                    required
+                                />
+                                  <i className="fas fa-eye visible"
+                                    id='show'
+                                    onClick={showPassword}
+                                ></i>
+                                <i class="fas fa-eye-slash visible"
+                                    id="hide"
+                                    onClick={hidePassword}
+                                    style={{ display: "none" }}
+                                ></i>
 
                             </div>
-                            <div className="mb-3 form-check">
+                            {/* <div className="mb-3 form-check">
                                 <input
                                     type="checkbox"
                                     className="form-check-input"
@@ -223,7 +273,7 @@ function SignUp() {
                                 <label className="form-check-label" htmlFor="exampleCheck1">
                                     Show password
                                 </label>
-                            </div>
+                            </div> */}
                             <div className="h5 ">
                                 <a style={{ color: "blue", cursor: "pointer" }}
                                     onClick={registration}>
@@ -234,7 +284,7 @@ function SignUp() {
                                 <button
                                     type="submit"
                                     className="btn btn-primary"
-                                    onClick={postData}
+                                // onClick={postData}
                                 >Submit</button>
                             </div>
                         </form>
