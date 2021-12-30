@@ -274,10 +274,10 @@ function SignUp() {
                                     Show password
                                 </label>
                             </div> */}
-                            <div className="h5 ">
+                            <div className="h6 ">
                                 <a style={{ color: "blue", cursor: "pointer" }}
                                     onClick={registration}>
-                                    Already have and Account</a>
+                                    Already have an Account</a>
 
                             </div>
                             <div className="text-center">

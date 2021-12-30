@@ -224,10 +224,10 @@ function SignIn() {
                                 </label>
                             </div> */}
 
-                            <div className="h5">
-                                <a style={{ color: "blue", cursor: "pointer" }}
-                                    onClick={registration}
-                                >Create Account</a>
+                            <div className="h6">
+                                <a style={{ color: "red", cursor: "pointer" }}
+                                    // onClick={registration}
+                                >forgot password</a>
                             </div>
                             <div className="text-center">
                                 <button
@@ -235,6 +235,11 @@ function SignIn() {
                                     className="btn btn-primary "
                                 // onClick={postData}
                                 >Submit</button>
+                                <div className="h6 text-end ">
+                                    <a style={{ color: "blue", cursor: "pointer" }}
+                                        onClick={registration}
+                                    >Create Account</a>
+                                </div>
                             </div>
                         </form>
                     </div>
