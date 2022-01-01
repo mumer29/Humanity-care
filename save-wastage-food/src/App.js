@@ -18,7 +18,6 @@ function App() {
 
   return (
     <div className="App">
-<<<<<<< HEAD
       <Main /> 
       <ToastContainer
         theame="colored"
@@ -33,9 +32,9 @@ function App() {
         pauseOnHover
       />
       {/* Same as */}
-=======
-      {/* <Main /> */}
->>>>>>> e721dd5294a456a7d4a7e01f1b62cfd323305ccc
+
+       <Main /> 
+
       <ToastContainer theme="colored" />
       <Router>
         <Routes>
