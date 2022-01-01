@@ -10,43 +10,69 @@ function MainCarousels() {
                 <Carousel.Item interval={3000}
                 >
                     <img
-                        style={{ height: "500px" }}
+                        style={{ height: "600px" }}
                         className=" mainCarouselsImg d-block w-100 "
                         // src="https://mocomi.com/wp-content/uploads/2011/12/STOP_FOOD_WASTAGE_Featured.jpg"
-                        src="https://cdn.pixabay.com/photo/2021/09/23/17/53/crow-6650506_960_720.jpg"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmFfV_p_8RMzlzHkx0VIOVXK5bEaOYONcKgw&usqp=CAU"
 
                         alt="First slide"
                     />
-                    <Carousel.Caption >
+                    {/*<Carousel.Caption >
                         <h3 >First slide label</h3>
                         <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption>*/}
                 </Carousel.Item>
                 <Carousel.Item interval={3000}>
                     <img
-                        style={{ height: "500px" }}
+                        style={{ height: "600px" }}
                         className="d mainCarouselsImg -block w-100"
-                        src="https://cdn.pixabay.com/photo/2017/12/26/10/17/apple-3040132_960_720.jpg"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQq1jyiAnoDt5o3vjeFPN4ZwEyFcn3LvVg_8Q&usqp=CAU"
                         alt="Second slide"
                     />
 
-                    <Carousel.Caption>
+                    {/*<Carousel.Caption>
                         <h3>Second slide label</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                    </Carousel.Caption>
+                    </Carousel.Caption>*/}
                 </Carousel.Item>
-                {/* <Carousel.Item interval={3000}>
+                <Carousel.Item interval={3000}>
                     <img
-                    style={{height:"500px"}}
+                    style={{height:"600px"}}
                         className="  d mainCarouselsImg -block w-100"
-                        src="https://lh3.googleusercontent.com/proxy/3BkZmy-66BS4q7Rmvy1vDTsc8s9B4Zn_JC-Ef4y97lNo9C7LT8gVcS2MGpcy1wjlmxByMcpfZs0o88Q-LpmSEqI60TxGMLbaVpl7FvA1MoEMxPK96QJm2NogKIlkmaCtqKuULsX9o4ShtZltUYyExc1ddePsFzaG5RTH5H8KM5ANbes"
+src="https://i0.wp.com/www.wedamor.com/wp-content/uploads/samarpan.jpg?w=740&ssl=1"
                         alt="Third slide"
                     />
-                    <Carousel.Caption>
-                        <h3>Third slide label</h3>
-                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                    </Carousel.Caption>
-                </Carousel.Item> */}
+                                                </Carousel.Item> 
+                                                <Carousel.Item interval={3000}>
+                                                <img
+                                                style={{height:"600px"}}
+                                                    className="  d mainCarouselsImg -block w-100"
+                                                    src="https://412foodrescue.org/wp-content/uploads/2016/12/1200x600-cart.jpg"
+                                                    alt="Third slide"
+                                                />
+                                                                            </Carousel.Item> 
+                                                                            <Carousel.Item interval={3000}>
+                                                                            <img
+                                                                            style={{height:"600px"}}
+                                                                                className="  d mainCarouselsImg -block w-100"
+                                                                                src="https://images.livemint.com/img/2020/03/31/600x338/2020-03-27T101400Z_211242614_RC2ASF9TIMPG_RTRMADP_3_HEALTH-CORONAVIRUS-SOUTHASIA_1585631419369_1585631421077.JPG"
+                                                                                alt="Third slide"
+                                                                            />
+                                                                                                        </Carousel.Item> 
+                                                                                                        <Carousel.Item interval={3000}>
+                                                                            <img
+                                                                            style={{height:"600px"}}
+                                                                                className="  d mainCarouselsImg -block w-100"
+                                                                                src="https://i1.wp.com/www.wedamor.com/wp-content/uploads/feeding.jpg?w=768&ssl=1"                                                                              alt="fifth slide"/>
+                                                                                                        </Carousel.Item> 
+                                                                                                        <Carousel.Item interval={3000}>
+                                                                            <img
+                                                                            style={{height:"600px"}}
+                                                                                className="  d mainCarouselsImg -block w-100"
+                                                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKnuJUzhUJAGhipQWEIQxZGLhw7IHNpPqUmg&usqp=CAU"
+                                                                                alt="fouth slide"
+                                                                            />
+                                                                                                        </Carousel.Item> 
             </Carousel>
 
         </div>
