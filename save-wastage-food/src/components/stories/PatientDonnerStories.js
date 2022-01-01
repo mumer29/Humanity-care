@@ -16,7 +16,21 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                    <img src="./stories/" alt=''/>
+                                <div className="specifies">
+                                    <h2>
+                                       Founder
+                                    </h2>
+                                   
+                                 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
+                            <div className="product">
+                                <div className="imgbox">
+                                      <img src="./stories/" alt='/>
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -31,7 +45,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png" alt='Not found' />
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -46,7 +60,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -61,7 +75,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -76,7 +90,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -91,7 +105,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -106,22 +120,7 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
-                                </div>
-                                <div className="specifies">
-                                    <h2>
-                                       Founder
-                                    </h2>
-                                   
-                                 
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
-                            <div className="product">
-                                <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
@@ -159,11 +158,9 @@ function PatientDonnerStories() {
 
                         </div>
                         <div className="col-lg-4 col-sm-12 py-3">
-                            <div className=" border bg-light text-center " style={{ height: '350px' }}>
-                                <img style={{ width: "100%", height: "100%" }} src=
-                                 "./founder/abdulRehman.png"
-                                
-                                 alt="" />
+                            < className=" border bg-light text-center " style={{ height: '350px' }}>
+                            <img src="./stories/" alt="Not Found" />
+
 
                             </div>
 
