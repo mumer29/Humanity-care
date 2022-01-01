@@ -127,7 +127,7 @@ function OurServices() {
 
                         </div>
                     </div>
-                    <div className="col-sm-12">
+                  {/*}  <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
                             <div className="product">
                                 <div className="imgbox d-flex justify-content-center align-items-end">
@@ -139,7 +139,7 @@ function OurServices() {
                             </div>
                         </div>
                     </div>
-
+    */}
                 </Slider>
             </div>
         </div>
