@@ -45,7 +45,7 @@ function SignIn() {
             document.getElementById('loginForm').reset()
             navigate("/dashboard")
         } else {
-            toast.error("Email or Password is incorect")
+            toast.error("Email or Password or designation is incorect")
             navigate("/sign-in")
         }
     }
@@ -174,7 +174,8 @@ function SignIn() {
 
 
                             <div className="mb-3">
-                                <label className="form-label">Email address</label>
+                                <label
+                                    className="form-label">Email address</label>
                                 <input
                                     type="email"
                                     name="email"
@@ -186,7 +187,9 @@ function SignIn() {
                                 />
                             </div>
 
-                            <div className="mb-3">
+                            <div className="mb-3"
+                                style={{ position: "relative" }}
+                                >
                                 <label className="form-label">Password</label>
                                 <input
 
@@ -198,7 +201,6 @@ function SignIn() {
                                     className="form-control"
                                     placeholder="Password"
                                     required
-
                                 />
                                 <i className="fas fa-eye visible"
                                     id='show'
@@ -226,7 +228,7 @@ function SignIn() {
 
                             <div className="h6">
                                 <a style={{ color: "red", cursor: "pointer" }}
-                                    // onClick={registration}
+                                // onClick={registration}
                                 >forgot password</a>
                             </div>
                             <div className="text-center">
@@ -238,7 +240,7 @@ function SignIn() {
                                 <div className="h6 text-end ">
                                     <a style={{ color: "blue", cursor: "pointer" }}
                                         onClick={registration}
-                                    >Create Account</a>
+                                    >Create An Account</a>
                                 </div>
                             </div>
                         </form>
