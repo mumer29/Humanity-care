@@ -13,7 +13,7 @@ function Modal1() {
 
             <h1 className="mb-5 text-decoration-underline serviceHover"
                 onClick={handleShow}
-                style={{  position: "absolute", cursor: "pointer" }}>Modal1</h1>
+                style={{  position: "absolute", cursor: "pointer" }}>DastarKhan</h1>
 
             <Modal show={show} onHide={handleClose}>
                 <Modal.Header closeButton>

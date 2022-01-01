@@ -72,7 +72,7 @@ function OurServices() {
                             <div className="product">
                                 <div className="imgbox d-flex justify-content-center align-items-end">
                                     <Modal1 />
-                                    <img src="./services/dastarkhan.jpg" alt="dastarkahn"/>
+                                    <img src=" ./services/dastarkhan.jpg"  alt="Not found" />                              </div>
 
                             </div>
                         </div>
