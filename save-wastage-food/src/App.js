@@ -10,7 +10,7 @@ import SignUp from './components/registrationForm/SignUp';
 import DashboardProvider from "./components/dashboard/DashboardProvider";
 
 // dashboard
-// import Main from './components/mainDashboard/main'
+ import Main from './components/mainDashboard/main'
 
 function App() {
 
@@ -18,7 +18,7 @@ function App() {
 
   return (
     <div className="App">
-      {/* <Main /> */}
+      <Main /> 
       <ToastContainer
         theame="colored"
         position="top-right"
