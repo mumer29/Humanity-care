@@ -16,11 +16,12 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/child2.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Usama Ali<h4>
+                                       Aids Patient</h4>
                                     </h2>
                                    
                                  
@@ -31,11 +32,11 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png" alt='Not found' />
+                                <img src="./stories/doctor1.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Dr. Mah-e-Noor<h4>Child Specilist</h4>
                                     </h2>
                                    
                                  
@@ -46,11 +47,11 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/men4.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Haji Usman <h4>No Relatives</h4>
                                     </h2>
                                    
                                  
@@ -61,11 +62,11 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/woman2.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Aliya Butt<h4>Wisdow</h4>
                                     </h2>
                                    
                                  
@@ -76,11 +77,11 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/doctor5.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Tycon Illyass<h4>Donor</h4>
                                     </h2>
                                    
                                  
@@ -91,11 +92,13 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/woman3.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Mrs.Mussa<h4>
+                                       Debaties & BP Patient
+                                       </h4>
                                     </h2>
                                    
                                  
@@ -106,11 +109,13 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/child3.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Maryam Yaqoob<h4>
+                                       parents not alive
+                                       </h4>
                                     </h2>
                                    
                                  
@@ -121,11 +126,11 @@ function PatientDonnerStories() {
                         <div className="col-lg-3 col-sm-12 col-md-4 py-3" >
                             <div className="product">
                                 <div className="imgbox">
-                                    <img src=" ./founder/kashif.png"  alt='Not found'/>
+                                <img src="./stories/doctor3.jpg" alt="Not Found" />
                                 </div>
                                 <div className="specifies">
                                     <h2>
-                                       Founder
+                                       Dr. bilal<h4>Cardilogy specailist</h4>
                                     </h2>
                                    
                            

@@ -276,13 +276,23 @@ function SignUp() {
                                     Show password
                                 </label>
                             </div> */}
+<<<<<<< HEAD
                             
                             <div className="text-center">
+=======
+                                                       <div className="text-center">
+>>>>>>> 30bcf0c0e04711c66ccec54c1104de993c120880
                                 <button
                                     type="submit"
                                     className="btn btn-primary"
                                 // onClick={postData}
                                 >Submit</button>
+                                <div className="h6 ">
+                                <a style={{ color: "blue", cursor: "pointer",align:"right" }}
+                                    onClick={registration}>
+                                    Already have an Account</a>
+
+                            </div>
                             </div>
                             <div className="h6 text-end ">
                                 <a 

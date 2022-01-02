@@ -72,8 +72,7 @@ function OurServices() {
                             <div className="product">
                                 <div className="imgbox d-flex justify-content-center align-items-end">
                                     <Modal1 />
-                                    <img src=" ./founder/kashif.png" alt="Not found" />
-                                </div>
+                                    <img src=" ./services/dastarkhan.jpg"  alt="Not found" />                              </div>
 
                             </div>
                         </div>
@@ -85,7 +84,7 @@ function OurServices() {
                                 <div className="imgbox d-flex justify-content-center align-items-end ">
 
                                     <Modal2 />
-                                    <img src=" ./founder/ahsan.png" alt="Not found" />
+                                    <img src="./services/medical.jpg" alt="Not found" />
                                 </div>
 
                             </div>
@@ -96,8 +95,8 @@ function OurServices() {
                             <div className="product">
                                 <div className="imgbox d-flex justify-content-center align-items-end">
                                    < Modal3/>
-                                    <img src=" ./founder/abdulRehman.png" alt="Not found" />
-                                </div>
+                                   <img src="./services/water.jpg" alt="Not found" />
+                                   </div>
 
                             </div>
                         </div>
@@ -109,8 +108,8 @@ function OurServices() {
                                 <div className="imgbox d-flex justify-content-center align-items-end">
                                     < Modal4/>
 
-                                    <img src=" ./founder/kashif.png" alt="Not found" />
-                                </div>
+                                    <img src="./services/ration.jpg" alt="Not found" />
+                                    </div>
 
                             </div>
                         </div>
@@ -122,13 +121,13 @@ function OurServices() {
                                 <div className="imgbox d-flex justify-content-center align-items-end">
                                     < Modal5/>
 
-                                    <img src=" ./founder/ahsan.png" alt="Not found" />
+                                    <img src=" ./services/education.jpg" alt="Not found" />
                                 </div>
                             </div>
 
                         </div>
                     </div>
-                    <div className="col-sm-12">
+                  {/*}  <div className="col-sm-12">
                         <div className="card px-3 " style={{ width: "100%", height: "100%", backgroundColor: "unset", border: "unset" }}>
                             <div className="product">
                                 <div className="imgbox d-flex justify-content-center align-items-end">
@@ -140,7 +139,7 @@ function OurServices() {
                             </div>
                         </div>
                     </div>
-
+    */}
                 </Slider>
             </div>
         </div>

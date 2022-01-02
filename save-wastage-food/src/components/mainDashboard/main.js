@@ -3,9 +3,9 @@ import Navbar from './Navbar';
 import Table from "./Table"
 import Dashborad from './Dashboard'
 import Sidebar from './Sidebar'
-export default class Main extends Component {
+function Main() {
 
-    render() {
+    // render() {
         return (
             <div>
                 <Navbar />
@@ -38,4 +38,4 @@ export default class Main extends Component {
             </div>
         )
     }
-}
+export default Main;

@@ -10,19 +10,16 @@ function Header() {
                     style={{ padding: '2px' }}  >
 
                     <span>
-                        < strong > Head Office: </strong>
+                     <h5>< strong > Head Office: </strong>
                         < i className="fas fa-map-marker-alt " > </i>
-                        Allama I.I. Kazi Campus،، Jamshoro, 76080 ,Pakistan
+                        Allama I.I. Kazi Campus،، Jamshoro, 76080 ,Pakistan   
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 
                         < i className="fas fa-phone-alt " > </i>
-                        0092(21) 29213181 </span>
+                        0092(21) 29213181 </h5>
+                        </span>
 
-                    <div className="d-flex  " >
-
-                        <div className=' header-right ' >
-                            < span > Exemption Certificate </span>
-                            < span > Reports </span>
-                        </div>
-                    </div>
+                    
                 </nav>
             </div>
         </header >

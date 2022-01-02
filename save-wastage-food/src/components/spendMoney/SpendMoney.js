@@ -21,15 +21,17 @@ function SpendMoney() {
                                 />
                             </h3>
 
-                            <p>Surgeries & Medical
-                                Procedures Performed </p>
+                            
+                            <p>EDUCATION (MONTHLY)
+                            </p>
                         </div>
                         <div className="col-lg-2 col-md-6 " style={{ textAlign: "center", color: "white" }}>
                             <div>
                                 <i className="fas fa-clinic-medical" style={{ fontSize: "50px", padding: "20px 0", color: "#190bf5" }}></i>
                             </div>
-                            <h3>105</h3>
-                            <p>Medical Camps Organized </p>
+                            <h3>176</h3>
+                            <p>DAILY DASTRAKHAN(MONTHLY)
+                            </p>
                         </div>
                         <div className="col-lg-2 col-md-6 " style={{ textAlign: "center", color: "white" }}>
                             <div>
@@ -51,8 +53,9 @@ function SpendMoney() {
                             <div>
                                 <i className="fas fa-hand-holding-heart" style={{ fontSize: "50px", padding: "20px 0", color: "#f1cc3c" }}></i>
                             </div>
-                            <h3>3,037</h3>
-                            <p>Supporting Donors </p>
+                            <h3>4,037</h3>
+                            <p>FAMILY ADOPTION(MONTHLY)
+                            </p>
                         </div>
 
                     </div>
