@@ -229,7 +229,7 @@ function SignIn() {
                             <div className="h6">
                                 <a style={{ color: "red", cursor: "pointer" }}
                                 // onClick={registration}
-                                >forgot password</a>
+                                >forgot password.??</a>
                             </div>
                             <div className="text-center">
                                 <button
@@ -239,8 +239,8 @@ function SignIn() {
                                 >Submit</button>
                                 <div className="h6 text-end ">
                                     <a style={{ color: "blue", cursor: "pointer" }}
-                                        onClick={registration}
-                                    >Create An Account</a>
+                                        onClick={registration}>
+                                    <u>Create An Account</u></a>
                                 </div>
                             </div>
                         </form>
