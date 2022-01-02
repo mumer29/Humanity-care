@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './sign.css'
 import { useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { firestore } from "../../firebase";
+import { firestore, auth } from "../../firebase";
 
 
 
@@ -27,7 +27,16 @@ function SignIn() {
 
     const postData = async (e) => {
         e.preventDefault();
-        console.log(user);
+        // console.log(user);
+
+            // firebase auth
+            auth.createUserWithEmailAndPassword(user.email, user.password)
+            .then(user=>{
+                console.log(user);
+            }).catch(err=>{
+                console.log(err);
+            })
+            
         let db = []
         await firestore.collection("care-humanity").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
@@ -238,18 +247,12 @@ function SignIn() {
                                 // onClick={postData}
                                 >Submit</button>
                                 <div className="h6 text-end ">
-<<<<<<< HEAD
                                     <a
                                         className=' createAccount'
 
                                         style={{ color: "blue", cursor: "pointer" }}
                                         onClick={registration}
                                     >Create An Account</a>
-=======
-                                    <a style={{ color: "blue", cursor: "pointer" }}
-                                        onClick={registration}>
-                                    <u>Create An Account</u></a>
->>>>>>> 30bcf0c0e04711c66ccec54c1104de993c120880
                                 </div>
                             </div>
                         </form>

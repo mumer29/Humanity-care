@@ -14,6 +14,8 @@ function QuickDonate() {
                             style={{ height: "100%", width: "100%" }}>
                             <option selected>Single Payment</option>
                             <option value="1">Regular Payment</option>
+                            <option value="2"> Cook Food</option>
+                            <option value="3">Uncook Food</option>
                         </select>
                     </div>
                     <div className="col-lg-2 col-md-4 text-center my-2  " style={{ height: "45px" }}>
