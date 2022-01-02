@@ -5,11 +5,13 @@
     font-size: 20px;
 }
 
-/* .inVisible{
-    font-size: 20px;
-    right: 10px;
-    position: relative;
-    text-align: end;
-    width: 100%;
-    bottom: 30px;
-} */
+.forgotPassword:hover{
+    text-decoration: underline;
+}
+.createAccount, .alreadyAccount{
+    text-decoration: underline;
+}
+.createAccount:hover, .alreadyAccount:hover{
+    text-decoration: none;
+}
+

@@ -189,7 +189,7 @@ function SignIn() {
 
                             <div className="mb-3"
                                 style={{ position: "relative" }}
-                                >
+                            >
                                 <label className="form-label">Password</label>
                                 <input
 
@@ -226,7 +226,7 @@ function SignIn() {
                                 </label>
                             </div> */}
 
-                            <div className="h6">
+                            <div className="h6 forgotPassword">
                                 <a style={{ color: "red", cursor: "pointer" }}
                                 // onClick={registration}
                                 >forgot password</a>
@@ -238,7 +238,10 @@ function SignIn() {
                                 // onClick={postData}
                                 >Submit</button>
                                 <div className="h6 text-end ">
-                                    <a style={{ color: "blue", cursor: "pointer" }}
+                                    <a
+                                        className=' createAccount'
+
+                                        style={{ color: "blue", cursor: "pointer" }}
                                         onClick={registration}
                                     >Create An Account</a>
                                 </div>
