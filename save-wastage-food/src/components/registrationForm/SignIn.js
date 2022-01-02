@@ -36,7 +36,7 @@ function SignIn() {
             }).catch(err=>{
                 console.log(err);
             })
-            
+
         let db = []
         await firestore.collection("care-humanity").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
@@ -114,7 +114,7 @@ function SignIn() {
             </div>
             <div className="container my-5">
                 <div className="row">
-                    <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
+                    <div className="col-xxl-8 col-10 col-md-6 mx-auto  ">
                         <form
                             autoComplete="off"
                             id="loginForm"
@@ -243,16 +243,16 @@ function SignIn() {
                             <div className="text-center">
                                 <button
                                     type="submit"
-                                    className="btn btn-primary "
+                                    className="btn btn-primary w-25 "
                                 // onClick={postData}
                                 >Submit</button>
                                 <div className="h6 text-end ">
+                                    Not yet register ? 
                                     <a
                                         className=' createAccount'
-
                                         style={{ color: "blue", cursor: "pointer" }}
                                         onClick={registration}
-                                    >Create An Account</a>
+                                    > Sign up</a>
                                 </div>
                             </div>
                         </form>

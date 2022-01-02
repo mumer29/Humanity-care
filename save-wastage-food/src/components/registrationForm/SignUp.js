@@ -123,7 +123,7 @@ function SignUp() {
             </div>
             <div className="container my-5">
                 <div className="row">
-                    <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
+                    <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
                         <form
                             method='POST'
                             autoComplete="off"
@@ -277,27 +277,27 @@ function SignUp() {
                                 </label>
                             </div> */}
 
-                            <div className="text-center">
-                                <div className="text-center">
-                                    <button
-                                        type="submit"
-                                        className="btn btn-primary"
-                                    // onClick={postData}
-                                    >Submit</button>
-                                    <div className="h6 ">
+                            <div className="text-center py-3">
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary w-100"
+                                // onClick={postData}
+                                >Submit</button>
+                                {/* <div className="h6 ">
                                         <a style={{ color: "blue", cursor: "pointer", align: "right" }}
                                             onClick={registration}>
                                             Already have an Account</a>
 
-                                    </div>
-                                </div>
+                                    </div> */}
+
                             </div>
                             <div className="h6 text-end ">
+                                Already registred ?
                                 <a
                                     className='alreadyAccount'
                                     style={{ color: "blue", cursor: "pointer" }}
-                                    onClick={registration}>
-                                    Already have an Account</a>
+                                    onClick={registration}> Sign in
+                                </a>
                             </div>
                         </form>
                     </div>
