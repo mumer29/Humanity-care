@@ -276,18 +276,18 @@ function SignUp() {
                                     Show password
                                 </label>
                             </div> */}
-                            <div className="h6 ">
-                                <a style={{ color: "blue", cursor: "pointer" }}
-                                    onClick={registration}>
-                                    Already have an Account</a>
-
-                            </div>
-                            <div className="text-center">
+                                                       <div className="text-center">
                                 <button
                                     type="submit"
                                     className="btn btn-primary"
                                 // onClick={postData}
                                 >Submit</button>
+                                <div className="h6 ">
+                                <a style={{ color: "blue", cursor: "pointer",align:"right" }}
+                                    onClick={registration}>
+                                    Already have an Account</a>
+
+                            </div>
                             </div>
                         </form>
                     </div>
