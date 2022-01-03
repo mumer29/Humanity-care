@@ -260,9 +260,7 @@ function SignIn() {
                                 // onClick={registration}
                                 >forgot password.??</a>
                             </div> */}
-                            <div>
-                                <Link to="/forgotPassword">Forgot Password</Link>
-                            </div>
+                           
                             <div className="text-center py-3">
                                 <button
                                     type="submit"
@@ -272,6 +270,9 @@ function SignIn() {
                                 >Submit</button>
 
                             </div>
+                            <button className="btn btn-success w-100" onClick={signInWithGoogle}>
+                                Login with Google
+                            </button>
                             {/* <div className="h6 text-end ">
                                 Not yet register ?
                                 <a
@@ -280,6 +281,9 @@ function SignIn() {
                                 // onClick={registration}
                                 > Sign up</a>
                             </div> */}
+                             <div>
+                                <Link to="/forgotPassword">Forgot Password</Link>
+                            </div>
                             <div>
                                 Don't have an account? <Link to="/Sign-up">Register</Link> now.
                             </div>
