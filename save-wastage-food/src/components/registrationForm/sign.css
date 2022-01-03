@@ -5,8 +5,12 @@
     font-size: 20px;
 }
 
+.forgotPassword{
+    font-weight: 700;
+    color: red;
+}
 .forgotPassword:hover{
-    text-decoration: underline;
+    text-decoration: none;
 }
 .createAccount, .alreadyAccount{
     text-decoration: underline;

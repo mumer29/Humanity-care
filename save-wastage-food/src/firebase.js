@@ -6,15 +6,6 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/database';
 
-// const firebaseConfig = {
-//     apiKey: "AIzaSyB_-0M2DW46KzyYB00Cf91AjwydeI3jfSY",
-//     authDomain: "fir-auth-article-84a9e.firebaseapp.com",
-//     projectId: "fir-auth-article-84a9e",
-//     storageBucket: "fir-auth-article-84a9e.appspot.com",
-//     messagingSenderId: "403858505234",
-//     appId: "1:403858505234:web:5be6da76aea7e9bf5a22cb"
-// };
-
 const firebaseConfig = {
   apiKey: "AIzaSyAKkkC_ox8gBit49EYq8NUshloALWGOjJ4",
   authDomain: "save-wastage-food.firebaseapp.com",
@@ -63,16 +54,17 @@ const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, email, password) => {
+const registerWithEmailAndPassword = async (name,phone, email, password) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
     await db.collection("users").add({
       uid: user.uid,
       name,
+      phone,
       authProvider: "local",
       email,
-      // password
+      
     });
   } catch (err) {
     console.error(err);

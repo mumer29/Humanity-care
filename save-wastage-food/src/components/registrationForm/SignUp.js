@@ -19,11 +19,12 @@ function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
+    const [phone, setPhone] = useState("")
     const [user, loading, error] = useAuthState(auth);
 
     const register = () => {
         if (!name) alert("Please enter name");
-        registerWithEmailAndPassword(name, email, password);
+        registerWithEmailAndPassword(name, phone, email, password);
     };
     useEffect(() => {
         if (loading) return;
@@ -142,7 +143,7 @@ function SignUp() {
                 <h1 className="display-6 fw-bold text-uppercase">sign up</h1>
                 <hr className="w-25 mx-auto " />
             </div>
-            <div className="container my-5">
+            <div className="container mb-2">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
                         <div
@@ -214,7 +215,7 @@ function SignUp() {
                                     name="userId"
                                     value={user.value}
                                     className="form-control"
-                                    placeholder="User ID"
+                                    // placeholder="User ID"
                                     // readonly
                                     disabled
                                 />
@@ -228,7 +229,7 @@ function SignUp() {
                                     name='name'
                                     type="text"
                                     className="form-control"
-                                    placeholder="XYZ"
+                                    // placeholder="XYZ"
                                     required
                                 />
                             </div>
@@ -242,24 +243,25 @@ function SignUp() {
                                     name="email"
                                     type="email"
                                     className="form-control"
-                                    placeholder="abc@example.com"
+                                    // placeholder="abc@example.com"
                                     required
                                 />
                             </div>
 
-                            {/* <div className="mb-3">
+                            <div className="mb-3">
                                 <label className="form-label fw-bold">Phone number</label>
                                 <input
-                                    value={user.value}
-                                    onChange={getUserData}
+                                    value={phone}
+                                    // onChange={getUserData}
+                                    onChange={(e) => setPhone(e.target.value)}
                                     name='phone'
                                     type="number"
                                     className="form-control"
-                                    placeholder="0000-0000000"
+                                    // placeholder="0000-0000000"
                                     required
 
                                 />
-                            </div> */}
+                            </div>
 
                             <div className="mb-3"
                                 style={{ position: "relative" }}
@@ -274,7 +276,7 @@ function SignUp() {
                                     id="password"
                                     type={passwordType ? "password" : "text"}
                                     className="form-control"
-                                    placeholder="Password"
+                                    // placeholder="Password"
                                     required
                                 />
                                 <i className="fas fa-eye visible"
@@ -325,7 +327,10 @@ function SignUp() {
                                 > Sign in
                                 </a>
                             </div> */}
-                            <div>
+                             <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
+                                Login with Google
+                            </button>
+                            <div className='py-2'>
                                 Already have an account? <Link to="/sign-in">Login</Link> now.
                             </div>
                         </div>

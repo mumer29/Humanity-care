@@ -128,7 +128,7 @@ function SignIn() {
                 <h1 className="display-6 fw-bold text-uppercase">Sign in</h1>
                 <hr className="w-25 mx-auto " />
             </div>
-            <div className="container my-5">
+            <div className="container">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
                         <div
@@ -209,7 +209,7 @@ function SignIn() {
                                     // onChange={getUserData}
                                     onChange={(e) => setEmail(e.target.value)}
                                     className="form-control"
-                                    placeholder="abc@example.com"
+                                    // placeholder="abc@example.com"
                                     required
                                 />
                             </div>
@@ -228,7 +228,7 @@ function SignIn() {
                                     onChange={(e) => setPassword(e.target.value)}
 
                                     className="form-control"
-                                    placeholder="Password"
+                                    // placeholder="Password"
                                     required
                                 />
                                 <i className="fas fa-eye visible"
@@ -260,7 +260,7 @@ function SignIn() {
                                 // onClick={registration}
                                 >forgot password.??</a>
                             </div> */}
-                           
+
                             <div className="text-center py-3">
                                 <button
                                     type="submit"
@@ -270,7 +270,7 @@ function SignIn() {
                                 >Submit</button>
 
                             </div>
-                            <button className="btn btn-success w-100" onClick={signInWithGoogle}>
+                            <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
                                 Login with Google
                             </button>
                             {/* <div className="h6 text-end ">
@@ -281,8 +281,10 @@ function SignIn() {
                                 // onClick={registration}
                                 > Sign up</a>
                             </div> */}
-                             <div>
-                                <Link to="/forgotPassword">Forgot Password</Link>
+                            <div className='py-2'    >
+                                <Link to="/forgotPassword"
+                                    className='forgotPassword ' 
+                                >Forgot Password</Link>
                             </div>
                             <div>
                                 Don't have an account? <Link to="/Sign-up">Register</Link> now.
@@ -291,7 +293,7 @@ function SignIn() {
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 
