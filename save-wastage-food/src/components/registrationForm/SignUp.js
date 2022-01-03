@@ -1,44 +1,65 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './sign.css'
-import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import firebase from "../../firebase";
+import {
+    auth,
+    registerWithEmailAndPassword,
+    signInWithGoogle,
+} from "../../firebase";
 
 
 
 function SignUp() {
 
     const navigate = useNavigate();
-    const [password, setPassword] = useState(true)
-    const [user, setUser] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        password: '',
-        uid: '',
-    })
+    const [passwordType, setPasswordType] = useState(true)
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [user, loading, error] = useAuthState(auth);
 
-    let name, value;
-    const getUserData = (evt) => {
-        name = evt.target.name;
-        value = evt.target.value;
-        setUser({ ...user, [name]: value })
-    }
+    const register = () => {
+        if (!name) alert("Please enter name");
+        registerWithEmailAndPassword(name, email, password);
+    };
+    useEffect(() => {
+        if (loading) return;
+        if (user) navigate("/dashboard");
+    }, [user, loading]);
 
-    const postData = async (e) => {
-        e.preventDefault();
-        console.log(user);
-        const db = await firebase.firestore();
-        db.collection("care-humanity").add(user);
-        toast.success('Your account has been create successfully')
-        document.getElementById('signUpForm').reset()
-        navigate("/sign-in")
-    }
+    // const [password, setPassword] = useState(true)
+    // const [user, setUser] = useState({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     password: '',
+    //     uid: '',
+    // })
 
-    function registration() {
-        navigate("/sign-in")
+    // let name, value;
+    // const getUserData = (evt) => {
+    //     name = evt.target.name;
+    //     value = evt.target.value;
+    //     setUser({ ...user, [name]: value })
+    // }
 
-    }
+    // const postData = async (e) => {
+    //     e.preventDefault();
+    //     console.log(user);
+    //     const db = await firebase.firestore();
+    //     db.collection("care-humanity").add(user);
+    //     toast.success('Your account has been create successfully')
+    //     document.getElementById('signUpForm').reset()
+    //     navigate("/sign-in")
+    // }
+
+    // function registration() {
+    //     navigate("/sign-in")
+
+    // }
     // function showHidePassword(e) {
     //     const checked = e.target.checked;
     //     if (checked) {
@@ -48,51 +69,51 @@ function SignUp() {
     //     }
     // }
     function showPassword() {
-        setPassword(false)
+        setPasswordType(false)
         document.getElementById("show").style.display = "none";
         document.getElementById("hide").style.display = "table";
 
     }
     function hidePassword() {
-        setPassword(true)
+        setPasswordType(true)
         document.getElementById("show").style.display = "table";
         document.getElementById("hide").style.display = "none";
     }
 
-    let uniqueIdGenerator = () => {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
+    // let uniqueIdGenerator = () => {
+    //     return Math.floor((1 + Math.random()) * 0x10000)
+    //         .toString(16)
+    //         .substring(1);
+    // }
 
-    function designation(e) {
+    // function designation(e) {
 
-        let userData = document.getElementById("userID");
-        const userValue = e.target.value;
-        if (userValue === "donor") {
-            let result = uniqueIdGenerator()
-            let userdezi = "D-"
-            let final = userdezi.concat(result)
-            userData.value = final
-            user.uid = final
+    //     let userData = document.getElementById("userID");
+    //     const userValue = e.target.value;
+    //     if (userValue === "donor") {
+    //         let result = uniqueIdGenerator()
+    //         let userdezi = "D-"
+    //         let final = userdezi.concat(result)
+    //         userData.value = final
+    //         user.uid = final
 
-        } else if (userValue === "seeker") {
-            let result = uniqueIdGenerator()
-            let userdezi = "S-"
-            let final = userdezi.concat(result)
-            userData.value = final
-            user.uid = final
+    //     } else if (userValue === "seeker") {
+    //         let result = uniqueIdGenerator()
+    //         let userdezi = "S-"
+    //         let final = userdezi.concat(result)
+    //         userData.value = final
+    //         user.uid = final
 
-        }
-        else {
-            let result = uniqueIdGenerator()
-            let userdesi = "A-"
-            let final = userdesi.concat(result)
-            userData.value = final
-            user.uid = final
+    //     }
+    //     else {
+    //         let result = uniqueIdGenerator()
+    //         let userdesi = "A-"
+    //         let final = userdesi.concat(result)
+    //         userData.value = final
+    //         user.uid = final
 
-        }
-    }
+    //     }
+    // }
 
     return (
         <section className="main-about-heading  ">
@@ -124,19 +145,19 @@ function SignUp() {
             <div className="container my-5">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
-                        <form
-                            method='POST'
-                            autoComplete="off"
+                        <div
+                            // method='POST'
+                            // autoComplete="off"
                             id="signUpForm"
-                            onSubmit={postData}
+                        // onSubmit={postData}
                         >
-                            <div>
+                            {/* <div>
                                 <h4>
                                     Who you are?
                                 </h4>
                             </div>
                             <div className="row py-2">
-                                <div className='col text-center'>
+                                <div className='col'>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -148,11 +169,11 @@ function SignUp() {
                                         id="flexRadioDefault1"
                                         defaultChecked
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
                                         Donor
                                     </label>
                                 </div>
-                                <div className='col text-center'>
+                                <div className='col'>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -163,11 +184,11 @@ function SignUp() {
                                         name="flexRadioDefault"
                                         id="flexRadioDefault2"
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault2">
                                         Seeker
                                     </label>
                                 </div>
-                                <div className='col text-center'>
+                                <div className='col'>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -179,13 +200,13 @@ function SignUp() {
                                         id="flexRadioDefault3"
 
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault3">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault3">
                                         Admin
                                     </label>
                                 </div>
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">User ID</label>
+                            </div> */}
+                            {/* <div className="mb-3">
+                                <label className="form-label fw-bold">User ID</label>
                                 <input
                                     // {getUserData}
                                     id='userID'
@@ -196,14 +217,14 @@ function SignUp() {
                                     placeholder="User ID"
                                     // readonly
                                     disabled
-
                                 />
-                            </div>
+                            </div> */}
                             <div className="mb-3">
-                                <label className="form-label" >Name</label>
+                                <label className="form-label fw-bold" >Name</label>
                                 <input
-                                    value={user.value}
-                                    onChange={getUserData}
+                                    value={name}
+                                    // onChange={getUserData}
+                                    onChange={(e) => setName(e.target.value)}
                                     name='name'
                                     type="text"
                                     className="form-control"
@@ -212,10 +233,12 @@ function SignUp() {
                                 />
                             </div>
                             <div className="mb-3">
-                                <label className="form-label">Email address</label>
+                                <label className="form-label fw-bold">Email address</label>
                                 <input
-                                    value={user.value}
-                                    onChange={getUserData}
+                                    value={email}
+                                    // onChange={getUserData}
+                                    onChange={(e) => setEmail(e.target.value)}
+
                                     name="email"
                                     type="email"
                                     className="form-control"
@@ -224,8 +247,8 @@ function SignUp() {
                                 />
                             </div>
 
-                            <div className="mb-3">
-                                <label className="form-label">Phone number</label>
+                            {/* <div className="mb-3">
+                                <label className="form-label fw-bold">Phone number</label>
                                 <input
                                     value={user.value}
                                     onChange={getUserData}
@@ -236,18 +259,20 @@ function SignUp() {
                                     required
 
                                 />
-                            </div>
+                            </div> */}
 
                             <div className="mb-3"
                                 style={{ position: "relative" }}
                             >
-                                <label className="form-label">Password</label>
+                                <label className="form-label fw-bold">Password</label>
                                 <input
-                                    value={user.value}
-                                    onChange={getUserData}
-                                    name='password'
+                                    value={password}
+                                    // onChange={getUserData}
+                                    // name='password'
+                                    onChange={(e) => setPassword(e.target.value)}
+
                                     id="password"
-                                    type={password ? "password" : "text"}
+                                    type={passwordType ? "password" : "text"}
                                     className="form-control"
                                     placeholder="Password"
                                     required
@@ -281,7 +306,7 @@ function SignUp() {
                                 <button
                                     type="submit"
                                     className="btn btn-primary w-100"
-                                // onClick={postData}
+                                    onClick={register}
                                 >Submit</button>
                                 {/* <div className="h6 ">
                                         <a style={{ color: "blue", cursor: "pointer", align: "right" }}
@@ -291,15 +316,19 @@ function SignUp() {
                                     </div> */}
 
                             </div>
-                            <div className="h6 text-end ">
+                            {/* <div className="h6 text-end ">
                                 Already registred ?
                                 <a
                                     className='alreadyAccount'
                                     style={{ color: "blue", cursor: "pointer" }}
-                                    onClick={registration}> Sign in
+                                // onClick={registration}
+                                > Sign in
                                 </a>
+                            </div> */}
+                            <div>
+                                Already have an account? <Link to="/sign-in">Login</Link> now.
                             </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -8,6 +8,8 @@ import ComponentProvider from "./components/componentProvider/ComponentProvider"
 import SignIn from './components/registrationForm/SignIn';
 import SignUp from './components/registrationForm/SignUp';
 import DashboardProvider from "./components/dashboard/DashboardProvider";
+import ForgotPassword from "./components/registrationForm/ForgotPassword";
+import MyDasdBoard from "./components/myDashboard/MyDashBoard";
 
 // dashboard
 // import Main from './components/mainDashboard/main'
@@ -18,7 +20,6 @@ function App() {
 
   return (
     <div className="App">
-     {/* <Main /> */}
       <ToastContainer
         theame="colored"
         position="top-right"
@@ -33,7 +34,7 @@ function App() {
       />
       {/* Same as */}
 
-     {/* <Main /> */}
+      {/* <Main /> */}
 
       <ToastContainer theme="colored" />
       <Router>
@@ -41,7 +42,8 @@ function App() {
           <Route exact path="/" element={<ComponentProvider />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-            <Route path="/dashboard" element={<DashboardProvider />} /> 
+          <Route path="/dashboard" element={< MyDasdBoard/>} />
+          <Route path="/forgotPassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
       <ScrollButton />
