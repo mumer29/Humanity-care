@@ -15,6 +15,8 @@ function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading, error] = useAuthState(auth);
+    const [userDasignation, setUserDasignation] = useState("")
+
     // const history = useHistory();
     useEffect(() => {
         if (loading) {
@@ -41,39 +43,59 @@ function SignIn() {
     //     setUser({ ...user, [name]: value })
     // }
 
-    // const postData = async (e) => {
-    //     e.preventDefault();
-    //     // console.log(user);
 
-    //     // firebase auth
-    //     auth.createUserWithEmailAndPassword(user.email, user.password)
-    //         .then(user => {
-    //             console.log(user);
-    //         }).catch(err => {
-    //             console.log(err);
-    //         })
 
-    //     let db = []
-    //     await firestore.collection("care-humanity").get().then((querySnapshot) => {
-    //         querySnapshot.forEach(element => {
-    //             var data = element.data()
-    //             db.push(data)
-    //         })
-    //     })
-    //     let result = db.find((item) => {
-    //         if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
-    //             return item;
-    //         }
-    //     })
-    //     if (result) {
-    //         toast.success('log in successfully')
-    //         document.getElementById('loginForm').reset()
-    //         navigate("/dashboard")
-    //     } else {
-    //         toast.error("Email or Password or designation is incorect")
-    //         navigate("/sign-in")
-    //     }
-    // }
+    const postData = async (e) => {
+        //     e.preventDefault();
+        //     // console.log(user);
+
+        //     // firebase auth
+        //     auth.createUserWithEmailAndPassword(user.email, user.password)
+        //         .then(user => {
+        //             console.log(user);
+        //         }).catch(err => {
+        //             console.log(err);
+        //         })
+
+
+        if (!userDasignation) {
+            toast.error("Please select a designation from  Donor, Seeker and Admin")
+        } else if (!email) {
+            toast.error("Please inter your email")
+        } else if (!password) {
+            toast.error("Please inter your password at least 6 characters long")
+        }
+        else {
+            let db = [];
+            await firestore.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach(element => {
+                    var data = element.data()
+                    // console.log(data);
+                    db.push(data)
+                })
+            })
+            // console.log(db);
+            let result = db.find((item) => {
+                if (item.userDasignation === userDasignation && item.email === email) {
+                    return item;
+                }
+            })
+            if (result) {
+
+                // toast.success('log in successfully')
+                signInWithEmailAndPassword(email, password)
+
+                // navigate("/dashboard")
+            } else {
+                // toast.error("Email or Password or designation is incorect")
+                navigate("/sign-in")
+            }
+        }
+
+
+
+
+    }
     // function registration() {
     //     navigate("/sign-up")
 
@@ -89,17 +111,37 @@ function SignIn() {
         document.getElementById("show").style.display = "table";
         document.getElementById("hide").style.display = "none";
     }
-    // function designation(e) {
-    //     const userValue = e.target.value;
-    //     if (userValue === "donor") {
-    //         user.uid = "D"
-    //     } else if (userValue === "seeker") {
-    //         user.uid = "S"
-    //     } else {
-    //         user.uid = "A"
-    //     }
-    // }
 
+    function designation(e) {
+
+        const userValue = e.target.value;
+        if (userValue === "donor") {
+            // setUserDasignation("donor")
+            // let result = uniqueIdGenerator()
+            // let userdezi = "D-"
+            // let final = userdezi.concat(result)
+            // setUserID(final)
+            setUserDasignation("donor")
+
+        } else if (userValue === "seeker") {
+            // setUserDasignation("seeker")
+            // let result = uniqueIdGenerator()
+            // let userdezi = "S-"
+            // let final = userdezi.concat(result)
+            // setUserID(final)
+            setUserDasignation("seeker")
+
+        }
+        else {
+            // setUserDasignation("admin")
+            // let result = uniqueIdGenerator()
+            // let userdesi = "A-"
+            // let final = userdesi.concat(result)
+            // setUserID(final)
+            setUserDasignation("admin")
+
+        }
+    }
 
     return (
         <section className="main-about-heading  ">
@@ -132,17 +174,17 @@ function SignIn() {
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
                         <div
-                            // autoComplete="off"
-                            id="loginForm"
+                        // autoComplete="off"
+                        // id="loginForm"
                         // method='POST'
                         // onSubmit={postData}
                         >
-                            {/* <div>
+                            <div>
                                 <h4>
                                     Who you are?
                                 </h4>
-                            </div> */}
-                            {/* <div className="row py-2">
+                            </div>
+                            <div className="row py-2">
                                 <div className='col '>
                                     <input
                                         onClick={(e) => {
@@ -153,9 +195,6 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault1"
-                                        defaultChecked
-
-
                                     />
                                     <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
                                         Donor
@@ -171,8 +210,6 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault2"
-
-
                                     />
                                     <label className="form-check-label fw-bold" htmlFor="flexRadioDefault2">
                                         Seeker
@@ -188,15 +225,12 @@ function SignIn() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault3"
-
-
-
                                     />
                                     <label className="form-check-label fw-bold" htmlFor="flexRadioDefault3">
                                         Admin
                                     </label>
                                 </div>
-                            </div> */}
+                            </div>
 
 
                             <div className="mb-3">
@@ -265,8 +299,8 @@ function SignIn() {
                                 <button
                                     type="submit"
                                     className="btn btn-primary w-100 "
-                                    // onClick={postData}
-                                    onClick={() => signInWithEmailAndPassword(email, password)}
+                                    onClick={postData}
+                                // onClick={() => signInWithEmailAndPassword(email, password)}
                                 >Submit</button>
 
                             </div>
@@ -283,7 +317,7 @@ function SignIn() {
                             </div> */}
                             <div className='py-2'    >
                                 <Link to="/forgotPassword"
-                                    className='forgotPassword ' 
+                                    className='forgotPassword '
                                 >Forgot Password</Link>
                             </div>
                             <div>

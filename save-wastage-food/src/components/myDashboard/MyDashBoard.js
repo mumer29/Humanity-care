@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-// import { useHistory } from "react-router";
 import { Link, useNavigate } from "react-router-dom";
 
 import "./MyDashBoard.css";
@@ -37,6 +36,7 @@ function MyDasdBoard() {
         <button className="dashboard__btn" onClick={logout}>
           Logout
         </button>
+        <Link to='/'>Go back on home page</Link>
       </div>
     </div>
   );

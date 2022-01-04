@@ -21,10 +21,28 @@ function SignUp() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("")
     const [user, loading, error] = useAuthState(auth);
+    // const [userID, setUserID] = useState("");
+    const [userDasignation, setUserDasignation] = useState("")
+    // console.log("auh",authProvider);
 
     const register = () => {
-        if (!name) alert("Please enter name");
-        registerWithEmailAndPassword(name, phone, email, password);
+        if (!userDasignation) {
+            toast.error("Please select a designation from  Donor, Seeker and Admin")
+        } else if (!name) {
+            toast.error("Please inter your name")
+        } else if (!email) {
+            toast.error("Please inter your email")
+        }
+        else if (!phone) {
+            toast.error("Please inter your phone number")
+        }
+        else if (!password) {
+            toast.error("Please inter your password at least 6 characters long")
+        }
+        else {
+            registerWithEmailAndPassword(name, userDasignation, phone, email, password);
+        }
+
     };
     useEffect(() => {
         if (loading) return;
@@ -81,40 +99,42 @@ function SignUp() {
         document.getElementById("hide").style.display = "none";
     }
 
-    // let uniqueIdGenerator = () => {
-    //     return Math.floor((1 + Math.random()) * 0x10000)
-    //         .toString(16)
-    //         .substring(1);
-    // }
+    let uniqueIdGenerator = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+            .toString(16)
+            .substring(1);
+    }
 
-    // function designation(e) {
+    function designation(e) {
 
-    //     let userData = document.getElementById("userID");
-    //     const userValue = e.target.value;
-    //     if (userValue === "donor") {
-    //         let result = uniqueIdGenerator()
-    //         let userdezi = "D-"
-    //         let final = userdezi.concat(result)
-    //         userData.value = final
-    //         user.uid = final
+        const userValue = e.target.value;
+        if (userValue === "donor") {
+            // setUserDasignation("donor")
+            // let result = uniqueIdGenerator()
+            // let userdezi = "D-"
+            // let final = userdezi.concat(result)
+            // setUserID(final)
+            setUserDasignation("donor")
 
-    //     } else if (userValue === "seeker") {
-    //         let result = uniqueIdGenerator()
-    //         let userdezi = "S-"
-    //         let final = userdezi.concat(result)
-    //         userData.value = final
-    //         user.uid = final
+        } else if (userValue === "seeker") {
+            // setUserDasignation("seeker")
+            // let result = uniqueIdGenerator()
+            // let userdezi = "S-"
+            // let final = userdezi.concat(result)
+            // setUserID(final)
+            setUserDasignation("seeker")
 
-    //     }
-    //     else {
-    //         let result = uniqueIdGenerator()
-    //         let userdesi = "A-"
-    //         let final = userdesi.concat(result)
-    //         userData.value = final
-    //         user.uid = final
+        }
+        else {
+            // setUserDasignation("admin")
+            // let result = uniqueIdGenerator()
+            // let userdesi = "A-"
+            // let final = userdesi.concat(result)
+            // setUserID(final)
+            setUserDasignation("admin")
 
-    //     }
-    // }
+        }
+    }
 
     return (
         <section className="main-about-heading  ">
@@ -146,13 +166,8 @@ function SignUp() {
             <div className="container mb-2">
                 <div className="row">
                     <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
-                        <div
-                            // method='POST'
-                            // autoComplete="off"
-                            // id="signUpForm"
-                        // onSubmit={postData}
-                        >
-                            {/* <div>
+                        <div>
+                            <div>
                                 <h4>
                                     Who you are?
                                 </h4>
@@ -168,7 +183,6 @@ function SignUp() {
                                         type="radio"
                                         name="flexRadioDefault"
                                         id="flexRadioDefault1"
-                                        defaultChecked
                                     />
                                     <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
                                         Donor
@@ -205,15 +219,15 @@ function SignUp() {
                                         Admin
                                     </label>
                                 </div>
-                            </div> */}
+                            </div>
                             {/* <div className="mb-3">
                                 <label className="form-label fw-bold">User ID</label>
                                 <input
                                     // {getUserData}
-                                    id='userID'
+                                    // id='userId'
                                     type="text"
-                                    name="userId"
-                                    value={user.value}
+                                    // name="userId"
+                                    value={userID}
                                     className="form-control"
                                     // placeholder="User ID"
                                     // readonly
@@ -327,7 +341,7 @@ function SignUp() {
                                 > Sign in
                                 </a>
                             </div> */}
-                             <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
+                            <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
                                 Login with Google
                             </button>
                             <div className='py-2'>
