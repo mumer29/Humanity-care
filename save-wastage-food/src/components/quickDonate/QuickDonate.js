@@ -30,9 +30,6 @@ function QuickDonate() {
     // }
     const authentication = (e) => {
         let result = e.target.value;
-        //   console.log(result);
-        // let donate = document.getElementsByClassName("donateForm")
-
         if (result === "yes") {
             navigate("/sign-up");
         } else {
@@ -55,8 +52,6 @@ function QuickDonate() {
                             onChange={e => setPayment(e.target.value)}
                             className="form-select border-success border-2 "
                             aria-label="Default select example"
-
-
                             style={{ height: "100%", width: "100%" }}>
                             <option value="single-payment">Single Payment</option>
                             <option value="regular-payment">Regular Payment</option>
@@ -98,110 +93,103 @@ function QuickDonate() {
                                 fontWight: ' bold', color: 'white', fontSize: '17px', backgroundColor: 'rgb(193, 35, 35)'
                             }}> Donate Now</button>
                     </div>
-                    <>
-
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                                <Modal.Title>Do you want to register?</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <div className="container">
-                                    <div className="row">
-                                        <div className="col-xxl-8 col-10 col-md-10 mx-auto  ">
-                                            <div>
-                                                <div className="row py-2">
-                                                    <div className='col '>
-                                                        <input
-                                                            onClick={(e) => {
-                                                                authentication(e);
-                                                            }}
-                                                            value="yes"
-                                                            className="form-check-input me-2"
-                                                            type="radio"
-                                                            name="flexRadioDefault"
-                                                            id="flexRadioDefault1"
-
-
-                                                        />
-                                                        <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
-                                                            Yes
-                                                        </label>
-                                                    </div>
-                                                    <div className='col '>
-                                                        <input
-                                                            onClick={(e) => {
-                                                                authentication(e);
-                                                            }}
-                                                            value="no"
-                                                            className="form-check-input me-2"
-                                                            type="radio"
-                                                            name="flexRadioDefault"
-                                                            id="flexRadioDefault2"
-
-
-                                                        />
-                                                        <label className="form-check-label fw-bold" htmlFor="flexRadioDefault2">
-                                                            No
-                                                        </label>
-                                                    </div>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Do you want to register?</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col-xxl-8 col-10 col-md-10 mx-auto  ">
+                                        <div>
+                                            <div className="row py-2">
+                                                <div className='col '>
+                                                    <input
+                                                        onClick={(e) => {
+                                                            authentication(e);
+                                                        }}
+                                                        value="yes"
+                                                        className="form-check-input me-2"
+                                                        type="radio"
+                                                        name="flexRadioDefault"
+                                                        id="flexRadioDefault1"
+                                                    />
+                                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
+                                                        Yes
+                                                    </label>
+                                                </div>
+                                                <div className='col '>
+                                                    <input
+                                                        onClick={(e) => {
+                                                            authentication(e);
+                                                        }}
+                                                        value="no"
+                                                        className="form-check-input me-2"
+                                                        type="radio"
+                                                        name="flexRadioDefault"
+                                                        id="flexRadioDefault2"
+                                                    />
+                                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault2">
+                                                        No
+                                                    </label>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div
-                                    id={showHide}
-                                    className="container mb-2 ">
-                                    <div className="row">
-                                        <div className="col-md-10 mx-auto  ">
-                                            <div >
-                                                <div className="mb-3">
-                                                    <label className="form-label fw-bold" >Name</label>
-                                                    <input
-                                                        name='name'
-                                                        type="text"
-                                                        className="form-control"
-                                                        required
-                                                    />
-                                                </div>
-                                                <div className="mb-3">
-                                                    <label className="form-label fw-bold">Email address</label>
-                                                    <input
+                            </div>
 
-                                                        name="email"
-                                                        type="email"
-                                                        className="form-control"
-                                                        required
-                                                    />
-                                                </div>
+                            <div
+                                id={showHide}
+                                className="container mb-2 ">
+                                <div className="row">
+                                    <div className="col-md-10 mx-auto  ">
+                                        <div >
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold" >Name</label>
+                                                <input
+                                                    name='name'
+                                                    type="text"
+                                                    className="form-control"
+                                                    required
+                                                />
+                                            </div>
 
-                                                <div className="mb-3">
-                                                    <label className="form-label fw-bold">Phone number</label>
-                                                    <input
-                                                        name='phone'
-                                                        type="number"
-                                                        className="form-control"
-                                                        required
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">Email address</label>
+                                                <input
 
-                                                    />
-                                                </div>
+                                                    name="email"
+                                                    type="email"
+                                                    className="form-control"
+                                                    required
+                                                />
+                                            </div>
 
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">Phone number</label>
+                                                <input
+                                                    name='phone'
+                                                    type="number"
+                                                    className="form-control"
+                                                    required
 
+                                                />
+                                            </div>
 
-                                                <div className="text-center py-3">
-                                                    <button
-                                                        type="submit"
-                                                        className="btn btn-primary w-100"
-                                                    >Submit</button>
-                                                </div>
+                                            <div className="text-center py-3">
+                                                <button
+                                                    type="submit"
+                                                    className="btn btn-primary w-100"
+                                                >Submit</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                            </Modal.Body>
-                        </Modal>
-                    </>
+                        </Modal.Body>
+                    </Modal>
                 </div>
             </div>
         </div >
