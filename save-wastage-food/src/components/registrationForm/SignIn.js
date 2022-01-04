@@ -1,79 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './sign.css'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { firestore } from "../../firebase";
+import { firestore, auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
+import { useAuthState } from "react-firebase-hooks/auth";
+
 
 
 
 function SignIn() {
 
     const navigate = useNavigate();
-    const [password, setPassword] = useState(true)
-    const [user, setUser] = useState({
-        email: "",
-        password: "",
-        uid: '',
-
-    })
-
-
-    let name, value;
-    const getUserData = (evt) => {
-        name = evt.target.name;
-        value = evt.target.value;
-        setUser({ ...user, [name]: value })
-    }
-
-    const postData = async (e) => {
-        e.preventDefault();
-        console.log(user);
-        let db = []
-        await firestore.collection("care-humanity").get().then((querySnapshot) => {
-            querySnapshot.forEach(element => {
-                var data = element.data()
-                db.push(data)
-            })
-        })
-        let result = db.find((item) => {
-            if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
-                return item;
-            }
-        })
-        if (result) {
-            toast.success('log in successfully')
-            document.getElementById('loginForm').reset()
-            navigate("/dashboard")
-        } else {
-            toast.error("Email or Password or designation is incorect")
-            navigate("/sign-in")
+    const [passwordType, setPasswordType] = useState(true)
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [user, loading, error] = useAuthState(auth);
+    // const history = useHistory();
+    useEffect(() => {
+        if (loading) {
+            // maybe trigger a loading screen
+            return;
         }
-    }
-    function registration() {
-        navigate("/sign-up")
+        if (user) navigate("/dashboard");
+    }, [user, loading]);
 
-    }
+    // const navigate = useNavigate();
+    // const [password, setPassword] = useState(true)
+    // const [user, setUser] = useState({
+    //     email: "",
+    //     password: "",
+    //     uid: '',
+
+    // })
+
+
+    // let name, value;
+    // const getUserData = (evt) => {
+    //     name = evt.target.name;
+    //     value = evt.target.value;
+    //     setUser({ ...user, [name]: value })
+    // }
+
+    // const postData = async (e) => {
+    //     e.preventDefault();
+    //     // console.log(user);
+
+    //     // firebase auth
+    //     auth.createUserWithEmailAndPassword(user.email, user.password)
+    //         .then(user => {
+    //             console.log(user);
+    //         }).catch(err => {
+    //             console.log(err);
+    //         })
+
+    //     let db = []
+    //     await firestore.collection("care-humanity").get().then((querySnapshot) => {
+    //         querySnapshot.forEach(element => {
+    //             var data = element.data()
+    //             db.push(data)
+    //         })
+    //     })
+    //     let result = db.find((item) => {
+    //         if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
+    //             return item;
+    //         }
+    //     })
+    //     if (result) {
+    //         toast.success('log in successfully')
+    //         document.getElementById('loginForm').reset()
+    //         navigate("/dashboard")
+    //     } else {
+    //         toast.error("Email or Password or designation is incorect")
+    //         navigate("/sign-in")
+    //     }
+    // }
+    // function registration() {
+    //     navigate("/sign-up")
+
+    // }
     function showPassword() {
-        setPassword(false)
+        setPasswordType(false)
         document.getElementById("show").style.display = "none";
         document.getElementById("hide").style.display = "table";
 
     }
     function hidePassword() {
-        setPassword(true)
+        setPasswordType(true)
         document.getElementById("show").style.display = "table";
         document.getElementById("hide").style.display = "none";
     }
-    function designation(e) {
-        const userValue = e.target.value;
-        if (userValue === "donor") {
-            user.uid = "D"
-        } else if (userValue === "seeker") {
-            user.uid = "S"
-        } else {
-            user.uid = "A"
-        }
-    }
+    // function designation(e) {
+    //     const userValue = e.target.value;
+    //     if (userValue === "donor") {
+    //         user.uid = "D"
+    //     } else if (userValue === "seeker") {
+    //         user.uid = "S"
+    //     } else {
+    //         user.uid = "A"
+    //     }
+    // }
 
 
     return (
@@ -103,21 +128,22 @@ function SignIn() {
                 <h1 className="display-6 fw-bold text-uppercase">Sign in</h1>
                 <hr className="w-25 mx-auto " />
             </div>
-            <div className="container my-5">
+            <div className="container">
                 <div className="row">
-                    <div className="col-xxl-8 col-10 col-md-8 mx-auto  ">
-                        <form
-                            autoComplete="off"
+                    <div className="col-xxl-8 col-10 col-md-4 mx-auto  ">
+                        <div
+                            // autoComplete="off"
                             id="loginForm"
-                            method='POST'
-                            onSubmit={postData}>
-                            <div>
+                        // method='POST'
+                        // onSubmit={postData}
+                        >
+                            {/* <div>
                                 <h4>
                                     Who you are?
                                 </h4>
-                            </div>
-                            <div className="row py-2">
-                                <div className='col text-center'>
+                            </div> */}
+                            {/* <div className="row py-2">
+                                <div className='col '>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -131,11 +157,11 @@ function SignIn() {
 
 
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault1">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault1">
                                         Donor
                                     </label>
                                 </div>
-                                <div className='col text-center'>
+                                <div className='col '>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -148,11 +174,11 @@ function SignIn() {
 
 
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault2">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault2">
                                         Seeker
                                     </label>
                                 </div>
-                                <div className='col text-center'>
+                                <div className='col '>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -166,40 +192,43 @@ function SignIn() {
 
 
                                     />
-                                    <label className="form-check-label" htmlFor="flexRadioDefault3">
+                                    <label className="form-check-label fw-bold" htmlFor="flexRadioDefault3">
                                         Admin
                                     </label>
                                 </div>
-                            </div>
+                            </div> */}
 
 
                             <div className="mb-3">
                                 <label
-                                    className="form-label">Email address</label>
+                                    className="form-label fw-bold">Email address</label>
                                 <input
                                     type="email"
                                     name="email"
-                                    value={user.email}
-                                    onChange={getUserData}
+                                    value={email}
+                                    // onChange={getUserData}
+                                    onChange={(e) => setEmail(e.target.value)}
                                     className="form-control"
-                                    placeholder="abc@example.com"
+                                    // placeholder="abc@example.com"
                                     required
                                 />
                             </div>
 
                             <div className="mb-3"
                                 style={{ position: "relative" }}
-                                >
-                                <label className="form-label">Password</label>
+                            >
+                                <label className="form-label fw-bold">Password</label>
                                 <input
 
                                     id="password"
-                                    type={password ? "password" : "text"}
+                                    type={passwordType ? "password" : "text"}
                                     name="password"
-                                    value={user.password}
-                                    onChange={getUserData}
+                                    value={password}
+                                    // onChange={getUserData}
+                                    onChange={(e) => setPassword(e.target.value)}
+
                                     className="form-control"
-                                    placeholder="Password"
+                                    // placeholder="Password"
                                     required
                                 />
                                 <i className="fas fa-eye visible"
@@ -226,28 +255,45 @@ function SignIn() {
                                 </label>
                             </div> */}
 
-                            <div className="h6">
+                            {/* <div className="h6 forgotPassword">
                                 <a style={{ color: "red", cursor: "pointer" }}
                                 // onClick={registration}
                                 >forgot password.??</a>
-                            </div>
-                            <div className="text-center">
+                            </div> */}
+
+                            <div className="text-center py-3">
                                 <button
                                     type="submit"
-                                    className="btn btn-primary "
-                                // onClick={postData}
+                                    className="btn btn-primary w-100 "
+                                    // onClick={postData}
+                                    onClick={() => signInWithEmailAndPassword(email, password)}
                                 >Submit</button>
-                                <div className="h6 text-end ">
-                                    <a style={{ color: "blue", cursor: "pointer" }}
-                                        onClick={registration}>
-                                    <u>Create An Account</u></a>
-                                </div>
+
                             </div>
-                        </form>
+                            <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
+                                Login with Google
+                            </button>
+                            {/* <div className="h6 text-end ">
+                                Not yet register ?
+                                <a
+                                    className=' createAccount'
+                                    style={{ color: "blue", cursor: "pointer" }}
+                                // onClick={registration}
+                                > Sign up</a>
+                            </div> */}
+                            <div className='py-2'    >
+                                <Link to="/forgotPassword"
+                                    className='forgotPassword ' 
+                                >Forgot Password</Link>
+                            </div>
+                            <div>
+                                Don't have an account? <Link to="/Sign-up">Register</Link> now.
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </section >
     )
 }
 

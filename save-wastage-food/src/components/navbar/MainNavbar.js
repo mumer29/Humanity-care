@@ -231,11 +231,11 @@ function Navbar() {
                                     style={{ color: "white", fontWeight: 500 }}
                                 >
                                     <button className='btn btn-success  text-uppercase btn-sm '
-                                        style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px" }} >donate</button>
+                                        style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px",width: "110px" }} >donate</button>
 
                                 </a>
                             </li>
-                            <li className="nav-item  ">
+                            {/* <li className="nav-item  ">
                                 <a className="nav-link active py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500, fontSize: "20px" }}
                                 >
@@ -253,7 +253,7 @@ function Navbar() {
 
 
                                 </a>
-                            </li>
+                            </li> */}
                             <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500, fontSize: "20px" }} >
@@ -262,14 +262,14 @@ function Navbar() {
 
                                 </a>
                             </li>
-                            <li className="nav-item  ">
+                            {/* <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500, fontSize: "20px" }}
                                 >
                                     <i class="fas fa-shopping-bag"></i>
 
                                 </a>
-                            </li>
+                            </li> */}
 
                         </ul>
                     </div>
