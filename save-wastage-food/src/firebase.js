@@ -86,7 +86,7 @@ const logout = () => {
 const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
-    toast.success("Password reset link is sent on your email")
+    toast.success("Password reset link is sent on your email address")
     // alert("Password reset link sent!");
   } catch (err) {
     // console.log(err.message);
