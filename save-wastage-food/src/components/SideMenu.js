@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import logo from "../assets/logo/webscript.png";
-import user from "../assets/user.jpg";
+import logo from "../assetss/logo/webscript.png";
+import user from "../assetss/logo/user.jpg";
 
 import MenuItem from "./MenuItem";
 
