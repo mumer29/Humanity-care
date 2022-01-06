@@ -31,26 +31,28 @@ const Layout = () => {
     }, [dispatch])
 
     return (
-        <div>
-            <h1>dashboard</h1>
-        </div>
-        // <Routes>
-        //     <Route render={(props) => (
-        //         <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-        //             <Sidebar {...props} />
-        //             <div className="layout__content">
-        //                 <TopNav />
-        //                 <div className="layout__content-main">
-        //                     <DashboardRoutes />
-                            
-        //                      {/* <Route path="/" element={<Dashboard />} />
-        //                      <Route path="/customers" element={<Customers />} /> */}
+        <>
+            <div>
+                <h1>dashboard</h1>
+            </div>
+            <Routes>
+                <Route render={(props) => (
+                    <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
+                        <Sidebar {...props} />
+                        <div className="layout__content">
+                            <TopNav />
+                            <div className="layout__content-main">
+                                {/* <DashboardRoutes /> */}
 
-        //                 </div>
-        //             </div>
-        //         </div>
-        //     )} />
-        // </Routes>
+                                {/* <Route path="/" element={<Dashboard />} />
+                             <Route path="/customers" element={<Customers />} /> */}
+
+                            </div>
+                        </div>
+                    </div>
+                )} />
+            </Routes>
+        </>
     )
 }
 

@@ -10,6 +10,9 @@ import SignIn from './components/registrationForm/SignIn';
 import SignUp from './components/registrationForm/SignUp';
 import ForgotPassword from "./components/registrationForm/ForgotPassword";
 import MyDasdBoard from "./components/myDashboard/MyDashBoard";
+import Layout from "./components/layout/Layout";
+import Dashboard from "./pages/Dashboard";
+import Customers from "./pages/Customers";
 
 
 function App() {
@@ -34,7 +37,9 @@ function App() {
           <Route exact path="/" element={<ComponentProvider />} />
           <Route path="/sign-in" element={<SignIn />} />
           <Route path="/sign-up" element={<SignUp />} />
-          <Route path="/dashboard" element={< MyDasdBoard />} />
+          <Route path="/dashboard" element={< Layout/>} />
+          <Route path="/dashboard1" element={< Dashboard/>} />
+          <Route path="/dashboard2" element={< Customers/>} />
           <Route path="/forgotPassword" element={<ForgotPassword />} />
         </Routes>
       </Router>
