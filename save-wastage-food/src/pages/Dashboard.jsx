@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import Chart from 'react-apexcharts'
 
@@ -239,6 +239,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
+            <Outlet/>
         </div>
     )
 }

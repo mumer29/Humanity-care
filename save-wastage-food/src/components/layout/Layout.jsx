@@ -1,18 +1,16 @@
-import React, { useEffect } from 'react'
+import React, {useEffect} from 'react'
 
 import './layout.css'
 
 import Sidebar from '../sidebar/Sidebar'
 import TopNav from '../topnav/TopNav'
-import DashboardRoutes from '../Routes'
+import Routes from '../Routes'
 
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Outlet } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
 import ThemeAction from '../../redux/actions/ThemeAction'
-import Dashboard from '../../pages/Dashboard'
-import Customers from '../../pages/Customers'
 
 const Layout = () => {
 
@@ -31,28 +29,18 @@ const Layout = () => {
     }, [dispatch])
 
     return (
-        <>
-            <div>
-                <h1>dashboard</h1>
-            </div>
-            <Routes>
-                <Route render={(props) => (
-                    <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-                        <Sidebar {...props} />
-                        <div className="layout__content">
-                            <TopNav />
-                            <div className="layout__content-main">
-                                {/* <DashboardRoutes /> */}
-
-                                {/* <Route path="/" element={<Dashboard />} />
-                             <Route path="/customers" element={<Customers />} /> */}
-
-                            </div>
+            <Route render={(props) => (
+                <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
+                    <Sidebar {...props}/>
+                    <div className="layout__content">
+                        <TopNav/>
+                        <div className="layout__content-main">
+                            {/* <DashboardRoutes/> */}
+                            <Outlet/>
                         </div>
                     </div>
-                )} />
-            </Routes>
-        </>
+                </div>
+            )}/>
     )
 }
 

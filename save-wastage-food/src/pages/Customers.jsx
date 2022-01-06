@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import {Outlet} from 'react-router-dom'
 
 import Table from '../components/table/Table'
 
@@ -49,6 +50,7 @@ const Customers = () => {
                     </div>
                 </div>
             </div>
+          <  Outlet/>
         </div>
     )
 }
