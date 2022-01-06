@@ -72,8 +72,6 @@ function App() {
           />
   
           <div className={`container ${inactive ? "inactive" : ""}`}>
-            {/* improvememt, not recorded in video, its just looping through menuItems
-            instead of hard coding all the routes */}
             {menuItems.map((menu, index) => (
               <>
                 <Route key={menu.name} exact={menu.exact} path={menu.to}>
