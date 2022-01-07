@@ -88,12 +88,15 @@ const Topnav = () => {
             </div>
             <div className="topnav__right">
                 <div className="topnav__right-item">
+                {/* <i class="far fa-user dashborad-user"></i> */}
+
+                  <h4> {name}</h4>  
                     {/* dropdown here */}
-                    <Dropdown
+                    {/* <Dropdown
                         customToggle={() => renderUserToggle(curr_user)}
                         contentData={user_menu}
                         renderItems={(item, index) => renderUserMenu(item, index)}
-                    />
+                    /> */}
                     {/* <div className="dashboard"> */}
                         {/* <div className="dashboard__container"> */}
                             {/* user name */}
