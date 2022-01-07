@@ -90,7 +90,8 @@ const Topnav = () => {
                 <div className="topnav__right-item">
                 {/* <i class="far fa-user dashborad-user"></i> */}
 
-                  <h4> {name}</h4>  
+                  <h4 
+                  style={{margin:"0"}}> {name}</h4>  
                     {/* dropdown here */}
                     {/* <Dropdown
                         customToggle={() => renderUserToggle(curr_user)}
