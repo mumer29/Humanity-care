@@ -1,8 +1,13 @@
-import React from 'react'
+// import React from 'react'
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useHistory } from "react-router-dom";
+import { auth, db, logout } from "../../firebase";
+
 
 import './topnav.css'
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 import Dropdown from '../dropdown/Dropdown'
 
@@ -14,10 +19,10 @@ import user_image from '../../assets/images/tuat.png'
 
 import user_menu from '../../assets/JsonData/user_menus.json'
 
-const curr_user = {
-    display_name: 'Tuat Tran',
-    image: user_image
-}
+
+
+
+
 
 const renderNotificationItem = (item, index) => (
     <div className="notification-item" key={index}>
@@ -37,7 +42,7 @@ const renderUserToggle = (user) => (
     </div>
 )
 
-const renderUserMenu =(item, index) => (
+const renderUserMenu = (item, index) => (
     <Link to='/dashboard' key={index}>
         <div className="notification-item">
             <i className={item.icon}></i>
@@ -47,6 +52,34 @@ const renderUserMenu =(item, index) => (
 )
 
 const Topnav = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const [name, setName] = useState("");
+    const history = useHistory();
+
+    const fetchUserName = async () => {
+        try {
+            const query = await db
+                .collection("users")
+                .where("uid", "==", user?.uid)
+                .get();
+            const data = await query.docs[0].data();
+            setName(data.name);
+        } catch (err) {
+            console.error(err);
+            alert("An error occured while fetching user data");
+        }
+    };
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return history.push("/");
+        fetchUserName();
+    }, [user, loading]);
+
+    const curr_user = {
+    display_name: name,
+    image: user_image
+
+}
     return (
         <div className='topnav'>
             <div className="topnav__search">
@@ -61,6 +94,16 @@ const Topnav = () => {
                         contentData={user_menu}
                         renderItems={(item, index) => renderUserMenu(item, index)}
                     />
+                    {/* <div className="dashboard"> */}
+                        {/* <div className="dashboard__container"> */}
+                            {/* user name */}
+                            {/* <div>{name}</div> */}
+                            {/* <div>{user?.email}</div> */}
+                            {/* <button className="dashboard__btn" onClick={logout}>
+                                Logout
+                            </button> */}
+                        {/* </div> */}
+                    {/* </div> */}
                 </div>
                 <div className="topnav__right-item">
                     <Dropdown
@@ -73,7 +116,7 @@ const Topnav = () => {
                     {/* dropdown here */}
                 </div>
                 <div className="topnav__right-item">
-                    <ThemeMenu/>
+                    <ThemeMenu />
                 </div>
             </div>
         </div>

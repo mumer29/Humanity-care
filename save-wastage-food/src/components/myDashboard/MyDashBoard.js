@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import "./MyDashBoard.css";
 import { auth, db, logout } from "../../firebase";
 function MyDasdBoard() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const navigate = useNavigate();
+  const history = useHistory();
 
   const fetchUserName = async () => {
     try {
@@ -24,7 +24,7 @@ function MyDasdBoard() {
   };
   useEffect(() => {
     if (loading) return;
-    if (!user) return navigate("/");
+    if (!user) return history.push("/");
     fetchUserName();
   }, [user, loading]);
   return (
