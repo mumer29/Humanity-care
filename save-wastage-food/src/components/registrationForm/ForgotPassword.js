@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './sign.css'
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { firestore, auth, sendPasswordResetEmail } from "../../firebase";
 
@@ -9,13 +9,13 @@ import { firestore, auth, sendPasswordResetEmail } from "../../firebase";
 
 function ForgotPassword() {
 
-    const navigate = useNavigate();
+    const history = useHistory();
     const [email, setEmail] = useState("");
     const [user, loading, error] = useAuthState(auth);
 
     useEffect(() => {
         if (loading) return;
-        if (user) navigate("/dashboard");
+        if (user) history.push("/dashboard");
     }, [user, loading]);
 
 

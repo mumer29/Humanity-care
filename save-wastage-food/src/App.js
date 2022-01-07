@@ -1,127 +1,91 @@
 
 import "./App.css";
-import SideMenu, { menuItems } from "./components/SideMenu";
+import { useSelector, useDispatch } from 'react-redux';
+import ThemeAction from './redux/actions/ThemeAction';
+// import Dashboard from './pages/Dashboard';
+// import Customers from './pages/Customers';
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { useState } from "react";
+import Sidebar from './components/sidebar/Sidebar';
+import TopNav from './components/topnav/TopNav';
+import Routes from './components/Routes';
 
-const Dashboard = () => <h1>Dashboard</h1>;
-const Content = () => <h1>Content</h1>;
-const Courses = () => <h1>Content/Courses</h1>;
-const Videos = () => <h1>Content/Videos</h1>;
-const Design = () => <h1>Design</h1>;
-const Content2 = () => <h1>Content2</h1>;
-const Courses2 = () => <h1>Content/Courses 2</h1>;
-const Videos2 = () => <h1>Content/Videos 2</h1>;
-const Design2 = () => <h1>Design 2</h1>;
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { ToastContainer } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
-// import ScrollButton from "./components/scrollToTopButton/ScrollButton";
-// import ComponentProvider from "./components/componentProvider/ComponentProvider";
-// import SignIn from './components/registrationForm/SignIn';
-// import SignUp from './components/registrationForm/SignUp';
-// import DashboardProvider from "./components/dashboard/DashboardProvider";
-// import ForgotPassword from "./components/registrationForm/ForgotPassword";
+
+import React, { useEffect } from 'react'
+
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import ScrollButton from "./components/scrollToTopButton/ScrollButton";
+import ComponentProvider from "./components/componentProvider/ComponentProvider";
+import SignIn from './components/registrationForm/SignIn';
+import SignUp from './components/registrationForm/SignUp';
+import ForgotPassword from "./components/registrationForm/ForgotPassword";
 // import MyDasdBoard from "./components/myDashboard/MyDashBoard";
+import Layout from "./components/layout/Layout";
+import Topnav from "./components/topnav/TopNav";
 
-// dashboard
-// import Main from './components/mainDashboard/main'
+
 
 function App() {
 
-  const [inactive, setInactive] = useState(false);
+  const themeReducer = useSelector(state => state.ThemeReducer)
+
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    const themeClass = localStorage.getItem('themeMode', 'theme-mode-light')
+
+    const colorClass = localStorage.getItem('colorMode', 'theme-mode-light')
+
+    dispatch(ThemeAction.setMode(themeClass))
+
+    dispatch(ThemeAction.setColor(colorClass))
+  }, [dispatch])
+
+
+
+
 
 
   return (
     <div className="App">
-    {/*<ToastContainer
-    //     theame="colored"
-    //     position="top-right"
-    //     autoClose={5000}
-    //     hideProgressBar={false}
-    //     newestOnTop={false}
-    //     closeOnClick
-    //     rtl={false}
-    //     pauseOnFocusLoss
-    //     draggable
-    //     pauseOnHover
-      // />
-     
+      <ToastContainer
+        theame="colored"
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
 
-      // <Router>
-      //   <Routes>
-      //     <Route exact path="/" element={<ComponentProvider />} />
-      //     <Route path="/sign-in" element={<SignIn />} />
-      //     <Route path="/sign-up" element={<SignUp />} />
-      //     <Route path="/dashboard" element={< MyDasdBoard/>} />
-      //     <Route path="/forgotPassword" element={<ForgotPassword />} />
-      //   </Routes>
-      // </Router>
-      // <ScrollButton />
-    */}
+      <Router>
 
-    return (
-      <div className="App">
-        <Router>
-          <SideMenu
-            onCollapse={(inactive) => {
-              console.log(inactive);
-              setInactive(inactive);
-            }}
-          />
-  
-          <div className={`container ${inactive ? "inactive" : ""}`}>
-            {menuItems.map((menu, index) => (
-              <>
-                <Route key={menu.name} exact={menu.exact} path={menu.to}>
-                  <h1>{menu.name}</h1>
-                </Route>
-                {menu.subMenus && menu.subMenus.length > 0
-                  ? menu.subMenus.map((subMenu, i) => (
-                      <Route key={subMenu.name} path={subMenu.to}>
-                        <h1>{subMenu.name}</h1>
-                      </Route>
-                    ))
-                  : null}
-              </>
-            ))}
-  
-            {/* <Switch>
-              <Route exact path={"/"}>
-                <Dashboard />
-              </Route>
-              <Route exact path={"/content"}>
-                <Content />
-              </Route>
-              <Route path={"/content/courses"}>
-                <Courses />
-              </Route>
-              <Route path={"/content/videos"}>
-                <Videos />
-              </Route>
-              <Route path={"/design"}>
-                <Design />
-              </Route>
-              <Route exact path={"/content-2"}>
-                <Content2 />
-              </Route>
-              <Route path={"/content-2/courses"}>
-                <Courses2 />
-              </Route>
-              <Route path={"/content-2/videos"}>
-                <Videos2 />
-              </Route>
-              <Route path={"/design-2"}>
-                <Design2 />
-              </Route>
-            </Switch> */}
+        <Route exact path="/" component={ComponentProvider} />
+        <Route path="/sign-in" component={SignIn} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path='/dashboard' render={(props) => (
+          <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
+            <Sidebar {...props} />
+            <div className="layout__content">
+              <TopNav />
+              <div className="layout__content-main">
+                <Routes />
+              </div>
+            </div>
           </div>
-        </Router>
-      </div>
-      </div>
-    );
-  }
-  
-  export default App;
-  
+        )} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
+
+      </Router>
+      <ScrollButton />
+
+    </div>
+  )
+}
+
+
+export default App;

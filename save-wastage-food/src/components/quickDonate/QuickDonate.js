@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useHistory } from 'react-router-dom'
 
 import './quichDonate.css'
 
 
 function QuickDonate() {
-    const navigate = useNavigate();
+    const history = useHistory();
     const [showHide, setShowHide] = useState("hide")
     const [payment, setPayment] = useState("")
     const [amount, setAmount] = useState("")
@@ -31,7 +31,7 @@ function QuickDonate() {
     const authentication = (e) => {
         let result = e.target.value;
         if (result === "yes") {
-            navigate("/sign-up");
+            history.psuh("/sign-up");
         } else {
             setShowHide("show")
         }

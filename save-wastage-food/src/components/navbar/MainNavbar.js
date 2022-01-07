@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate  } from "react-router-dom";
+import { useNavigate , useHistory } from "react-router-dom";
 import { Link } from 'react-scroll';
 import "./mainNavbar.css";
 
 
 function Navbar() {
-    const navigate  = useNavigate ();
+    const history  = useHistory ();
 
     const [state, setstate] = useState(false)
     const [image, setImage] = useState(false)
@@ -30,7 +30,7 @@ function Navbar() {
     }
 
     function registration(){
-        navigate("/sign-in")
+        history.push("/sign-in")
     }
 
 
