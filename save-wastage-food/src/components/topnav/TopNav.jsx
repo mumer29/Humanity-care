@@ -38,7 +38,7 @@ const renderUserToggle = (user) => (
 )
 
 const renderUserMenu =(item, index) => (
-    <Link to='/' key={index}>
+    <Link to='/dashboard' key={index}>
         <div className="notification-item">
             <i className={item.icon}></i>
             <span>{item.content}</span>
@@ -68,7 +68,7 @@ const Topnav = () => {
                         badge='12'
                         contentData={notifications}
                         renderItems={(item, index) => renderNotificationItem(item, index)}
-                        renderFooter={() => <Link to='/'>View All</Link>}
+                        renderFooter={() => <Link to='/dashboard'>View All</Link>}
                     />
                     {/* dropdown here */}
                 </div>

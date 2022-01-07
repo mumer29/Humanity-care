@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './sign.css'
 import { useAuthState } from "react-firebase-hooks/auth";
 
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 import {
     auth,
@@ -14,7 +14,7 @@ import {
 
 function SignUp() {
 
-    const navigate = useNavigate();
+    const history = useHistory();
     const [passwordType, setPasswordType] = useState(true)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -46,7 +46,7 @@ function SignUp() {
     };
     useEffect(() => {
         if (loading) return;
-        if (user) navigate("/dashboard");
+        if (user) history.push("/dashboard");
     }, [user, loading]);
 
     // const [password, setPassword] = useState(true)
@@ -342,7 +342,7 @@ function SignUp() {
                                 </a>
                             </div> */}
                             <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
-                                Login with Google
+                                Sign up with Google
                             </button>
                             <div className='py-2'>
                                 Already have an account? <Link to="/sign-in">Login</Link> now.

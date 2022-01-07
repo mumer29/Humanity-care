@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Link } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 import './sidebar.css'
 
@@ -44,6 +44,7 @@ const Sidebar = props => {
                     </Link>
                 ))
             }
+            {/* <Outlet/> */}
         </div>
     )
 }

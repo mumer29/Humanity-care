@@ -239,7 +239,7 @@ const Dashboard = () => {
                     </div>
                 </div>
             </div>
-            <Outlet/>
+            {/* <Outlet/> */}
         </div>
     )
 }

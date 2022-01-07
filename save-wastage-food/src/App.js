@@ -2,17 +2,17 @@
 import "./App.css";
 import { useSelector, useDispatch } from 'react-redux';
 import ThemeAction from './redux/actions/ThemeAction';
-import Dashboard from './pages/Dashboard';
-import Customers from './pages/Customers';
+// import Dashboard from './pages/Dashboard';
+// import Customers from './pages/Customers';
 
 import Sidebar from './components/sidebar/Sidebar';
 import TopNav from './components/topnav/TopNav';
-import DashboardRoutes from './components/Routes';
+import Routes from './components/Routes';
 
 
 import React, { useEffect } from 'react'
 
-import { BrowserRouter as Router, Route, Routes, Outlet, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
@@ -44,21 +44,7 @@ function App() {
 
 
 
-  function Dashboard1() {
-    return (
-      <div>
-        <h1>Dashboard</h1>
-        <nav>
-          <Link to="dash">dash</Link>{" "}
-          <Link to="customers">customers</Link>{" "}
-          <Link to="sidebar">sidebar</Link>{" "}
-          <Link to="topnav">topnav</Link>
-        </nav>
-        <hr />
-        <Outlet />
-      </div>
-    );
-  }
+
 
 
   return (
@@ -77,34 +63,23 @@ function App() {
       />
 
       <Router>
-        <Routes>
-          <Route exact path="/" element={<ComponentProvider />} />
-          <Route path="/sign-in" element={<SignIn />} />
-          <Route path="/sign-up" element={<SignUp />} />
-          <Route path='/admin' element={<Dashboard />} />
-          <Route path='/customers' element={<Customers />} />
 
-
-          <Route path='dashboard' element={<Dashboard1 />} >
-            <Route path='topnav' element={<Topnav />} />
-            <Route path='dash' element={<Dashboard />} />
-            <Route path='customers' element={<Customers />} />
-            <Route path='sidebar' render={(props) => (
-              <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
-                <Sidebar {...props} />
-                <div className="layout__content">
-                  <TopNav />
-                  <div className="layout__content-main">
-                    {/* <DashboardRoutes/> */}
-                    <Outlet />
-                  </div>
-                </div>
+        <Route exact path="/" component={ComponentProvider} />
+        <Route path="/sign-in" component={SignIn} />
+        <Route path="/sign-up" component={SignUp} />
+        <Route path='/dashboard' render={(props) => (
+          <div className={`layout ${themeReducer.mode} ${themeReducer.color}`}>
+            <Sidebar {...props} />
+            <div className="layout__content">
+              <TopNav />
+              <div className="layout__content-main">
+                <Routes />
               </div>
-            )} 
-             />
-          </Route>
-          {/* <Route path="/forgotPassword" element={<ForgotPassword />} /> */}
-        </Routes>
+            </div>
+          </div>
+        )} />
+        <Route path="/forgotPassword" component={ForgotPassword} />
+
       </Router>
       <ScrollButton />
 

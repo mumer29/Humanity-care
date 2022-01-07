@@ -50,7 +50,7 @@ const Customers = () => {
                     </div>
                 </div>
             </div>
-          <  Outlet/>
+          {/* <  Outlet/> */}
         </div>
     )
 }

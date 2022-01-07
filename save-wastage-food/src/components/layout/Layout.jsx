@@ -36,7 +36,7 @@ const Layout = () => {
                         <TopNav/>
                         <div className="layout__content-main">
                             {/* <DashboardRoutes/> */}
-                            <Outlet/>
+                            {/* <Outlet/> */}
                         </div>
                     </div>
                 </div>

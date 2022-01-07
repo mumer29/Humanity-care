@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './sign.css'
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { firestore, auth, signInWithEmailAndPassword, signInWithGoogle } from "../../firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -10,20 +10,20 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 function SignIn() {
 
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
     const [passwordType, setPasswordType] = useState(true)
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading, error] = useAuthState(auth);
     const [userDasignation, setUserDasignation] = useState("")
 
-    // const history = useHistory();
+    const history = useHistory();
     useEffect(() => {
         if (loading) {
             // maybe trigger a loading screen
             return;
         }
-        if (user) navigate("/dashboard");
+        if (user) history.push("/dashboard");
     }, [user, loading]);
 
     // const navigate = useNavigate();
@@ -88,7 +88,7 @@ function SignIn() {
                 // navigate("/dashboard")
             } else {
                 // toast.error("Email or Password or designation is incorect")
-                navigate("/sign-in")
+                history.push("/sign-in")
             }
         }
 
@@ -305,7 +305,7 @@ function SignIn() {
 
                             </div>
                             <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
-                                Login with Google
+                                Sign in with Google
                             </button>
                             {/* <div className="h6 text-end ">
                                 Not yet register ?
