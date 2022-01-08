@@ -49,7 +49,7 @@ function App() {
 
   return (
     <div className="App">
-      <ToastContainer
+      {/* <ToastContainer
         theame="colored"
         position="top-right"
         autoClose={5000}
@@ -60,7 +60,9 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-      />
+      /> */}
+      <ToastContainer theme="colored"/>
+      
 
       <Router>
 

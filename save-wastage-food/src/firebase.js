@@ -95,6 +95,37 @@ const sendPasswordResetEmail = async (email) => {
   }
 };
 
+// Non register donor
+const NonRegisterDonor = async (donorName, donorEmail, donorPhone, payment, amount, donationType) => {
+  try {
+    // const res = await auth.createUserWithEmailAndPassword(email, password);
+    // const user = res.user;
+    await db.collection("donor").add({
+      // uid: user.uid,
+      authProvider: "non register",
+      donorName,
+      donorEmail,
+      donorPhone,
+      payment,
+      amount,
+      donationType
+
+    });
+    toast.success("Your record has been submitted successfully")
+  } catch (err) {
+    // console.log(err.message);
+
+    toast.warn(err.message)
+    // alert(err.message);
+  }
+};
+
+
+
+
+
+
+
 export {
   auth,
   db,
@@ -103,5 +134,7 @@ export {
   registerWithEmailAndPassword,
   sendPasswordResetEmail,
   logout,
+  NonRegisterDonor,
+
 };
 
