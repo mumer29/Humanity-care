@@ -6,6 +6,8 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/database';
 import { toast } from 'react-toastify';
+import { useHistory } from 'react-router-dom';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyAKkkC_ox8gBit49EYq8NUshloALWGOjJ4",
@@ -50,10 +52,12 @@ const signInWithEmailAndPassword = async (email, password) => {
   try {
     await auth.signInWithEmailAndPassword(email, password);
     toast.success("Log in successfully")
+
   } catch (err) {
     // console.log(err.message);
-    // alert(err.message);
-    toast.warn(err.message)
+    if (err.message === "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password).")
+      toast.error("Password is incorrect")
+
   }
 };
 
@@ -72,9 +76,17 @@ const registerWithEmailAndPassword = async (name, userDasignation, phone, email,
     });
     toast.success("Your account has been created successfully")
   } catch (err) {
-    // console.log(err.message);
+    console.log(err.message);
+    // toast.warn(err.message)
 
-    toast.warn(err.message)
+    if (err.message === "Firebase: The email address is already in use by another account. (auth/email-already-in-use).") {
+      toast.warn("The email address is already in use by another account.")
+    }
+    else if (err.message === "Firebase: Password should be at least 6 characters (auth/weak-password).") {
+      toast.warn("Password should be at least 6 characters.")
+
+    }
+
     // alert(err.message);
   }
 };

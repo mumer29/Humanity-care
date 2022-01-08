@@ -76,10 +76,10 @@ const Topnav = () => {
     }, [user, loading]);
 
     const curr_user = {
-    display_name: name,
-    image: user_image
+        display_name: name,
+        image: user_image
 
-}
+    }
     return (
         <div className='topnav'>
             <div className="topnav__search">
@@ -88,10 +88,10 @@ const Topnav = () => {
             </div>
             <div className="topnav__right">
                 <div className="topnav__right-item">
-                {/* <i class="far fa-user dashborad-user"></i> */}
+                    {/* <i class="far fa-user dashborad-user"></i> */}
 
-                  <h4 
-                  style={{margin:"0"}}> {name}</h4>  
+                    <h4
+                        style={{ margin: "0" }}> {name}</h4>
                     {/* dropdown here */}
                     {/* <Dropdown
                         customToggle={() => renderUserToggle(curr_user)}
@@ -99,14 +99,14 @@ const Topnav = () => {
                         renderItems={(item, index) => renderUserMenu(item, index)}
                     /> */}
                     {/* <div className="dashboard"> */}
-                        {/* <div className="dashboard__container"> */}
-                            {/* user name */}
-                            {/* <div>{name}</div> */}
-                            {/* <div>{user?.email}</div> */}
-                            {/* <button className="dashboard__btn" onClick={logout}>
+                    {/* <div className="dashboard__container"> */}
+                    {/* user name */}
+                    {/* <div>{name}</div> */}
+                    {/* <div>{user?.email}</div> */}
+                    {/* <button className="dashboard__btn" onClick={logout}>
                                 Logout
                             </button> */}
-                        {/* </div> */}
+                    {/* </div> */}
                     {/* </div> */}
                 </div>
                 <div className="topnav__right-item">
@@ -122,6 +122,11 @@ const Topnav = () => {
                 <div className="topnav__right-item">
                     <ThemeMenu />
                 </div>
+                <button className="btn btn-primary topnav__right-item"
+                style={{fontSize:"20px"}}
+                onClick={logout}
+                > Log out</button>
+
             </div>
         </div>
     )

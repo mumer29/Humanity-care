@@ -45,7 +45,7 @@ function SignUp() {
 
     };
     useEffect(() => {
-        if (loading) return;
+        if (loading) return ;
         if (user) history.push("/dashboard");
     }, [user, loading]);
 
@@ -341,9 +341,9 @@ function SignUp() {
                                 > Sign in
                                 </a>
                             </div> */}
-                            <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
+                            {/* <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
                                 Sign up with Google
-                            </button>
+                            </button> */}
                             <div className='py-2'>
                                 Already have an account? <Link to="/sign-in">Login</Link> now.
                             </div>

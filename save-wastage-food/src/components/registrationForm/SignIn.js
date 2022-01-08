@@ -81,13 +81,11 @@ function SignIn() {
                 }
             })
             if (result) {
-
-                // toast.success('log in successfully')
+                // toast.success('sign in successfully')
                 signInWithEmailAndPassword(email, password)
-
-                // navigate("/dashboard")
+                // history.push("/dashboard")
             } else {
-                // toast.error("Email or Password or designation is incorect")
+                toast.error("Email or Password or designation is incorect")
                 history.push("/sign-in")
             }
         }
@@ -304,9 +302,9 @@ function SignIn() {
                                 >Submit</button>
 
                             </div>
-                            <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
+                            {/* <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
                                 Sign in with Google
-                            </button>
+                            </button> */}
                             {/* <div className="h6 text-end ">
                                 Not yet register ?
                                 <a
