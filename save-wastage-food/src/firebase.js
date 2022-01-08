@@ -118,7 +118,7 @@ const NonRegisterDonor = async (donorName, donorEmail, donorPhone, payment, amou
     toast.warn(err.message)
     // alert(err.message);
 
-    
+
   }
 };
 
