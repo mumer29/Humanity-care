@@ -3,11 +3,12 @@ import React, {useState} from 'react'
 import './table.css'
 
 const Table = props => {
-    console.log("props",props.bodyData);
+    // console.log("props",props.bodyData);
 
     const initDataShow = props.limit && props.bodyData ? props.bodyData.slice(0, Number(props.limit)) : props.bodyData
 
     const [dataShow, setDataShow] = useState(initDataShow)
+    // console.log("dataShow",dataShow);
 
     let pages = 1
 
