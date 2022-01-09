@@ -43,13 +43,29 @@ function Navbar() {
             className={navTop ? "fixed-top" : "fixed-scroll-top"}>
             <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange p-0 "
                 : "navbar navbar-expand-lg navbar-light onHoverBgColorChange p-0 "}
-
             >
                 <div className="container-fluid px-4 ">
-                    <a className="navbar-brand" href="#">
-                        <img src="/logo/whiteLogo.png" alt="not found" className={image ? "smallLogo" : " largeLogo"} />
-                        <h4 className="fw-bolder " style={{ display: "unset", color: "white" }}>Care Humanity</h4>
-                    </a>
+
+                    <img src="/logo/whiteLogo.png" alt="not found"
+                        className={image ? "smallLogo" : " largeLogo"} />
+
+
+                    <h4 className="fw-bolder "
+                        style={{
+                            color: ' white',
+                            display: 'flex',
+                            flexDirection: 'column'
+                        }
+                        }> <u>Care Humanity</u>
+                        <span 
+                        style={{
+                            fontSize: '15px',
+                            marginLeft: "18px"
+                        }}
+                        >we care we share</span>
+
+                    </h4>
+
                     <button
                         className="navbar-toggler"
                         type="button"
@@ -254,21 +270,21 @@ function Navbar() {
                             <li className="nav-item  ">
                                 {/* <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500, fontSize: "20px" }} > */}
-                                    {/* <i className="fas fa-user"
+                                {/* <i className="fas fa-user"
                                         onClick={registration}
                                     ></i> */}
-                                    <li className="nav-item px-1  py-2  navbarManue" >
-                                        <div className=' px-2' >
-                                            <a style={{ color: "white", fontWeight: 500, textDecoration: 'none' }}
-                                                activeClass="active"
-                                                duration={500}
-                                                spy={true}
-                                                className=" subManue homeMamue"
-                                                onClick={registration} >
-                                                Sign in 
-                                            </a>
-                                        </div>
-                                    </li>
+                                <li className="nav-item px-1  py-2  navbarManue" >
+                                    <div className=' px-2' >
+                                        <a style={{ color: "white", fontWeight: 500, textDecoration: 'none' }}
+                                            activeClass="active"
+                                            duration={500}
+                                            spy={true}
+                                            className=" subManue homeMamue"
+                                            onClick={registration} >
+                                            Sign in
+                                        </a>
+                                    </div>
+                                </li>
 
 
                                 {/* </a> */}

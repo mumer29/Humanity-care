@@ -61,17 +61,18 @@ const signInWithEmailAndPassword = async (email, password) => {
   }
 };
 
-const registerWithEmailAndPassword = async (name, userDasignation, phone, email, password) => {
+const registerWithEmailAndPassword = async (name, email, phone, userType, password, registered) => {
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
-    await db.collection("users").add({
+    await db.collection("donor").add({
       uid: user.uid,
       name,
-      userDasignation,
-      phone,
-      authProvider: "local",
       email,
+      phone,
+      userType,
+      password,
+      registered
 
     });
     toast.success("Your account has been created successfully")
@@ -108,19 +109,13 @@ const sendPasswordResetEmail = async (email) => {
 };
 
 // Non register donor
-const NonRegisterDonor = async (donorName, donorEmail, donorPhone, payment, amount, donationType) => {
+const NonRegisterDonor = async (name, email, phone, payment, amount, donationType, userType, registered) => {
   try {
     // const res = await auth.createUserWithEmailAndPassword(email, password);
     // const user = res.user;
     await db.collection("donor").add({
       // uid: user.uid,
-      authProvider: "non register",
-      donorName,
-      donorEmail,
-      donorPhone,
-      payment,
-      amount,
-      donationType
+      name, email, phone, payment, amount, donationType, userType, registered
 
     });
     toast.success("Your record has been submitted successfully")

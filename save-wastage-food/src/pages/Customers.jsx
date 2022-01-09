@@ -16,7 +16,9 @@ const customerTableHead = [
     'donorEmail',
     'donorName',
     'donorPhone',
-    'payment '
+    'payment ',
+
+    'Name', 'Email', 'Phone', 'payment', 'amount', 'donationType', 'registrationType'
 
 ]
 
@@ -27,7 +29,7 @@ const renderBody = (item, index) => (
         <td>{item.amount}</td>
         <td>{item.authProvider}</td>
         <td>{item.donationType}</td>
-        <td>{item.phdonorEmailone}</td>
+        <td>{item.donorEmail}</td>
         <td>{item.donorName}</td>
         <td>{item.donorPhone}</td>
         <td>{item.payment}</td>
@@ -38,7 +40,7 @@ const Customers = () => {
 
 
     // const [db, setDb] = useState([]);
-    const [tableData, settableData] = useState("")
+    const [tableData, settableData] = useState([])
     // console.log(tableData);
     useEffect(() => {
         getdata();
@@ -152,7 +154,7 @@ const Customers = () => {
     // ];
 
 
-console.log(tableData);
+    console.log(tableData);
 
     return (
         <div>
@@ -173,11 +175,62 @@ console.log(tableData);
                             /> */}
 
                             <div>
-                                {tableData.map((item, index) => (
-                                    <div>
-                                        <span>{item.donorName}</span>
-                                    </div>
-                                ))}
+
+                                <div>
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Sr.</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Phone No</th>
+                                                {/* <th scope="col">Donation Type</th> */}
+                                                {/* <th scope="col">Payment For</th> */}
+                                                {/* <th scope="col">Amount</th> */}
+                                                <th scope="col">User Type</th>
+                                                <th scope="col">Registred</th>
+                                            </tr>
+                                        </thead>
+                                        {tableData.map((item, index) => (
+                                           
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">{index+1}</th>
+                                                    <td> {item.name}</td>
+                                                    <td>{item.email}</td>
+                                                    <td>{item.phone}</td>
+                                                    {/* <td>{item.donationType}</td> */}
+                                                    {/* <td>{item.payment}</td> */}
+                                                    {/* <td>{item.amount}</td> */}
+                                                    <td>{item.userType}</td>
+                                                    <td>{item. registered}</td>
+
+                                                   
+
+                                                    
+                                                    
+
+                                                </tr>
+                                            </tbody>
+                                        ))}
+                                    </table>
+                                    {/* <span>name: {item.donorName}</span>
+                                        <br />
+                                        <span>Email: {item.donorEmail}</span>
+                                        <br />
+                                        <span>Phone: {item.donorPhone}</span>
+                                        <br />
+                                        <span>Donation Type: {item.donationType}</span>
+                                        <br />
+                                        <span>Amount: {item.amount}</span>
+                                        <br />
+                                        <span>Payment: {item.payment}</span>
+                                        <br />
+                                        <span>Auth provider: {item.authProvider}</span>
+                                        <br />
+                                        <br /> */}
+                                </div>
+
                             </div>
                             {/* <Table
                                 title={"Student's Feedback"}

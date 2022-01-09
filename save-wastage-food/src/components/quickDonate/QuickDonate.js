@@ -15,10 +15,11 @@ function QuickDonate() {
     const [donationType, setdonationType] = useState("");
     const [PHolder, setPHolder] = useState(true);
     const [show, setShow] = useState(false);
-    const [donorName, setDonorName] = useState("");
-    const [donorEmail, setDonorEmail] = useState("");
-    const [donorPhone, setDonorPhone] = useState("");
-    console.log(donorName, donorEmail, donorPhone);
+    const [name, setName] = useState("");
+    const [email, setEmail] = useState("");
+    const [phone, setPhone] = useState("");
+    const [userType, setuserType] = useState("Donor");
+    const [registered, setregistered] = useState("No");
 
 
     const handleClose = () => setShow(false);
@@ -57,14 +58,14 @@ function QuickDonate() {
     }
 
     const postdata = () => {
-        if (!donorName) {
+        if (!name) {
             toast.error("Please enter your name")
-        } else if (!donorEmail) {
+        } else if (!email) {
             toast.error("Please enter your email address")
-        } else if (!donorPhone) {
+        } else if (!phone) {
             toast.error("Please enter your phone number")
         } else {
-            NonRegisterDonor(donorName, donorEmail, donorPhone, payment, amount, donationType)
+            NonRegisterDonor(name, email, phone, payment, amount, donationType, userType, registered)
             setShow(false)
         }
     }
@@ -188,9 +189,9 @@ function QuickDonate() {
                                                     type="text"
                                                     className="form-control"
                                                     required
-                                                    value={donorName}
+                                                    value={name}
                                                     onChange={(e) => {
-                                                        setDonorName(e.target.value);
+                                                        setName(e.target.value);
                                                     }}
                                                 />
                                             </div>
@@ -203,9 +204,9 @@ function QuickDonate() {
                                                     type="email"
                                                     className="form-control"
                                                     required
-                                                    value={donorEmail}
+                                                    value={email}
                                                     onChange={(e) => {
-                                                        setDonorEmail(e.target.value);
+                                                        setEmail(e.target.value);
                                                     }}
                                                 />
                                             </div>
@@ -217,9 +218,9 @@ function QuickDonate() {
                                                     type="number"
                                                     className="form-control"
                                                     required
-                                                    value={donorPhone}
+                                                    value={phone}
                                                     onChange={(e) => {
-                                                        setDonorPhone(e.target.value);
+                                                        setPhone(e.target.value);
                                                     }}
 
                                                 />
