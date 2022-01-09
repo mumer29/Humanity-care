@@ -1,41 +1,72 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap'
 import { useNavigate, useHistory } from 'react-router-dom'
+import { toast } from 'react-toastify';
+import { NonRegisterDonor } from '../../firebase'
 
 import './quichDonate.css'
 
 
 function QuickDonate() {
     const history = useHistory();
-    const [showHide, setShowHide] = useState("hide")
-    const [payment, setPayment] = useState("")
-    const [amount, setAmount] = useState("")
-    const [donationType, setdonationType] = useState("")
-    const [PHolder, setPHolder] = useState(true)
+    const [showHide, setShowHide] = useState("hide");
+    const [payment, setPayment] = useState("");
+    const [amount, setAmount] = useState("");
+    const [donationType, setdonationType] = useState("");
+    const [PHolder, setPHolder] = useState(true);
     const [show, setShow] = useState(false);
+    const [donorName, setDonorName] = useState("");
+    const [donorEmail, setDonorEmail] = useState("");
+    const [donorPhone, setDonorPhone] = useState("");
+    console.log(donorName, donorEmail, donorPhone);
+
+
     const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleShow = () => {
+        if (!payment) {
+            toast.error("Who do you want to pay for? ")
+        } else if (!amount) {
+            toast.error("Please select amount ")
+        }
+        else if (amount < 0) {
+            toast.error("Please select positive amount ")
+        } else if (!donationType) {
+            toast.error("What kind of payment do you want? ")
+        } else {
+            setShow(true);
+        }
+    }
 
     const donatePayment = (e) => {
         let data = e.target.value
-        if (data === "single-payment" || data === "regular-payment") {
-            setPHolder(true)
-        } else {
+        if (data === "Cook Food" || data === "Uncook Food") {
             setPHolder(false)
+        } else {
+            setPHolder(true)
         }
 
     }
-    // const quickDonate = () => {
-    //     console.log(payment, amount, donationType);
-    // }
     const authentication = (e) => {
         let result = e.target.value;
         if (result === "yes") {
-            history.psuh("/sign-up");
+            history.push("/sign-up");
         } else {
             setShowHide("show")
         }
 
+    }
+
+    const postdata = () => {
+        if (!donorName) {
+            toast.error("Please enter your name")
+        } else if (!donorEmail) {
+            toast.error("Please enter your email address")
+        } else if (!donorPhone) {
+            toast.error("Please enter your phone number")
+        } else {
+            NonRegisterDonor(donorName, donorEmail, donorPhone, payment, amount, donationType)
+            setShow(false)
+        }
     }
 
 
@@ -53,10 +84,16 @@ function QuickDonate() {
                             className="form-select border-success border-2 "
                             aria-label="Default select example"
                             style={{ height: "100%", width: "100%" }}>
-                            <option value="single-payment">Single Payment</option>
-                            <option value="regular-payment">Regular Payment</option>
-                            <option value="cook-food"> Cook Food</option>
-                            <option value="uncook-food">Uncook Food</option>
+                            <option > Payment for</option>
+                            <option value="Single Payment">Single Payment</option>
+                            <option value="Regular Payment">Regular Payment</option>
+                            <option value="Cook Food"> Cook Food</option>
+                            <option value="Uncook Food">Uncook Food</option>
+                            <option value="Medical">Medical</option>
+                            <option value="Water ">Water </option>
+                            <option value="Ration">Ration</option>
+                            <option value="Education">Education</option>
+
                         </select>
                     </div>
                     <div className="col-lg-2 col-md-4 text-center my-2  " style={{ height: "45px" }}>
@@ -77,8 +114,8 @@ function QuickDonate() {
                             className="form-select border-success border-2 "
                             aria-label="Default select example"
                             onChange={e => setdonationType(e.target.value)}
-
                             style={{ height: "100%", width: "100%" }}>
+                            <option > Donation type</option>
                             <option value="general-donation">General Donation</option>
                             <option value="sadka">Sadka</option>
                             <option value="zakat">Zakat</option>
@@ -87,7 +124,6 @@ function QuickDonate() {
                     <div className="col-lg-2 text-center my-2 col-sm-12 col-md-6  " style={{ height: "45px" }}>
                         <button className="btn "
                             onClick={handleShow}
-
                             style={{
                                 height: "100%", width: "100%", borderRadius: '15px', padding: '0 30px',
                                 fontWight: ' bold', color: 'white', fontSize: '17px', backgroundColor: 'rgb(193, 35, 35)'
@@ -152,6 +188,10 @@ function QuickDonate() {
                                                     type="text"
                                                     className="form-control"
                                                     required
+                                                    value={donorName}
+                                                    onChange={(e) => {
+                                                        setDonorName(e.target.value);
+                                                    }}
                                                 />
                                             </div>
 
@@ -163,6 +203,10 @@ function QuickDonate() {
                                                     type="email"
                                                     className="form-control"
                                                     required
+                                                    value={donorEmail}
+                                                    onChange={(e) => {
+                                                        setDonorEmail(e.target.value);
+                                                    }}
                                                 />
                                             </div>
 
@@ -173,7 +217,43 @@ function QuickDonate() {
                                                     type="number"
                                                     className="form-control"
                                                     required
+                                                    value={donorPhone}
+                                                    onChange={(e) => {
+                                                        setDonorPhone(e.target.value);
+                                                    }}
 
+                                                />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">Payment for</label>
+                                                <input
+                                                    name='payment'
+                                                    type="text"
+                                                    className="form-control"
+                                                    disabled
+                                                    value={payment}
+                                                />
+                                            </div>
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">Amount</label>
+                                                <input
+                                                    name='amount'
+                                                    type="number"
+                                                    className="form-control"
+                                                    disabled
+                                                    value={amount}
+
+                                                />
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label fw-bold">Donation for</label>
+                                                <input
+                                                    name='donation'
+                                                    type="text"
+                                                    className="form-control"
+                                                    disabled
+                                                    value={donationType}
                                                 />
                                             </div>
 
@@ -181,6 +261,7 @@ function QuickDonate() {
                                                 <button
                                                     type="submit"
                                                     className="btn btn-primary w-100"
+                                                    onClick={postdata}
                                                 >Submit</button>
                                             </div>
                                         </div>
