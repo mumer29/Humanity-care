@@ -7,8 +7,13 @@ import { toast } from 'react-toastify'
 import {
     auth,
     registerWithEmailAndPassword,
+    signInWithEmailAndPassword,
     signInWithGoogle,
+    firestore
 } from "../../firebase";
+
+// import { auth,  signInWithGoogle } from "../../firebase";
+
 
 
 
@@ -27,7 +32,7 @@ function SignUp() {
 
 
 
-    const register = () => {
+    const register = async () => {
         if (!userType) {
             toast.error("Please select a designation from  Donor, Seeker and Admin")
         } else if (!name) {
@@ -37,13 +42,36 @@ function SignUp() {
         }
         else if (!phone) {
             toast.error("Please inter your phone number")
-        }
-        else if (!password) {
+        } else if (!password) {
             toast.error("Please inter your password at least 6 characters long")
         }
         else {
-            console.log(name, email, phone, userType, password, registered);
-            registerWithEmailAndPassword(name, email, phone, userType, password, registered);
+            let db = [];
+            await firestore.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach(element => {
+                    var data = element.data()
+                    // console.log(data);
+                    db.push(data)
+                })
+            })
+            // console.log(db);
+            let result = db.find((item) => {
+
+
+                if (item.userType === "Admin") {
+                    return false
+                } else {
+                    return item
+                }
+
+            })
+            console.log(result);
+            if (result !== undefined) {
+                toast.success('Your account has been created successfully')
+                // registerWithEmailAndPassword(name, email, phone, userType, password, registered);
+            } else {
+                toast.error("Admin is alreay exist")
+            }
         }
 
     };
@@ -90,15 +118,15 @@ function SignUp() {
             setuserType("Seeker")
 
         }
-        // else {
-        //     // setUserDasignation("admin")
-        //     // let result = uniqueIdGenerator()
-        //     // let userdesi = "A-"
-        //     // let final = userdesi.concat(result)
-        //     // setUserID(final)
-        //     setuserType("admin")
+        else {
+            // setUserDasignation("admin")
+            // let result = uniqueIdGenerator()
+            // let userdesi = "A-"
+            // let final = userdesi.concat(result)
+            // setUserID(final)
+            setuserType("Admin")
 
-        // }
+        }
     }
 
     return (
@@ -168,7 +196,7 @@ function SignUp() {
                                         Seeker
                                     </label>
                                 </div>
-                                {/* <div className='col'>
+                                <div className='col'>
                                     <input
                                         onClick={(e) => {
                                             designation(e);
@@ -183,7 +211,7 @@ function SignUp() {
                                     <label className="form-check-label fw-bold" htmlFor="flexRadioDefault3">
                                         Admin
                                     </label>
-                                </div> */}
+                                </div>
                             </div>
                             {/* <div className="mb-3">
                                 <label className="form-label fw-bold">User ID</label>

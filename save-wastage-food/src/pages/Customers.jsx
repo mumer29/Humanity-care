@@ -51,7 +51,7 @@ const Customers = () => {
     async function getdata() {
 
         let users = [];
-        await firestore.collection("donor").get().then((querySnapshot) => {
+        await firestore.collection("users").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
                 var data = element.data()
                 // console.log("database data", data.amount);

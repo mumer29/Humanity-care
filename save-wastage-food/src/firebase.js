@@ -65,7 +65,7 @@ const registerWithEmailAndPassword = async (name, email, phone, userType, passwo
   try {
     const res = await auth.createUserWithEmailAndPassword(email, password);
     const user = res.user;
-    await db.collection("donor").add({
+    await db.collection("users").add({
       uid: user.uid,
       name,
       email,
