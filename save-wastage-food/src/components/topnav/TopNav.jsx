@@ -7,21 +7,11 @@ import { auth, db, logout } from "../../firebase";
 
 import './topnav.css'
 
-// import { Link } from 'react-router-dom'
-
 import Dropdown from '../dropdown/Dropdown'
 
 import ThemeMenu from '../thememenu/ThemeMenu'
 
 import notifications from '../../assets/JsonData/notification.json'
-
-// import user_image from '../../assets/images/tuat.png'
-
-// import user_menu from '../../assets/JsonData/user_menus.json'
-
-
-
-
 
 
 const renderNotificationItem = (item, index) => (
@@ -30,26 +20,6 @@ const renderNotificationItem = (item, index) => (
         <span>{item.content}</span>
     </div>
 )
-
-// const renderUserToggle = (user) => (
-//     <div className="topnav__right-user">
-//         <div className="topnav__right-user__image">
-//             <img src={user.image} alt="" />
-//         </div>
-//         <div className="topnav__right-user__name">
-//             {user.display_name}
-//         </div>
-//     </div>
-// )
-
-// const renderUserMenu = (item, index) => (
-//     <Link to='/dashboard' key={index}>
-//         <div className="notification-item">
-//             <i className={item.icon}></i>
-//             <span>{item.content}</span>
-//         </div>
-//     </Link>
-// )
 
 const Topnav = () => {
     const [user, loading, error] = useAuthState(auth);
@@ -65,13 +35,6 @@ const Topnav = () => {
             const data = await query.docs[0].data();
             setName(data.userType)
 
-            // if (data.userType === "Admin") {
-            //     setName("Admin");
-            // } else if (data.userType === "Donor") {
-            //     setName("Donor");
-            // } else {
-            //     setName("Seeker");
-            // }
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
@@ -83,11 +46,6 @@ const Topnav = () => {
         fetchUserName();
     }, [user, loading]);
 
-    // const curr_user = {
-    //     display_name: name,
-    //     image: user_image
-
-    // }
     return (
         <div className='topnav'>
             <div className="topnav__search">

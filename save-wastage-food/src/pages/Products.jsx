@@ -1,41 +1,46 @@
-// import React from 'react'
 
-// const Products = () => {
-//     return (
-//         <div>
-//             Products
-//         </div>
-//     )
-// }
 
-// export default Products
+// import React, { useState } from 'react';
 
-import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap'
 import { useNavigate, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { NonRegisterDonor } from '../firebase'
+import { NonRegisterDonor, auth, db, logout, RegisterDonor } from '../firebase'
 
-// import './quichDonate.css'
+import React, { useEffect, useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+
+
 
 
 function Products() {
     const history = useHistory();
-    const [showHide, setShowHide] = useState("hide");
+    // const [showHide, setShowHide] = useState("hide");
     const [payment, setPayment] = useState("");
     const [amount, setAmount] = useState("");
     const [donationType, setdonationType] = useState("");
     const [PHolder, setPHolder] = useState(true);
-    // const [show, setShow] = useState(false);
-    // const [name, setName] = useState("");
-    // const [email, setEmail] = useState("");
-    // const [phone, setPhone] = useState("");
-    // const [userType, setuserType] = useState("Donor");
-    // const [registered, setregistered] = useState("No");
 
 
-    // const handleClose = () => setShow(false);
-    const handleShow = () => {
+    const [user, loading, error] = useAuthState(auth);
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
+
+    const fetchUserEmail = async () => {
+        try {
+            const query = await db
+                .collection("users")
+                .where("uid", "==", user?.uid)
+                .get();
+            const data = await query.docs[0].data();
+            setEmail(data.email)
+            setName(data.name)
+        } catch (err) {
+            console.error(err);
+            alert("An error occured while fetching user data");
+        }
+    };
+
+    const handleShow = async () => {
         if (!payment) {
             toast.error("Who do you want to pay for? ")
         } else if (!amount) {
@@ -45,10 +50,13 @@ function Products() {
             toast.error("Please select positive amount ")
         } else if (!donationType) {
             toast.error("What kind of payment do you want? ")
-        }else{
-            toast.success("ok")
+        } else {
+           
+            console.log("user",name, email);
+
+            RegisterDonor(email, name, payment, amount, donationType)
         }
-         
+
     }
 
     const donatePayment = (e) => {
@@ -60,20 +68,22 @@ function Products() {
         }
 
     }
-   
-
-   
-
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return history.push("/");
+        fetchUserEmail();
+    }, [user, loading]);
 
     return (
         <div className="container-fluid "  >
+            <div>{email}</div>
             <div className="container "  >
                 <div className="row  justify-content-center align-items-center py-3">
                     <div className="col-lg-2 col-sm-12 col-md-12 text-center my-2  " style={{ height: "45px" }}>
-                        <p style={{ 
-                            height: "100%", width: "100%", lineHeight: "50px" ,
-                            fontWeight:"bolder"
-                            }}>QUICK DONATE</p>
+                        <p style={{
+                            height: "100%", width: "100%", lineHeight: "50px",
+                            fontWeight: "bolder"
+                        }}>QUICK DONATE</p>
                     </div>
                     <div className="col-lg-3 col-md-4 text-center my-2 " style={{ height: "45px" }}>
                         <select
@@ -119,15 +129,15 @@ function Products() {
                             <option value="zakat">Zakat</option>
                         </select>
                     </div>
-                    <div className="col-lg-2 text-center my-2 col-sm-12 col-md-6  " >
+                    <div className="col-lg-2 text-center my-2 col-sm-12 col-md-6" >
                         <button className="btn "
                             onClick={handleShow}
                             style={{
-                               borderRadius: '15px',
+                                borderRadius: '15px',
                                 fontWight: ' bold', color: 'white', backgroundColor: 'rgb(193, 35, 35)'
                             }}> Donate Now</button>
                     </div>
-                   
+
                 </div>
             </div>
         </div >
