@@ -20,12 +20,8 @@
         "display_name": "categories",
         "route": "/dashboard/categories",
         "icon": "bx bx-list-ol"
-    },
-   
-    
-    {
-        "display_name": "settings",
-        "route": "/dashboard/settings",
-        "icon": "bx bx-cog"
     }
+
+    
+  
 ]

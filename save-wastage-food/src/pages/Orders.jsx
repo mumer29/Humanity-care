@@ -39,7 +39,7 @@ function Orders() {
     const [seekerData, setSeekerData] = useState([])
 
 
-    
+
 
 
 
@@ -59,19 +59,13 @@ function Orders() {
                 document.getElementById("admin").style.display = "block"
                 document.getElementById("seeker").style.display = "none"
                 document.getElementById("donor").style.display = "none"
-            
+
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
                     querySnapshot.forEach(element => {
                         var data = element.data()
-                        // console.log(data.name);
-                        // console.log(email);
 
-                        // if (data.email === users.email) {
-                        // console.log("good ho gya");
-                        // console.log(data);
                         donorDetail.push(data)
-                        // }
                     })
                     setDonorData(donorDetail)
                 })
@@ -80,14 +74,8 @@ function Orders() {
                     let seekerDetail = []
                     querySnapshot.forEach(element => {
                         var data = element.data()
-                        // console.log(data.name);
-                        // console.log(email);
 
-                        // if (data.email === users.email) {
-                        // console.log("good ho gya");
-                        // console.log(data);
                         seekerDetail.push(data)
-                        // }
                     })
                     setSeekerData(seekerDetail)
                 })
@@ -98,11 +86,9 @@ function Orders() {
 
             } else if (data.userType === "Donor") {
 
-
-
                 document.getElementById("admin").style.display = "none"
                 document.getElementById("seeker").style.display = "none"
-                document.getElementById("donor").style.display = "inline-table"
+                document.getElementById("donor").style.display = "flex"
                 try {
                     const query = await db
                         .collection("users")
@@ -122,15 +108,7 @@ function Orders() {
                 document.getElementById("admin").style.display = "none"
                 document.getElementById("seeker").style.display = "inline-table"
                 document.getElementById("donor").style.display = "none"
-                // let users = [];
-                // await firestore.collection("users").get().then((querySnapshot) => {
-                //     querySnapshot.forEach(element => {
-                //         var data = element.data()
 
-                //         users.push(data)
-                //     })
-                // })
-                // setSeekerData(users)
 
             }
         } catch (err) {
@@ -182,7 +160,7 @@ function Orders() {
 
     useEffect(() => {
         if (loading) return;
-        if (!user) return history.push("/");
+        if (!user) return history.push("/dashboard");
         // fetchUserEmail();
         fetchUserData();
 
@@ -252,7 +230,7 @@ function Orders() {
                                             <th scope="col">Email</th>
                                             <th scope="col">Phone number</th>
                                             <th scope="col">Message</th>
-                                          
+
                                         </tr>
                                     </thead>
                                     {seekerData.map((item, index) => (

@@ -78,7 +78,7 @@ const Topnav = () => {
                 <div className="topnav__right-item">
                     <Dropdown
                         icon='bx bx-bell'
-                        badge='12'
+                        // badge='12'
                         contentData={notifications}
                         renderItems={(item, index) => renderNotificationItem(item, index)}
                         renderFooter={() => <Link to='/dashboard'>View All</Link>}
