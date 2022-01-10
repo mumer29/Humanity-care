@@ -232,7 +232,6 @@ const Dashboard = () => {
                 .get();
             const data = await query.docs[0].data();
 
-            // console.log(data);
             if (data.userType === "Admin") {
 
                 document.getElementById("admin").style.display = "block"
@@ -246,9 +245,10 @@ const Dashboard = () => {
             }
         }
         catch (err) {
-            // console.log(err.message);
+            // console.log(err);
             // toast.error("An error occured while fetching user data")
         }
+       
 
 
     };
