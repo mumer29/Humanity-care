@@ -58,9 +58,9 @@ function SignUp() {
             let result = db.find((item) => {
 
 
-                if (item.userType === "Admin" && item.userType === userType  ) {
+                if (item.userType === "Admin" && item.userType === userType) {
                     return item;
-                } 
+                }
 
             })
             console.log(result);
@@ -68,8 +68,8 @@ function SignUp() {
                 toast.error("Admin is alreay exist")
                 // registerWithEmailAndPassword(name, email, phone, userType, password, registered);
             } else {
-                toast.success('Your account has been created successfully')
-                
+                registerWithEmailAndPassword(name, email, phone, userType, password, registered);
+
             }
         }
 
