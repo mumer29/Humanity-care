@@ -7,8 +7,13 @@ import { toast } from 'react-toastify'
 import {
     auth,
     registerWithEmailAndPassword,
+    signInWithEmailAndPassword,
     signInWithGoogle,
+    firestore
 } from "../../firebase";
+
+// import { auth,  signInWithGoogle } from "../../firebase";
+
 
 
 
@@ -21,12 +26,14 @@ function SignUp() {
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("")
     const [user, loading, error] = useAuthState(auth);
-    // const [userID, setUserID] = useState("");
-    const [userDasignation, setUserDasignation] = useState("")
-    // console.log("auh",authProvider);
+    const [userType, setuserType] = useState("");
+    const [registered, setregistered] = useState("Yes");
 
-    const register = () => {
-        if (!userDasignation) {
+
+
+
+    const register = async () => {
+        if (!userType) {
             toast.error("Please select a designation from  Donor, Seeker and Admin")
         } else if (!name) {
             toast.error("Please inter your name")
@@ -35,58 +42,44 @@ function SignUp() {
         }
         else if (!phone) {
             toast.error("Please inter your phone number")
-        }
-        else if (!password) {
+        } else if (!password) {
             toast.error("Please inter your password at least 6 characters long")
         }
         else {
-            registerWithEmailAndPassword(name, userDasignation, phone, email, password);
+            let db = [];
+            await firestore.collection("users").get().then((querySnapshot) => {
+                querySnapshot.forEach(element => {
+                    var data = element.data()
+                    // console.log(data);
+                    db.push(data)
+                })
+            })
+            // console.log(db);
+            let result = db.find((item) => {
+
+
+                if (item.userType === "Admin") {
+                    return false
+                } else {
+                    return item
+                }
+
+            })
+            console.log(result);
+            if (result !== undefined) {
+                toast.success('Your account has been created successfully')
+                // registerWithEmailAndPassword(name, email, phone, userType, password, registered);
+            } else {
+                toast.error("Admin is alreay exist")
+            }
         }
 
     };
     useEffect(() => {
-        if (loading) return ;
+        if (loading) return;
         if (user) history.push("/dashboard");
     }, [user, loading]);
 
-    // const [password, setPassword] = useState(true)
-    // const [user, setUser] = useState({
-    //     name: '',
-    //     email: '',
-    //     phone: '',
-    //     password: '',
-    //     uid: '',
-    // })
-
-    // let name, value;
-    // const getUserData = (evt) => {
-    //     name = evt.target.name;
-    //     value = evt.target.value;
-    //     setUser({ ...user, [name]: value })
-    // }
-
-    // const postData = async (e) => {
-    //     e.preventDefault();
-    //     console.log(user);
-    //     const db = await firebase.firestore();
-    //     db.collection("care-humanity").add(user);
-    //     toast.success('Your account has been create successfully')
-    //     document.getElementById('signUpForm').reset()
-    //     navigate("/sign-in")
-    // }
-
-    // function registration() {
-    //     navigate("/sign-in")
-
-    // }
-    // function showHidePassword(e) {
-    //     const checked = e.target.checked;
-    //     if (checked) {
-    //         setPassword(false)
-    //     } else {
-    //         setPassword(true)
-    //     }
-    // }
     function showPassword() {
         setPasswordType(false)
         document.getElementById("show").style.display = "none";
@@ -99,11 +92,11 @@ function SignUp() {
         document.getElementById("hide").style.display = "none";
     }
 
-    let uniqueIdGenerator = () => {
-        return Math.floor((1 + Math.random()) * 0x10000)
-            .toString(16)
-            .substring(1);
-    }
+    // let uniqueIdGenerator = () => {
+    //     return Math.floor((1 + Math.random()) * 0x10000)
+    //         .toString(16)
+    //         .substring(1);
+    // }
 
     function designation(e) {
 
@@ -114,7 +107,7 @@ function SignUp() {
             // let userdezi = "D-"
             // let final = userdezi.concat(result)
             // setUserID(final)
-            setUserDasignation("donor")
+            setuserType("Donor")
 
         } else if (userValue === "seeker") {
             // setUserDasignation("seeker")
@@ -122,7 +115,7 @@ function SignUp() {
             // let userdezi = "S-"
             // let final = userdezi.concat(result)
             // setUserID(final)
-            setUserDasignation("seeker")
+            setuserType("Seeker")
 
         }
         else {
@@ -131,7 +124,7 @@ function SignUp() {
             // let userdesi = "A-"
             // let final = userdesi.concat(result)
             // setUserID(final)
-            setUserDasignation("admin")
+            setuserType("Admin")
 
         }
     }
