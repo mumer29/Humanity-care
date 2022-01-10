@@ -16,6 +16,7 @@ const Customers = () => {
     const [adminData, setAdminData] = useState([])
     const [seekerData, setSeekerData] = useState([])
     const [email, setEmail] = useState([])
+    console.log(donorData);
 
     const fetchUserData = async () => {
 
@@ -68,15 +69,19 @@ const Customers = () => {
                 // console.log("users", users);
 
                 await firestore.collection("donor").get().then((querySnapshot) => {
+                    let donorDetail = []
                     querySnapshot.forEach(element => {
                         var data = element.data()
                         // console.log(data.name);
                         // console.log(email);
 
                         if (data.email === users.email) {
-                            console.log("good ho gya");
-                            }
-                        })
+                            // console.log("good ho gya");
+                            // console.log(data);
+                            donorDetail.push(data)
+                        }
+                    })
+                    setDonorData(donorDetail)
                 })
 
 
@@ -114,7 +119,7 @@ const Customers = () => {
                 customers
             </h2>
             {/* <div>{name}</div> */}
-            <div>{email}</div>
+            {/* <div>{email}</div> */}
             <div className="row">
                 <div className="col-12">
                     <div className="card">

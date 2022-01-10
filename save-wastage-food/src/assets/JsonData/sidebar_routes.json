@@ -11,8 +11,8 @@
     },
    
     {
-        "display_name": "Products",
-        "route": "/dashboard/products",
+        "display_name": "Orders",
+        "route": "/dashboard/orders",
         "icon": "bx bx-cart"
     },
     
