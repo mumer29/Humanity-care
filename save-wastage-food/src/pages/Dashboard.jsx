@@ -244,7 +244,7 @@ const Dashboard = () => {
             } else {
                 document.getElementById("admin").style.display = "none"
             }
-        } 
+        }
         catch (err) {
             // console.log(err.message);
             // toast.error("An error occured while fetching user data")
@@ -384,8 +384,8 @@ const Dashboard = () => {
                                             </tr>
                                         </thead>
                                         {donorServices.map((item, index) => (
-                                            <tbody>
-                                                <tr key={index}>
+                                            <tbody key={index}>
+                                                <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
                                                     <td>{item.email}</td>
