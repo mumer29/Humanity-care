@@ -18,6 +18,7 @@ const Customers = () => {
     const [email, setEmail] = useState([])
 
     const fetchUserData = async () => {
+
         try {
             const query = await db
                 .collection("users")
@@ -35,13 +36,15 @@ const Customers = () => {
                 await firestore.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach(element => {
                         var data = element.data()
-
                         users.push(data);
                     })
                 })
+                // console.log(users);
                 setAdminData(users);
 
             } else if (data.userType === "Donor") {
+                let users;
+
 
                 document.getElementById("admin").style.display = "none"
                 document.getElementById("seeker").style.display = "none"
@@ -52,14 +55,31 @@ const Customers = () => {
                         .where("uid", "==", user?.uid)
                         .get();
                     const data = await query.docs[0].data();
-                    setEmail(data.email)
+                    users = data
+                    // console.log("data".data);
+                    // users.push(data)
+                    // setEmail(data.email)
+                    // console.log(data.email);/
 
                 } catch (err) {
                     console.error(err);
                     alert("An error occured while fetching user data");
-
                 }
-                
+                // console.log("users", users);
+
+                await firestore.collection("donor").get().then((querySnapshot) => {
+                    querySnapshot.forEach(element => {
+                        var data = element.data()
+                        // console.log(data.name);
+                        // console.log(email);
+
+                        if (data.email === users.email) {
+                            console.log("good ho gya");
+                            }
+                        })
+                })
+
+
             } else {
 
                 document.getElementById("admin").style.display = "none"
@@ -80,8 +100,6 @@ const Customers = () => {
             toast.error("An error occured while fetching user data")
         }
     };
-
-
 
 
     useEffect(() => {
