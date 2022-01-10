@@ -15,7 +15,9 @@ function SignIn() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [user, loading, error] = useAuthState(auth);
-    const [userDasignation, setUserDasignation] = useState("")
+    // const [userDasignation, setUserDasignation] = useState("")
+    const [userType, setuserType] = useState("");
+
 
     const history = useHistory();
     useEffect(() => {
@@ -58,7 +60,7 @@ function SignIn() {
         //         })
 
 
-        if (!userDasignation) {
+        if (!userType) {
             toast.error("Please select a designation from  Donor, Seeker and Admin")
         } else if (!email) {
             toast.error("Please inter your email")
@@ -76,7 +78,7 @@ function SignIn() {
             })
             // console.log(db);
             let result = db.find((item) => {
-                if (item.userDasignation === userDasignation && item.email === email) {
+                if (item.userType === userType && item.email === email) {
                     return item;
                 }
             })
@@ -119,7 +121,7 @@ function SignIn() {
             // let userdezi = "D-"
             // let final = userdezi.concat(result)
             // setUserID(final)
-            setUserDasignation("donor")
+            setuserType("Donor")
 
         } else if (userValue === "seeker") {
             // setUserDasignation("seeker")
@@ -127,7 +129,7 @@ function SignIn() {
             // let userdezi = "S-"
             // let final = userdezi.concat(result)
             // setUserID(final)
-            setUserDasignation("seeker")
+            setuserType("Seeker")
 
         }
         else {
@@ -136,7 +138,7 @@ function SignIn() {
             // let userdesi = "A-"
             // let final = userdesi.concat(result)
             // setUserID(final)
-            setUserDasignation("admin")
+            setuserType("Admin")
 
         }
     }
@@ -302,9 +304,9 @@ function SignIn() {
                                 >Submit</button>
 
                             </div>
-                            {/* <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
+                            <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
                                 Sign in with Google
-                            </button> */}
+                            </button>
                             {/* <div className="h6 text-end ">
                                 Not yet register ?
                                 <a
