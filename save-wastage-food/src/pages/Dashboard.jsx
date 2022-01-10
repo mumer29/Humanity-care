@@ -232,7 +232,7 @@ const Dashboard = () => {
                 .get();
             const data = await query.docs[0].data();
 
-            console.log(data);
+            // console.log(data);
             if (data.userType === "Admin") {
 
                 document.getElementById("admin").style.display = "block"
@@ -244,8 +244,10 @@ const Dashboard = () => {
             } else {
                 document.getElementById("admin").style.display = "none"
             }
-        } catch (err) {
-            toast.error("An error occured while fetching user data")
+        } 
+        catch (err) {
+            // console.log(err.message);
+            // toast.error("An error occured while fetching user data")
         }
 
 
@@ -383,7 +385,7 @@ const Dashboard = () => {
                                         </thead>
                                         {donorServices.map((item, index) => (
                                             <tbody>
-                                                <tr>
+                                                <tr key={index}>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
                                                     <td>{item.email}</td>
