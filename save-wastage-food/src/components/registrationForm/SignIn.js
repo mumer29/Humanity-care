@@ -304,9 +304,9 @@ function SignIn() {
                                 >Submit</button>
 
                             </div>
-                            <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
+                            {/* <button className="btn btn-danger w-100" onClick={signInWithGoogle}>
                                 Sign in with Google
-                            </button>
+                            </button> */}
                             {/* <div className="h6 text-end ">
                                 Not yet register ?
                                 <a

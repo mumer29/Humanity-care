@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Link, Outlet } from 'react-router-dom'
 
@@ -13,6 +13,15 @@ import Table from '../components/table/Table'
 import Badge from '../components/badge/Badge'
 
 import statusCards from '../assets/JsonData/status-card-data.json'
+
+import { NonRegisterDonor, auth, db, logout, RegisterDonor, firestore, RegistredSeeker } from '../firebase'
+
+import { toast } from 'react-toastify';
+
+import { useAuthState } from "react-firebase-hooks/auth";
+
+
+
 
 const chartOptions = {
     series: [{
@@ -47,9 +56,8 @@ const chartOptions = {
 
 const topCustomers = {
     head: [
-        'user',
-        'total orders',
-        'total spending'
+        'Service',
+        'total order'
     ],
     body: [
         {
@@ -162,32 +170,154 @@ const renderOrderBody = (item, index) => (
     </tr>
 )
 
+
 const Dashboard = () => {
+
+    const [totalDonorAmount, setTotalDonorAmount] = useState('')
+    const [seekeAndDonorLength, setSeekeAndDonorLength] = useState('')
+    const [donorServices, setDonorServices] = useState([])
+    const [user, loading, error] = useAuthState(auth);
+
+
+    const fetchDonorData = async () => {
+        await firestore.collection("donor").get().then((querySnapshot) => {
+            let total = 0
+            querySnapshot.forEach(element => {
+                var data = element.data()
+                total += Math.floor(data.amount);
+
+            })
+            setTotalDonorAmount(total)
+        })
+    }
+    const fetchSeekeAndDonor = async () => {
+        await firestore.collection("users").get().then((querySnapshot) => {
+            let total = 0
+            querySnapshot.forEach(element => {
+                var data = element.data()
+                if (data) {
+                    total += 1
+                }
+
+            })
+            // console.log(total);
+            setSeekeAndDonorLength(total - 1)
+        })
+
+    }
+
+    const fetchDonorServices = async () => {
+        await firestore.collection("donor").get().then((querySnapshot) => {
+            let total = []
+            querySnapshot.forEach(element => {
+                var data = element.data()
+
+                total.push(data)
+            })
+            // console.log(total);
+            setDonorServices(total)
+        })
+
+    }
+
+
+
+
+    const fetchUserData = async () => {
+
+        try {
+            const query = await db
+                .collection("users")
+                .where("uid", "==", user?.uid)
+                .get();
+            const data = await query.docs[0].data();
+
+            if (data.userType === "Admin") {
+
+                document.getElementById("admin").style.display = "block"
+
+            } else if (data.userType === "Donor") {
+
+                document.getElementById("admin").style.display = "none"
+
+            } else {
+                document.getElementById("admin").style.display = "none"
+            }
+        }
+        catch (err) {
+            // console.log(err);
+            // toast.error("An error occured while fetching user data")
+        }
+       
+
+
+    };
+
+    useEffect(() => {
+        fetchUserData();
+        fetchDonorData();
+        fetchSeekeAndDonor();
+        fetchDonorServices();
+
+    }, [user, loading]);
+
 
     const themeReducer = useSelector(state => state.ThemeReducer.mode)
 
     return (
-        <div>
+        <div id="admin"
+            style={{ display: "none" }}
+        >
             <h2 className="page-header">Dashboard</h2>
             <div className="row">
-                <div className="col-6">
+                <div className="col-12 ">
                     <div className="row">
-                        {
-                            statusCards.map((item, index) => (
-                                <div className="col-6" key={index}>
-                                    <StatusCard
-                                        icon={item.icon}
-                                        count={item.count}
-                                        title={item.title}
-                                    />
-                                </div>
-                            ))
-                        }
+                        <div className='status-card col-6'>
+                            <div className="status-card__icon">
+                                <i className="bx bx-shopping-bag"></i>
+                            </div>
+                            <div className="status-card__info">
+                                <h4> {totalDonorAmount}</h4>
+                                <h5>Total Donations</h5>
+                            </div>
+                        </div>
+
+                        <div className='status-card col-6'>
+                            <div className="status-card__icon">
+                                <i className="bx bx-shopping-bag"></i>
+                            </div>
+                            <div className="status-card__info">
+                                <h4> {seekeAndDonorLength}</h4>
+                                <h5>Donors & Seeker</h5>
+                            </div>
+                        </div>
+
+
+                        <div className='status-card col-6'>
+                            <div className="status-card__icon">
+                                <i className="bx bx-shopping-bag"></i>
+                            </div>
+                            <div className="status-card__info">
+                                <h4> 150 K</h4>
+                                <h5>Required Amount</h5>
+                            </div>
+                        </div>
+
+                        <div className='status-card col-6'>
+                            <div className="status-card__icon">
+                                <i className="bx bx-shopping-bag"></i>
+                            </div>
+                            <div className="status-card__info">
+                                <h4> 100 KG</h4>
+                                <h5>Daily food required</h5>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div className="col-6">
+
+
+                {/* <div className="col-6">
                     <div className="card full-height">
-                        {/* chart */}
                         <Chart
                             options={themeReducer === 'theme-mode-dark' ? {
                                 ...chartOptions.options,
@@ -201,27 +331,79 @@ const Dashboard = () => {
                             height='100%'
                         />
                     </div>
-                </div>
-                <div className="col-4">
+                </div> */}
+                {/* <div className="col-4">
                     <div className="card">
-                        <div className="card__header">
-                            <h3>top customers</h3>
-                        </div>
+                        <h3>Top Donations</h3>
                         <div className="card__body">
-                            <Table
-                                headData={topCustomers.head}
-                                renderHead={(item, index) => renderCusomerHead(item, index)}
-                                bodyData={topCustomers.body}
-                                renderBody={(item, index) => renderCusomerBody(item, index)}
-                            />
-                        </div>
-                        <div className="card__footer">
-                            <Link to='/'>view all</Link>
+
+                            <table className="table"
+                                id="admin"
+                                style={{ minWidth: "0px" }}
+                            >
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Donation type</th>
+                                        <th scope="col">Total order</th>
+
+                                    </tr>
+                                </thead>
+                                {donorServices.map((item, index) => (
+
+                                <tbody>
+                                    <tr>
+                                        <td> {item.payment}</td>
+                                        <td> {item.amount}</td>
+                                    </tr>
+                                </tbody>
+                                ))}
+                            </table>
                         </div>
                     </div>
-                </div>
-                <div className="col-8">
-                    <div className="card">
+                </div> */}
+                <div className="col-12">
+
+                    <div className="row">
+                        <div className="col-12">
+                            <div className="card">
+                                <div className="card__body">
+
+                                    <table class="table"
+                                    >
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Sr.</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">Email</th>
+                                                <th scope="col">Donation type</th>
+                                                <th scope="col">Amount</th>
+                                                <th scope="col">Status</th>
+
+                                                {/* <th scope="col">Payment for</th>
+                                            <th scope="col">Registred</th> */}
+                                            </tr>
+                                        </thead>
+                                        {donorServices.map((item, index) => (
+                                            <tbody key={index}>
+                                                <tr>
+                                                    <th scope="row">{index + 1}</th>
+                                                    <td> {item.name}</td>
+                                                    <td>{item.email}</td>
+                                                    <td>{item.donationType}</td>
+
+                                                    <td>{item.amount}</td>
+                                                    <td>Pending</td>
+                                                    {/* <td>{item.registered}</td> */}
+
+                                                </tr>
+                                            </tbody>
+                                        ))}
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {/* <div className="card">
                         <div className="card__header">
                             <h3>latest orders</h3>
                         </div>
@@ -236,10 +418,9 @@ const Dashboard = () => {
                         <div className="card__footer">
                             <Link to='/'>view all</Link>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </div>
-            {/* <Outlet/> */}
         </div>
     )
 }

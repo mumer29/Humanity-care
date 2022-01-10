@@ -129,6 +129,42 @@ const NonRegisterDonor = async (name, email, phone, payment, amount, donationTyp
   }
 };
 
+const RegisterDonor = async (email, name, payment, amount, donationType) => {
+  try {
+    // const res = await auth.createUserWithEmailAndPassword(email, password);
+    // const user = res.user;
+    await db.collection("donor").add({
+      // uid: user.uid,
+      email, name, payment, amount, donationType
+
+    });
+    toast.success("Your record has been submitted successfully")
+  } catch (err) {
+    // console.log(err.message);
+
+    toast.warn(err.message)
+    // alert(err.message);
+  }
+};
+
+const RegistredSeeker = async (seekerName, seekerEmail, seekerPhone, seekerMessage) => {
+  try {
+    // const res = await auth.createUserWithEmailAndPassword(email, password);
+    // const user = res.user;
+    await db.collection("seeker").add({
+      // uid: user.uid,
+      seekerName, seekerEmail, seekerPhone, seekerMessage
+
+    });
+    toast.success("Your record has been submitted successfully")
+  } catch (err) {
+    // console.log(err.message);
+
+    toast.warn(err.message)
+    // alert(err.message);
+  }
+};
+
 
 
 
@@ -144,6 +180,7 @@ export {
   sendPasswordResetEmail,
   logout,
   NonRegisterDonor,
-
+  RegisterDonor,
+  RegistredSeeker
 };
 
