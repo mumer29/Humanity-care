@@ -1,258 +1,254 @@
 // import React from 'react';
-import { firestore } from "../firebase";
+import { firestore, auth, db, logout } from "../firebase";
 import React, { useState, useEffect } from 'react';
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { Link, useHistory } from "react-router-dom";
+import { toast } from 'react-toastify'
 
 
 
-import Table from '../components/table/Table'
+
+// import Table from '../components/table/Table'
 
 // import customerList from '../assets/JsonData/customers-list.json'
 
-const customerTableHead = [
-    'amount',
-    'authProvider',
-    'donationType',
-    'donorEmail',
-    'donorName',
-    'donorPhone',
-    'payment ',
+// const customerTableHead = [
+//     'amount',
+//     'authProvider',
+//     'donationType',
+//     'donorEmail',
+//     'donorName',
+//     'donorPhone',
+//     'payment ',
 
-    'Name', 'Email', 'Phone', 'payment', 'amount', 'donationType', 'registrationType'
+//     'Name', 'Email', 'Phone', 'payment', 'amount', 'donationType', 'registrationType'
 
-]
+// ]
 
-const renderHead = (item, index) => <th key={index}>{item}</th>
+// const renderHead = (item, index) => <th key={index}>{item}</th>
 
-const renderBody = (item, index) => (
-    <tr key={index}>
-        <td>{item.amount}</td>
-        <td>{item.authProvider}</td>
-        <td>{item.donationType}</td>
-        <td>{item.donorEmail}</td>
-        <td>{item.donorName}</td>
-        <td>{item.donorPhone}</td>
-        <td>{item.payment}</td>
-    </tr>
-)
+// const renderBody = (item, index) => (
+//     <tr key={index}>
+//         <td>{item.amount}</td>
+//         <td>{item.authProvider}</td>
+//         <td>{item.donationType}</td>
+//         <td>{item.donorEmail}</td>
+//         <td>{item.donorName}</td>
+//         <td>{item.donorPhone}</td>
+//         <td>{item.payment}</td>
+//     </tr>
+// )
 
 const Customers = () => {
 
+    const [user, loading, error] = useAuthState(auth);
+    // const [name, setName] = useState("");
+    const history = useHistory();
+    const [donorData, setDonorData] = useState([])
+    const [adminData, setAdminData] = useState([])
+    const [seekerData, setSeekerData] = useState([])
+    // console.log(name);
 
-    // const [db, setDb] = useState([]);
-    const [tableData, settableData] = useState([])
-    // console.log(tableData);
-    useEffect(() => {
-        getdata();
-    }, []);
-    console.log("table data", tableData);
+    const admin = () => {
+        document.getElementById("admin").style.display = "inline-table"
+        document.getElementById("seeker").style.display = "none"
+        document.getElementById("donor").style.display = "none"
+        getAdminData();
+    }
+    const donor = () => {
+        document.getElementById("admin").style.display = "none"
+        document.getElementById("seeker").style.display = "none"
+        document.getElementById("donor").style.display = "inline-table"
+        getDonorData()
+    }
+    const seeker = () => {
+        document.getElementById("admin").style.display = "none"
+        document.getElementById("seeker").style.display = "inline-table"
+        document.getElementById("donor").style.display = "none"
+        getSeekerData()
+    }
 
 
-    async function getdata() {
+    const fetchUserName = async () => {
+        try {
+            const query = await db
+                .collection("users")
+                .where("uid", "==", user?.uid)
+                .get();
+            const data = await query.docs[0].data();
+
+            if (data.userType === "Admin") {
+                admin()
+                // setName("Admin");
+            } else if (data.userType === "Donor") {
+                donor()
+
+                // setName("Donor");
+            } else {
+                seeker()
+
+                // setName("Seeker");
+            }
+        } catch (err) {
+            // console.error(err);
+            // alert("");
+            toast.error("An error occured while fetching user data")
+        }
+    };
+
+
+    async function getAdminData() {
 
         let users = [];
         await firestore.collection("users").get().then((querySnapshot) => {
             querySnapshot.forEach(element => {
                 var data = element.data()
-                // console.log("database data", data.amount);
-                //    let result =  Object.values(data);
-                // setDb([...db, data])
-                // settableData({ ...tableData, data })
 
-
-                //    console.log(data); 
                 users.push(data)
             })
         })
-        settableData(users)
-        // console.log(users);
-
-        // const ref = firestore().collection("donor").doc();
-        // ref.get().then((doc) => {
-        //   const donordata = doc.data();
-        //   console.log(donordata);
-        //   if (doc.exists) {
-        //     settableData({
-        //       id: donordata.id,
-        //       name: donordata.name,
-        //       email: donordata.email,
-        //       phone: donordata.phone,
-        //       total_orders: donordata.total_orders,
-        //       total_spend: donordata.total_spend,
-        //       location: donordata.location,
-        //       createdAt: donordata.createdAt
-        //     });
-        //   } else {
-        //     console.log("No doc found!");
-        //   }
-        // });
-
+        setAdminData(users);
     }
-    // console.log(users);
-    // let users = [];
-    // users.push(db)
-    // useEffect(() => {
-    //     postData()
-    // }, []);
-    // let result = Object.entries(db)
-    // let user;
-    // console.log(user);
-    // window.addEventListener('load', async (event) => {
-    //    user = []
+    
+    async function getDonorData() {
 
-    //     await firestore.collection("donor").get().then((querySnapshot) => {
-    //         querySnapshot.forEach(element => {
-    //             var data = element.data()
-    //             //    let result =  Object.values(data);
-    //             // setDb([...db, data])
-    //             //    console.log(data); 
-    //             user.push(data)
-    //         })
-    //     })
-    // console.log('page is fully loaded');
-    // console.log("inner",user);
-    // });
+        let users = [];
+        await firestore.collection("users").get().then((querySnapshot) => {
+            querySnapshot.forEach(element => {
+                var data = element.data()
 
+                users.push(data)
+            })
+        })
+        setDonorData(users)
+    }
+    
+    async function getSeekerData() {
 
+        let users = [];
+        await firestore.collection("users").get().then((querySnapshot) => {
+            querySnapshot.forEach(element => {
+                var data = element.data()
 
-    // const tableCol = [
-    //     {
-    //         title: " ID",
-    //         field: "id"
-    //     },
-    //     {
-    //         title: "Name",
-    //         field: "name"
-    //     },
-    //     ,
-    //     {
-    //         title: "Email",
-    //         field: "email"
-    //     },
-    //     {
-    //         title: "Phone",
-    //         field: "phone"
-    //     },
-    //     {
-    //         title: " Total Order ",
-    //         field: "total_orders"
-    //     },
-    //     {
-    //         title: "Spend Order",
-    //         field: "total_spend",
+                users.push(data)
+            })
+        })
+        setSeekerData(users)
+    }
 
-    //     },
-    //     {
-    //         title: " Location ",
-    //         field: "location"
-    //     },
-
-    //     {
-    //         title: "Submitted at",
-    //         field: "createdAt"
-    //     }
-    // ];
-
-
-    console.log(tableData);
+    useEffect(() => {
+        if (loading) return;
+        if (!user) return history.push("/");
+        fetchUserName();
+        // getAdminData();
+    }, [user, loading]);
 
     return (
         <div>
             <h2 className="page-header">
                 customers
-                {/* {db.} */}
             </h2>
             <div className="row">
                 <div className="col-12">
                     <div className="card">
                         <div className="card__body">
-                            {/* <Table
-                                limit='10'
-                                headData={customerTableHead}
-                                renderHead={(item, index) => renderHead(item, index)}
-                                bodyData={customerList}
-                                renderBody={(item, index) => renderBody(item, index)}
-                            /> */}
 
-                            <div>
+                            <table class="table"
+                                id="admin"
+                                style={{ display: "none" }}>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Sr.</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone No</th>
 
-                                <div>
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Sr.</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Phone No</th>
-                                                {/* <th scope="col">Donation Type</th> */}
-                                                {/* <th scope="col">Payment For</th> */}
-                                                {/* <th scope="col">Amount</th> */}
-                                                <th scope="col">User Type</th>
-                                                <th scope="col">Registred</th>
-                                            </tr>
-                                        </thead>
-                                        {tableData.map((item, index) => (
+                                        <th scope="col">User Type</th>
+                                        <th scope="col">Registred</th>
+                                    </tr>
+                                </thead>
+                                {adminData.map((item, index) => (
 
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">{index + 1}</th>
-                                                    <td> {item.name}</td>
-                                                    <td>{item.email}</td>
-                                                    <td>{item.phone}</td>
-                                                    {/* <td>{item.donationType}</td> */}
-                                                    {/* <td>{item.payment}</td> */}
-                                                    {/* <td>{item.amount}</td> */}
-                                                    <td>{item.userType}</td>
-                                                    <td>{item.registered}</td>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">{index + 1}</th>
+                                            <td> {item.name}</td>
+                                            <td>{item.email}</td>
+                                            <td>{item.phone}</td>
 
+                                            <td>{item.userType}</td>
+                                            <td>{item.registered}</td>
 
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
 
+                            {/* Donor */}
+                            <table class="table"
+                                id="donor"
+                                style={{ display: "none" }}>
+                                <thead>
+                                    <tr>
+                                        {/* <th>Donor</th> */}
+                                        {/* <th scope="col">Sr.</th> */}
+                                        <th scope="col">Donor Name</th>
+                                        {/* <th scope="col">Email</th>
+                                        <th scope="col">Phone No</th>
+                                        <th scope="col">User Type</th>
+                                        <th scope="col">Registred</th> */}
+                                    </tr>
+                                </thead>
+                                {donorData.map((item, index) => (
 
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">{index + 1}</th>
+                                            <td> {item.name}</td>
+                                            {/* <td>{item.email}</td>
+                                            <td>{item.phone}</td>
+                                            <td>{item.userType}</td>
+                                            <td>{item.registered}</td> */}
 
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
 
-                                                </tr>
-                                            </tbody>
-                                        ))}
-                                    </table>
-                                    {/* <span>name: {item.donorName}</span>
-                                        <br />
-                                        <span>Email: {item.donorEmail}</span>
-                                        <br />
-                                        <span>Phone: {item.donorPhone}</span>
-                                        <br />
-                                        <span>Donation Type: {item.donationType}</span>
-                                        <br />
-                                        <span>Amount: {item.amount}</span>
-                                        <br />
-                                        <span>Payment: {item.payment}</span>
-                                        <br />
-                                        <span>Auth provider: {item.authProvider}</span>
-                                        <br />
-                                        <br /> */}
-                                </div>
+                            {/* Seeker */}
+                            <table class="table"
+                                id="seeker"
+                                style={{ display: "none" }}>
+                                <thead>
+                                    <tr>
+                                        {/* <th scope="col">Sr.</th> */}
+                                        <th scope="col">Donor Name</th>
+                                        {/* <th scope="col">Email</th>
+                                        <th scope="col">Phone No</th>
+                                        <th scope="col">User Type</th>
+                                        <th scope="col">Registred</th> */}
+                                    </tr>
+                                </thead>
+                                {seekerData.map((item, index) => (
 
-                            </div>
-                            {/* <Table
-                                title={"Student's Feedback"}
-                                data={tableData}
-                                columns={tableCol}
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">{index + 1}</th>
+                                            <td> {item.name}</td>
+                                            {/* <td>{item.email}</td> */}
+                                            {/* <td>{item.phone}</td> */}
+                                            {/* <td>{item.userType}</td> */}
+                                            {/* <td>{item.registered}</td> */}
 
-                                options={{
-                                    headerStyle: {
-                                        backgroundColor: "#01579b",
-                                        color: "#FFF"
-                                    },
-                                    exportButton: true,
-                                    selection: false,
-                                    search: true
-                                }}
-
-                            /> */}
+                                        </tr>
+                                    </tbody>
+                                ))}
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            {/* <  Outlet/> */}
         </div>
     )
 }
