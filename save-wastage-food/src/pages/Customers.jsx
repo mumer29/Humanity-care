@@ -105,7 +105,7 @@ const Customers = () => {
             querySnapshot.forEach(element => {
                 var data = element.data()
 
-                users.push(data)
+                users.push(data);
             })
         })
         setAdminData(users);
