@@ -192,10 +192,10 @@ const Customers = () => {
                                             </tr>
                                         </thead>
                                         {tableData.map((item, index) => (
-                                           
+
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">{index+1}</th>
+                                                    <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
                                                     <td>{item.email}</td>
                                                     <td>{item.phone}</td>
@@ -203,12 +203,12 @@ const Customers = () => {
                                                     {/* <td>{item.payment}</td> */}
                                                     {/* <td>{item.amount}</td> */}
                                                     <td>{item.userType}</td>
-                                                    <td>{item. registered}</td>
+                                                    <td>{item.registered}</td>
 
-                                                   
 
-                                                    
-                                                    
+
+
+
 
                                                 </tr>
                                             </tbody>
