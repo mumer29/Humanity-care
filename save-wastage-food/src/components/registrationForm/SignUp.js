@@ -59,7 +59,7 @@ function SignUp() {
 
 
                 if (item.userType === "Admin" && item.userType === userType  ) {
-                    return item
+                    return item;
                 } 
 
             })
