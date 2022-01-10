@@ -4,9 +4,11 @@
 
 import { useNavigate, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { NonRegisterDonor, auth, db, logout, RegisterDonor, firestore } from '../firebase'
+import { NonRegisterDonor, auth, db, logout, RegisterDonor, firestore, RegistredSeeker } from '../firebase'
 
 import React, { useEffect, useState } from "react";
+import { Form, Button } from 'react-bootstrap';
+
 import { useAuthState } from "react-firebase-hooks/auth";
 // import { firestore, auth, db, logout } from "../firebase";
 
@@ -28,6 +30,17 @@ function Orders() {
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
 
+    // Seeker states
+
+    const [seekerName, setSeekerName] = useState("");
+    const [seekerEmail, setSeekerEmail] = useState("");
+    const [seekerPhone, setSeekerPhone] = useState("");
+    const [seekerMessage, setSeekerMessage] = useState("");
+    const [seekerData, setSeekerData] = useState([])
+
+
+    
+
 
 
 
@@ -46,9 +59,7 @@ function Orders() {
                 document.getElementById("admin").style.display = "block"
                 document.getElementById("seeker").style.display = "none"
                 document.getElementById("donor").style.display = "none"
-                let users;
-
-
+            
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
                     querySnapshot.forEach(element => {
@@ -57,13 +68,31 @@ function Orders() {
                         // console.log(email);
 
                         // if (data.email === users.email) {
-                            // console.log("good ho gya");
-                            // console.log(data);
-                            donorDetail.push(data)
+                        // console.log("good ho gya");
+                        // console.log(data);
+                        donorDetail.push(data)
                         // }
                     })
                     setDonorData(donorDetail)
                 })
+
+                await firestore.collection("seeker").get().then((querySnapshot) => {
+                    let seekerDetail = []
+                    querySnapshot.forEach(element => {
+                        var data = element.data()
+                        // console.log(data.name);
+                        // console.log(email);
+
+                        // if (data.email === users.email) {
+                        // console.log("good ho gya");
+                        // console.log(data);
+                        seekerDetail.push(data)
+                        // }
+                    })
+                    setSeekerData(seekerDetail)
+                })
+
+
 
 
 
@@ -108,47 +137,6 @@ function Orders() {
             toast.error("An error occured while fetching user data")
         }
 
-        // try {
-        //     const query = await db
-        //         .collection("users")
-        //         .where("uid", "==", user?.uid)
-        //         .get();
-        //     const data = await query.docs[0].data();
-        //     setEmail(data.email)
-        //     setName(data.name)
-        // } catch (err) {
-        //     console.error(err);
-        //     alert("An error occured while fetching user data");
-        // }
-
-
-        // const handleShow = async () => {
-        //     if (!payment) {
-        //         toast.error("Who do you want to pay for? ")
-        //     } else if (!amount) {
-        //         toast.error("Please select amount ")
-        //     }
-        //     else if (amount < 0) {
-        //         toast.error("Please select positive amount ")
-        //     } else if (!donationType) {
-        //         toast.error("What kind of payment do you want? ")
-        //     } else {
-
-        //         // console.log("user",name, email);
-
-        //         RegisterDonor(email, name, payment, amount, donationType)
-        //     }
-
-        // }
-
-        // const donatePayment = (e) => {
-        //     let data = e.target.value
-        //     if (data === "Cook Food" || data === "Uncook Food") {
-        //         setPHolder(false)
-        //     } else {
-        //         setPHolder(true)
-        //     }
-        // };
 
     };
     const handleShow = async () => {
@@ -163,8 +151,6 @@ function Orders() {
             toast.error("What kind of payment do you want? ")
         } else {
 
-            // console.log("user",name, email);
-
             RegisterDonor(email, name, payment, amount, donationType)
         }
 
@@ -178,6 +164,22 @@ function Orders() {
             setPHolder(true)
         }
     };
+
+    const postData = () => {
+        if (!seekerName) {
+            toast.error("Please enter your name")
+        } else if (!seekerEmail) {
+            toast.error("Please enter your email")
+        } else if (!seekerPhone) {
+            toast.error("Please enter your phone")
+        } else if (!seekerMessage) {
+            toast.error("Please enter your message")
+        } else {
+            RegistredSeeker(seekerName, seekerEmail, seekerPhone, seekerMessage)
+        }
+    }
+
+
     useEffect(() => {
         if (loading) return;
         if (!user) return history.push("/");
@@ -191,7 +193,7 @@ function Orders() {
             <div id='admin'
                 style={{ display: "none" }}>
                 <h2 className="page-header">
-                    Order History
+                    Donation History
                 </h2>
                 {/* <div>{name}</div> */}
                 {/* <div>{email}</div> */}
@@ -201,7 +203,7 @@ function Orders() {
                             <div className="card__body">
 
                                 <table class="table"
-                                   >
+                                >
                                     <thead>
                                         <tr>
                                             <th scope="col">Sr.</th>
@@ -233,13 +235,51 @@ function Orders() {
                         </div>
                     </div>
                 </div>
+                <h2 className="page-header">
+                    Request History
+                </h2>
+                <div className="row">
+                    <div className="col-12">
+                        <div className="card">
+                            <div className="card__body">
+
+                                <table class="table"
+                                >
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Sr.</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Email</th>
+                                            <th scope="col">Phone number</th>
+                                            <th scope="col">Message</th>
+                                          
+                                        </tr>
+                                    </thead>
+                                    {seekerData.map((item, index) => (
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row">{index + 1}</th>
+                                                <td> {item.seekerName}</td>
+                                                <td>{item.seekerEmail}</td>
+                                                <td>{item.seekerPhone}</td>
+
+                                                <td>{item.seekerMessage}</td>
+
+                                            </tr>
+                                        </tbody>
+                                    ))}
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
 
 
             <div className="row  justify-content-center align-items-center py-3"
                 id="donor"
-                style={{display:"none"}}
+                style={{ display: "none" }}
             >
                 <div className="col-lg-2 col-sm-12 col-md-12 text-center my-2  " style={{ height: "45px" }}>
                     <p style={{
@@ -299,18 +339,70 @@ function Orders() {
                             fontWight: ' bold', color: 'white', backgroundColor: 'rgb(193, 35, 35)'
                         }}> Donate Now</button>
                 </div>
-
             </div>
-
 
             {/* Seeker */}
 
             < div className="container "
                 id='seeker'
                 style={{ display: "none" }
-                } >
-               <h1>seeker</h1>
-                {/* </div> */}
+                }
+            >
+                <div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="text"
+                            className="form-control"
+                            id="floatingInput"
+                            placeholder="Password"
+                            value={seekerName}
+                            onChange={(e) => setSeekerName(e.target.value)}
+                        />
+                        <label htmlFor="floatingPassword">Name:</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="floatingInput1"
+                            placeholder="Name"
+                            value={seekerPhone}
+                            onChange={(e) => setSeekerPhone(e.target.value)}
+
+                        />
+                        <label htmlFor="floatingInput">Phone Number:</label>
+                    </div>
+                    <div className="form-floating mb-3">
+                        <input
+                            type="email"
+                            className="form-control"
+                            id="floatingInput2"
+                            placeholder="Phone nember"
+                            value={seekerEmail}
+                            onChange={(e) => setSeekerEmail(e.target.value)}
+
+                        />
+                        <label htmlFor="floatingInput">Email Address:</label>
+                    </div>
+
+                    <div className="form-floating mb-3">
+                        <textarea
+                            className="form-control"
+                            placeholder="Leave a comment here"
+                            id="floatingTextarea2"
+                            style={{ height: 100 }}
+                            value={seekerMessage}
+                            onChange={(e) => setSeekerMessage(e.target.value)}
+
+                        />
+                        <label htmlFor="floatingTextarea2">Message...</label>
+                    </div>
+                    <div>
+                        <button className='btn btn-success'
+                            onClick={postData}
+                        >Submit</button>
+                    </div>
+                </div>
             </div >
         </div >
 
