@@ -108,7 +108,7 @@ const Customers = () => {
                 users.push(data)
             })
         })
-        setAdminData(users)
+        setAdminData(users);
     }
     
     async function getDonorData() {
