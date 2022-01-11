@@ -37,42 +37,42 @@ function MainCarousels() {
                 </Carousel.Item>
                 <Carousel.Item interval={3000}>
                     <img
-                    style={{height:"600px"}}
+                        style={{ height: "600px" }}
                         className="  d mainCarouselsImg -block w-100"
-src="https://i0.wp.com/www.wedamor.com/wp-content/uploads/samarpan.jpg?w=740&ssl=1"
+                        src="https://i0.wp.com/www.wedamor.com/wp-content/uploads/samarpan.jpg?w=740&ssl=1"
                         alt="Third slide"
                     />
-                                                </Carousel.Item> 
-                                                <Carousel.Item interval={3000}>
-                                                <img
-                                                style={{height:"600px"}}
-                                                    className="  d mainCarouselsImg -block w-100"
-                                                    src="https://412foodrescue.org/wp-content/uploads/2016/12/1200x600-cart.jpg"
-                                                    alt="Third slide"
-                                                />
-                                                                            </Carousel.Item> 
-                                                                            <Carousel.Item interval={3000}>
-                                                                            <img
-                                                                            style={{height:"600px"}}
-                                                                                className="  d mainCarouselsImg -block w-100"
-                                                                                src="https://images.livemint.com/img/2020/03/31/600x338/2020-03-27T101400Z_211242614_RC2ASF9TIMPG_RTRMADP_3_HEALTH-CORONAVIRUS-SOUTHASIA_1585631419369_1585631421077.JPG"
-                                                                                alt="Third slide"
-                                                                            />
-                                                                                                        </Carousel.Item> 
-                                                                                                        <Carousel.Item interval={3000}>
-                                                                            <img
-                                                                            style={{height:"600px"}}
-                                                                                className="  d mainCarouselsImg -block w-100"
-                                                                                src="https://i1.wp.com/www.wedamor.com/wp-content/uploads/feeding.jpg?w=768&ssl=1"                                                                              alt="fifth slide"/>
-                                                                                                        </Carousel.Item> 
-                                                                                                        <Carousel.Item interval={3000}>
-                                                                            <img
-                                                                            style={{height:"600px"}}
-                                                                                className="  d mainCarouselsImg -block w-100"
-                                                                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKnuJUzhUJAGhipQWEIQxZGLhw7IHNpPqUmg&usqp=CAU"
-                                                                                alt="fouth slide"
-                                                                            />
-                                                                                                        </Carousel.Item> 
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                    <img
+                        style={{ height: "600px" }}
+                        className="  d mainCarouselsImg -block w-100"
+                        src="https://412foodrescue.org/wp-content/uploads/2016/12/1200x600-cart.jpg"
+                        alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                    <img
+                        style={{ height: "600px" }}
+                        className="  d mainCarouselsImg -block w-100"
+                        src="https://images.livemint.com/img/2020/03/31/600x338/2020-03-27T101400Z_211242614_RC2ASF9TIMPG_RTRMADP_3_HEALTH-CORONAVIRUS-SOUTHASIA_1585631419369_1585631421077.JPG"
+                        alt="Third slide"
+                    />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                    <img
+                        style={{ height: "600px" }}
+                        className="  d mainCarouselsImg -block w-100"
+                        src="https://i1.wp.com/www.wedamor.com/wp-content/uploads/feeding.jpg?w=768&ssl=1" alt="fifth slide" />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                    <img
+                        style={{ height: "600px" }}
+                        className="  d mainCarouselsImg -block w-100"
+                        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTKnuJUzhUJAGhipQWEIQxZGLhw7IHNpPqUmg&usqp=CAU"
+                        alt="fouth slide"
+                    />
+                </Carousel.Item>
             </Carousel>
 
         </div>
