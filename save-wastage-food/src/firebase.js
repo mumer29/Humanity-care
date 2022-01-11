@@ -9,13 +9,22 @@ import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
 
 
+// const firebaseConfig = {
+//   apiKey: "AIzaSyAKkkC_ox8gBit49EYq8NUshloALWGOjJ4",
+//   authDomain: "save-wastage-food.firebaseapp.com",
+//   projectId: "save-wastage-food",
+//   storageBucket: "save-wastage-food.appspot.com",
+//   messagingSenderId: "396100750706",
+//   appId: "1:396100750706:web:de7d80683a8c4c8ba161eb"
+// };
+
 const firebaseConfig = {
-  apiKey: "AIzaSyAKkkC_ox8gBit49EYq8NUshloALWGOjJ4",
-  authDomain: "save-wastage-food.firebaseapp.com",
-  projectId: "save-wastage-food",
-  storageBucket: "save-wastage-food.appspot.com",
-  messagingSenderId: "396100750706",
-  appId: "1:396100750706:web:de7d80683a8c4c8ba161eb"
+  apiKey: "AIzaSyBZ3TAxNccHqH2dTABZKNYjVnHUd_pfbZI",
+  authDomain: "care-humanity-604c2.firebaseapp.com",
+  projectId: "care-humanity-604c2",
+  storageBucket: "care-humanity-604c2.appspot.com",
+  messagingSenderId: "391985428107",
+  appId: "1:391985428107:web:0074a6ffdc2abd4988068e"
 };
 
 const app = firebase.initializeApp(firebaseConfig);
