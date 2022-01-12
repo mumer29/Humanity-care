@@ -1,6 +1,5 @@
 import React from 'react';
 import "./ourHistory.css"
-
 function OurHistory() {
     return (
         <div id='founder' style={{ backgroundColor: "#0195d3" }}>
