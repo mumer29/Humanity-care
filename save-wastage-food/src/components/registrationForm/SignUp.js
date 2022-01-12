@@ -176,30 +176,15 @@ function SignUp() {
                                     </label>
                                 </div>
                             </div>
-                            {/* <div className="mb-3">
-                                <label className="form-label fw-bold">User ID</label>
-                                <input
-                                    // {getUserData}
-                                    // id='userId'
-                                    type="text"
-                                    // name="userId"
-                                    value={userID}
-                                    className="form-control"
-                                    // placeholder="User ID"
-                                    // readonly
-                                    disabled
-                                />
-                            </div> */}
+
                             <div className="mb-3">
                                 <label className="form-label fw-bold" >Name</label>
                                 <input
                                     value={name}
-                                    // onChange={getUserData}
                                     onChange={(e) => setName(e.target.value)}
                                     name='name'
                                     type="text"
                                     className="form-control"
-                                    // placeholder="XYZ"
                                     required
                                 />
                             </div>
@@ -207,13 +192,11 @@ function SignUp() {
                                 <label className="form-label fw-bold">Email address</label>
                                 <input
                                     value={email}
-                                    // onChange={getUserData}
                                     onChange={(e) => setEmail(e.target.value)}
 
                                     name="email"
                                     type="email"
                                     className="form-control"
-                                    // placeholder="abc@example.com"
                                     required
                                 />
                             </div>
@@ -222,12 +205,10 @@ function SignUp() {
                                 <label className="form-label fw-bold">Phone number</label>
                                 <input
                                     value={phone}
-                                    // onChange={getUserData}
                                     onChange={(e) => setPhone(e.target.value)}
                                     name='phone'
                                     type="number"
                                     className="form-control"
-                                    // placeholder="0000-0000000"
                                     required
 
                                 />
@@ -239,14 +220,11 @@ function SignUp() {
                                 <label className="form-label fw-bold">Password</label>
                                 <input
                                     value={password}
-                                    // onChange={getUserData}
-                                    // name='password'
                                     onChange={(e) => setPassword(e.target.value)}
 
                                     id="password"
                                     type={passwordType ? "password" : "text"}
                                     className="form-control"
-                                    // placeholder="Password"
                                     required
                                 />
                                 <i className="fas fa-eye visible"
@@ -260,19 +238,6 @@ function SignUp() {
                                 ></i>
 
                             </div>
-                            {/* <div className="mb-3 form-check">
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                    id="exampleCheck1"
-                                    onClick={(e) => {
-                                        showHidePassword(e);
-                                    }}
-                                />
-                                <label className="form-check-label" htmlFor="exampleCheck1">
-                                    Show password
-                                </label>
-                            </div> */}
 
                             <div className="text-center py-3">
                                 <button
@@ -280,26 +245,10 @@ function SignUp() {
                                     className="btn btn-primary w-100"
                                     onClick={register}
                                 >Submit</button>
-                                {/* <div className="h6 ">
-                                        <a style={{ color: "blue", cursor: "pointer", align: "right" }}
-                                            onClick={registration}>
-                                            Already have an Account</a>
 
-                                    </div> */}
 
                             </div>
-                            {/* <div className="h6 text-end ">
-                                Already registred ?
-                                <a
-                                    className='alreadyAccount'
-                                    style={{ color: "blue", cursor: "pointer" }}
-                                // onClick={registration}
-                                > Sign in
-                                </a>
-                            </div> */}
-                            {/* <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
-                                Sign up with Google
-                            </button> */}
+
                             <div className='py-2'>
                                 Already have an account? <Link to="/sign-in">Login</Link> now.
                             </div>

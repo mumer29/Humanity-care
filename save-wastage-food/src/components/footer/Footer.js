@@ -10,7 +10,7 @@ function Footer() {
                         <div className="d-flex flex-column bd-highlight mb-3 " style={{ color: "white" }} >
                             <div className="p-1 bd-highlight">
                                 <img src="./logo/whiteLogo.png" alt="logo" style={{ width: "50px" }} />
-                                <h2 className='ps-2' style={{ display: "unset", textDecoration: "underline" }}>Humanity care</h2>
+                                <h2 className='ps-2' style={{ display: "unset", textDecoration: "underline" }}>Care Humanity</h2>
                             </div>
                             <div className="p-1 bd-highlight">
                                 <span>
@@ -89,12 +89,22 @@ function Footer() {
                                 <i className="fas fa-greater-than"></i>
                                 <span> Our History</span>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div
+                className="col-12 bg-success  "
+                style={{
+                    color:"white",
+                    height: ' 40px',
+                    display: ' flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+            >
+                <span>© Copyright 2022 All rights reserved, <b>Care Humanity</b> </span>
             </div>
         </footer>
     )
