@@ -149,6 +149,12 @@ function Orders() {
             toast.error("Please enter your message")
         } else {
             RegistredSeeker(seekerName, seekerEmail, seekerPhone, seekerMessage)
+
+            setSeekerName("")
+            setSeekerPhone("")
+            setSeekerEmail("")
+            setSeekerMessage("")
+            
         }
     }
 

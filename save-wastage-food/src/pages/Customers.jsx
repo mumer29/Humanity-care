@@ -127,9 +127,6 @@ const Customers = () => {
     return (
         <>
             <div >
-                <h2 className="page-header">
-                    Users
-                </h2>
                 {/* <div>{name}</div> */}
                 {/* <div>{email}</div> */}
                 <div className="row">
@@ -201,7 +198,7 @@ const Customers = () => {
                                 {/* Seeker */}
                                 <div id="customerSeeker"
                                     style={{ display: "none" }}>
-                                    <h1>dasdfas</h1>
+                                    <h3>Donor Detail</h3>
                                     <table className="table"
                                     >
 
