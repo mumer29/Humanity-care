@@ -7,7 +7,8 @@ function Header() {
 
             <div className="container-fluid header" >
                 <nav className=" container navbar"
-                    style={{ padding: '2px' }}  >
+                    style={{ padding: '2px' }} 
+                     >
 
                     <span>
                         <h5>< strong > Head Office: </strong>

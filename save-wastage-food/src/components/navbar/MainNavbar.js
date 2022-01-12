@@ -40,9 +40,9 @@ function Navbar() {
     }, []);
     return (
         <div
-            className={navTop ? "fixed-top" : "fixed-scroll-top"}>
-            <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange p-0 "
-                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange p-0 "}
+            className={navTop ? "fixed-top " : "fixed-scroll-top bgColor"}>
+            <nav className={state ? "navbar navbar-expand-lg navbar-light onScrollBgColorChange  "
+                : "navbar navbar-expand-lg navbar-light onHoverBgColorChange  "}
             >
                 <div className="container-fluid px-4 ">
 
@@ -239,15 +239,15 @@ function Navbar() {
                             </li>
 
 
-                            <li className="nav-item  ">
+                            {/* <li className="nav-item  ">
                                 <a className="nav-link active px-3 py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500 }}
                                 >
                                     <button className='btn btn-success  text-uppercase btn-sm '
-                                        style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px", width: "110px" }} >donate</button>
-
+                                        style={{ fontWeight: 500, fontSize: '15px', borderRadius: "20px", width: "110px" }} 
+                                        >donate</button>
                                 </a>
-                            </li>
+                            </li> */}
                             {/* <li className="nav-item  ">
                                 <a className="nav-link active py-0  " aria-current="page"
                                     style={{ color: "white", fontWeight: 500, fontSize: "20px" }}

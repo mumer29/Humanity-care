@@ -39,11 +39,6 @@ function Orders() {
     const [seekerData, setSeekerData] = useState([])
 
 
-
-
-
-
-
     const fetchUserData = async () => {
 
         try {
@@ -56,9 +51,9 @@ function Orders() {
 
             if (data.userType === "Admin") {
 
-                document.getElementById("admin").style.display = "block"
-                document.getElementById("seeker").style.display = "none"
-                document.getElementById("donor").style.display = "none"
+                document.getElementById("orderAdmin").style.display = "block"
+                document.getElementById("orderSeeker").style.display = "none"
+                document.getElementById("orderDonor").style.display = "none"
 
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
@@ -86,9 +81,9 @@ function Orders() {
 
             } else if (data.userType === "Donor") {
 
-                document.getElementById("admin").style.display = "none"
-                document.getElementById("seeker").style.display = "none"
-                document.getElementById("donor").style.display = "flex"
+                document.getElementById("orderAdmin").style.display = "none"
+                document.getElementById("orderSeeker").style.display = "none"
+                document.getElementById("orderDonor").style.display = "flex"
                 try {
                     const query = await db
                         .collection("users")
@@ -105,9 +100,9 @@ function Orders() {
 
             } else {
 
-                document.getElementById("admin").style.display = "none"
-                document.getElementById("seeker").style.display = "inline-table"
-                document.getElementById("donor").style.display = "none"
+                document.getElementById("orderAdmin").style.display = "none"
+                document.getElementById("orderSeeker").style.display = "inline-table"
+                document.getElementById("orderDonor").style.display = "none"
 
 
             }
@@ -168,7 +163,7 @@ function Orders() {
 
     return (
         <div>
-            <div id='admin'
+            <div id='orderAdmin'
                 style={{ display: "none" }}>
                 <h2 className="page-header">
                     Donation History
@@ -180,7 +175,7 @@ function Orders() {
                         <div className="card">
                             <div className="card__body">
 
-                                <table class="table"
+                                <table className="table"
                                 >
                                     <thead>
                                         <tr>
@@ -221,7 +216,7 @@ function Orders() {
                         <div className="card">
                             <div className="card__body">
 
-                                <table class="table"
+                                <table className="table"
                                 >
                                     <thead>
                                         <tr>
@@ -256,7 +251,7 @@ function Orders() {
 
 
             <div className="row  justify-content-center align-items-center py-3"
-                id="donor"
+                id="orderDonor"
                 style={{ display: "none" }}
             >
                 <div className="col-lg-2 col-sm-12 col-md-12 text-center my-2  " style={{ height: "45px" }}>
@@ -281,7 +276,6 @@ function Orders() {
                         <option value="Water ">Water </option>
                         <option value="Ration">Ration</option>
                         <option value="Education">Education</option>
-
                     </select>
                 </div>
                 <div className="col-lg-2 col-md-4 text-center my-2  " style={{ height: "45px" }}>
@@ -322,7 +316,7 @@ function Orders() {
             {/* Seeker */}
 
             < div className="container "
-                id='seeker'
+                id='orderSeeker'
                 style={{ display: "none" }
                 }
             >

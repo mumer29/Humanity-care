@@ -185,7 +185,6 @@ const Dashboard = () => {
             querySnapshot.forEach(element => {
                 var data = element.data()
                 total += Math.floor(data.amount);
-
             })
             setTotalDonorAmount(total)
         })
@@ -198,9 +197,7 @@ const Dashboard = () => {
                 if (data) {
                     total += 1
                 }
-
             })
-            // console.log(total);
             setSeekeAndDonorLength(total - 1)
         })
 
@@ -211,10 +208,8 @@ const Dashboard = () => {
             let total = []
             querySnapshot.forEach(element => {
                 var data = element.data()
-
                 total.push(data)
             })
-            // console.log(total);
             setDonorServices(total)
         })
 
@@ -234,21 +229,27 @@ const Dashboard = () => {
 
             if (data.userType === "Admin") {
 
-                document.getElementById("admin").style.display = "block"
+                document.getElementById("dashboardAdmin").style.display = "block"
+                document.getElementById("dashboardDonor").style.display = "none"
+                document.getElementById("dashboardSeeker").style.display = "none"
 
             } else if (data.userType === "Donor") {
 
-                document.getElementById("admin").style.display = "none"
+                document.getElementById("dashboardAdmin").style.display = "none"
+                document.getElementById("dashboardDonor").style.display = "block"
+                document.getElementById("dashboardSeeker").style.display = "none"
 
             } else {
-                document.getElementById("admin").style.display = "none"
+                document.getElementById("dashboardAdmin").style.display = "none"
+                document.getElementById("dashboardDonor").style.display = "none"
+                document.getElementById("dashboardSeeker").style.display = "block"
             }
         }
         catch (err) {
             // console.log(err);
             // toast.error("An error occured while fetching user data")
         }
-       
+
 
 
     };
@@ -265,161 +266,285 @@ const Dashboard = () => {
     const themeReducer = useSelector(state => state.ThemeReducer.mode)
 
     return (
-        <div id="admin"
-            style={{ display: "none" }}
-        >
-            <h2 className="page-header">Dashboard</h2>
-            <div className="row">
-                <div className="col-12 ">
-                    <div className="row">
-                        <div className='status-card col-6'>
-                            <div className="status-card__icon">
-                                <i className="bx bx-shopping-bag"></i>
+        <div>
+            <div id="dashboardAdmin"
+                style={{ display: "none" }}
+            >
+                <h2 className="page-header">Dashboard</h2>
+               
+                <div className="row">
+                    <div className="col-12 ">
+                        <div className="row">
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {totalDonorAmount}</h4>
+                                    <h5>Total Donations</h5>
+                                </div>
                             </div>
-                            <div className="status-card__info">
-                                <h4> {totalDonorAmount}</h4>
-                                <h5>Total Donations</h5>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {seekeAndDonorLength}</h4>
+                                    <h5>Donors & Seeker</h5>
+                                </div>
                             </div>
-                        </div>
 
-                        <div className='status-card col-6'>
-                            <div className="status-card__icon">
-                                <i className="bx bx-shopping-bag"></i>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 150 K</h4>
+                                    <h5>Required Amount</h5>
+                                </div>
                             </div>
-                            <div className="status-card__info">
-                                <h4> {seekeAndDonorLength}</h4>
-                                <h5>Donors & Seeker</h5>
-                            </div>
-                        </div>
 
-
-                        <div className='status-card col-6'>
-                            <div className="status-card__icon">
-                                <i className="bx bx-shopping-bag"></i>
-                            </div>
-                            <div className="status-card__info">
-                                <h4> 150 K</h4>
-                                <h5>Required Amount</h5>
-                            </div>
-                        </div>
-
-                        <div className='status-card col-6'>
-                            <div className="status-card__icon">
-                                <i className="bx bx-shopping-bag"></i>
-                            </div>
-                            <div className="status-card__info">
-                                <h4> 100 KG</h4>
-                                <h5>Daily food required</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                {/* <div className="col-6">
-                    <div className="card full-height">
-                        <Chart
-                            options={themeReducer === 'theme-mode-dark' ? {
-                                ...chartOptions.options,
-                                theme: { mode: 'dark' }
-                            } : {
-                                ...chartOptions.options,
-                                theme: { mode: 'light' }
-                            }}
-                            series={chartOptions.series}
-                            type='line'
-                            height='100%'
-                        />
-                    </div>
-                </div> */}
-                {/* <div className="col-4">
-                    <div className="card">
-                        <h3>Top Donations</h3>
-                        <div className="card__body">
-
-                            <table className="table"
-                                id="admin"
-                                style={{ minWidth: "0px" }}
-                            >
-                                <thead>
-                                    <tr>
-                                        <th scope="col">Donation type</th>
-                                        <th scope="col">Total order</th>
-
-                                    </tr>
-                                </thead>
-                                {donorServices.map((item, index) => (
-
-                                <tbody>
-                                    <tr>
-                                        <td> {item.payment}</td>
-                                        <td> {item.amount}</td>
-                                    </tr>
-                                </tbody>
-                                ))}
-                            </table>
-                        </div>
-                    </div>
-                </div> */}
-                <div className="col-12">
-
-                    <div className="row">
-                        <div className="col-12">
-                            <div className="card">
-                                <div className="card__body">
-
-                                    <table class="table"
-                                    >
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Sr.</th>
-                                                <th scope="col">Name</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Donation type</th>
-                                                <th scope="col">Amount</th>
-                                                <th scope="col">Status</th>
-
-                                                {/* <th scope="col">Payment for</th>
-                                            <th scope="col">Registred</th> */}
-                                            </tr>
-                                        </thead>
-                                        {donorServices.map((item, index) => (
-                                            <tbody key={index}>
-                                                <tr>
-                                                    <th scope="row">{index + 1}</th>
-                                                    <td> {item.name}</td>
-                                                    <td>{item.email}</td>
-                                                    <td>{item.donationType}</td>
-
-                                                    <td>{item.amount}</td>
-                                                    <td>Pending</td>
-                                                    {/* <td>{item.registered}</td> */}
-
-                                                </tr>
-                                            </tbody>
-                                        ))}
-                                    </table>
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 100 KG</h4>
+                                    <h5>Daily food required</h5>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    {/* <div className="card">
-                        <div className="card__header">
-                            <h3>latest orders</h3>
+
+                    <div className="col-12">
+
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card">
+                                    <div className="card__body">
+
+                                        <table class="table"
+                                        >
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Sr.</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Donation type</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            {donorServices.map((item, index) => (
+                                                <tbody key={index}>
+                                                    <tr>
+                                                        <th scope="row">{index + 1}</th>
+                                                        <td> {item.name}</td>
+                                                        <td>{item.email}</td>
+                                                        <td>{item.donationType}</td>
+
+                                                        <td>{item.amount}</td>
+                                                        <td>Pending</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            ))}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div className="card__body">
-                            <Table
-                                headData={latestOrders.header}
-                                renderHead={(item, index) => renderOrderHead(item, index)}
-                                bodyData={latestOrders.body}
-                                renderBody={(item, index) => renderOrderBody(item, index)}
-                            />
-                        </div>
-                        <div className="card__footer">
-                            <Link to='/'>view all</Link>
-                        </div>
-                    </div> */}
+                    </div>
                 </div>
+            </div>
+
+            <div id="dashboardDonor"
+            style={{display:"none"}}
+            >
+                <h2 className="page-header">donor Dashboard</h2>
+           
+                {/* <div className="row">
+                    <div className="col-12 ">
+                        <div className="row">
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {totalDonorAmount}</h4>
+                                    <h5>Total Donations</h5>
+                                </div>
+                            </div>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {seekeAndDonorLength}</h4>
+                                    <h5>Donors & Seeker</h5>
+                                </div>
+                            </div>
+
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 150 K</h4>
+                                    <h5>Required Amount</h5>
+                                </div>
+                            </div>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 100 KG</h4>
+                                    <h5>Daily food required</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="col-12">
+
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card">
+                                    <div className="card__body">
+
+                                        <table class="table"
+                                        >
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Sr.</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Donation type</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            {donorServices.map((item, index) => (
+                                                <tbody key={index}>
+                                                    <tr>
+                                                        <th scope="row">{index + 1}</th>
+                                                        <td> {item.name}</td>
+                                                        <td>{item.email}</td>
+                                                        <td>{item.donationType}</td>
+
+                                                        <td>{item.amount}</td>
+                                                        <td>Pending</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            ))}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
+            </div>
+
+
+            <div id="dashboardSeeker"
+                style={{ display: "none" }}
+            >
+                <h2 className="page-header">Seeker Dashboard</h2>
+               
+                {/* <div className="row">
+                    <div className="col-12 ">
+                        <div className="row">
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {totalDonorAmount}</h4>
+                                    <h5>Total Donations</h5>
+                                </div>
+                            </div>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> {seekeAndDonorLength}</h4>
+                                    <h5>Donors & Seeker</h5>
+                                </div>
+                            </div>
+
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 150 K</h4>
+                                    <h5>Required Amount</h5>
+                                </div>
+                            </div>
+
+                            <div className='status-card col-6'>
+                                <div className="status-card__icon">
+                                    <i className="bx bx-shopping-bag"></i>
+                                </div>
+                                <div className="status-card__info">
+                                    <h4> 100 KG</h4>
+                                    <h5>Daily food required</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div className="col-12">
+
+                        <div className="row">
+                            <div className="col-12">
+                                <div className="card">
+                                    <div className="card__body">
+
+                                        <table class="table"
+                                        >
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Sr.</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Email</th>
+                                                    <th scope="col">Donation type</th>
+                                                    <th scope="col">Amount</th>
+                                                    <th scope="col">Status</th>
+                                                </tr>
+                                            </thead>
+                                            {donorServices.map((item, index) => (
+                                                <tbody key={index}>
+                                                    <tr>
+                                                        <th scope="row">{index + 1}</th>
+                                                        <td> {item.name}</td>
+                                                        <td>{item.email}</td>
+                                                        <td>{item.donationType}</td>
+
+                                                        <td>{item.amount}</td>
+                                                        <td>Pending</td>
+
+                                                    </tr>
+                                                </tbody>
+                                            ))}
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> */}
             </div>
         </div>
     )
