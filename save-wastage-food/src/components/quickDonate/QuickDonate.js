@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap'
-import { useNavigate, useHistory } from 'react-router-dom'
+import { Modal } from 'react-bootstrap'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify';
 import { NonRegisterDonor } from '../../firebase'
-
 import './quichDonate.css'
-
 
 function QuickDonate() {
     const history = useHistory();
@@ -18,8 +16,8 @@ function QuickDonate() {
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [phone, setPhone] = useState("");
-    const [userType, setuserType] = useState("Donor");
-    const [registered, setregistered] = useState("No");
+    // const [userType, setuserType] = useState("Donor");
+    // const [registered, setregistered] = useState("No");
 
 
     const handleClose = () => setShow(false);
@@ -65,6 +63,8 @@ function QuickDonate() {
         } else if (!phone) {
             toast.error("Please enter your phone number")
         } else {
+            let userType = "Donor";
+            let registered = "No"
             NonRegisterDonor(name, email, phone, payment, amount, donationType, userType, registered)
             setShow(false)
         }

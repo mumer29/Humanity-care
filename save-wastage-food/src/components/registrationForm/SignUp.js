@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './sign.css'
 import { useAuthState } from "react-firebase-hooks/auth";
-
-import { Link, useNavigate, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 import {
     auth,
     registerWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signInWithGoogle,
     firestore
 } from "../../firebase";
-
-// import { auth,  signInWithGoogle } from "../../firebase";
-
-
-
 
 function SignUp() {
 
@@ -25,12 +17,9 @@ function SignUp() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("")
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const [userType, setuserType] = useState("");
-    const [registered, setregistered] = useState("Yes");
-
-
-
+    // const [registered, setregistered] = useState("Yes");
 
     const register = async () => {
         if (!userType) {
@@ -50,11 +39,9 @@ function SignUp() {
             await firestore.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach(element => {
                     var data = element.data()
-                    // console.log(data);
                     db.push(data)
                 })
             })
-            // console.log(db);
             let result = db.find((item) => {
 
 
@@ -63,13 +50,11 @@ function SignUp() {
                 }
 
             })
-            console.log(result);
             if (result) {
                 toast.error("Admin is alreay exist")
-                // registerWithEmailAndPassword(name, email, phone, userType, password, registered);
             } else {
+                let registered = "yes"
                 registerWithEmailAndPassword(name, email, phone, userType, password, registered);
-
             }
         }
 
@@ -91,38 +76,17 @@ function SignUp() {
         document.getElementById("hide").style.display = "none";
     }
 
-    // let uniqueIdGenerator = () => {
-    //     return Math.floor((1 + Math.random()) * 0x10000)
-    //         .toString(16)
-    //         .substring(1);
-    // }
-
     function designation(e) {
 
         const userValue = e.target.value;
         if (userValue === "donor") {
-            // setUserDasignation("donor")
-            // let result = uniqueIdGenerator()
-            // let userdezi = "D-"
-            // let final = userdezi.concat(result)
-            // setUserID(final)
             setuserType("Donor")
 
         } else if (userValue === "seeker") {
-            // setUserDasignation("seeker")
-            // let result = uniqueIdGenerator()
-            // let userdezi = "S-"
-            // let final = userdezi.concat(result)
-            // setUserID(final)
             setuserType("Seeker")
 
         }
         else {
-            // setUserDasignation("admin")
-            // let result = uniqueIdGenerator()
-            // let userdesi = "A-"
-            // let final = userdesi.concat(result)
-            // setUserID(final)
             setuserType("Admin")
 
         }
@@ -212,30 +176,15 @@ function SignUp() {
                                     </label>
                                 </div>
                             </div>
-                            {/* <div className="mb-3">
-                                <label className="form-label fw-bold">User ID</label>
-                                <input
-                                    // {getUserData}
-                                    // id='userId'
-                                    type="text"
-                                    // name="userId"
-                                    value={userID}
-                                    className="form-control"
-                                    // placeholder="User ID"
-                                    // readonly
-                                    disabled
-                                />
-                            </div> */}
+
                             <div className="mb-3">
                                 <label className="form-label fw-bold" >Name</label>
                                 <input
                                     value={name}
-                                    // onChange={getUserData}
                                     onChange={(e) => setName(e.target.value)}
                                     name='name'
                                     type="text"
                                     className="form-control"
-                                    // placeholder="XYZ"
                                     required
                                 />
                             </div>
@@ -243,13 +192,11 @@ function SignUp() {
                                 <label className="form-label fw-bold">Email address</label>
                                 <input
                                     value={email}
-                                    // onChange={getUserData}
                                     onChange={(e) => setEmail(e.target.value)}
 
                                     name="email"
                                     type="email"
                                     className="form-control"
-                                    // placeholder="abc@example.com"
                                     required
                                 />
                             </div>
@@ -258,12 +205,10 @@ function SignUp() {
                                 <label className="form-label fw-bold">Phone number</label>
                                 <input
                                     value={phone}
-                                    // onChange={getUserData}
                                     onChange={(e) => setPhone(e.target.value)}
                                     name='phone'
                                     type="number"
                                     className="form-control"
-                                    // placeholder="0000-0000000"
                                     required
 
                                 />
@@ -275,40 +220,24 @@ function SignUp() {
                                 <label className="form-label fw-bold">Password</label>
                                 <input
                                     value={password}
-                                    // onChange={getUserData}
-                                    // name='password'
                                     onChange={(e) => setPassword(e.target.value)}
 
                                     id="password"
                                     type={passwordType ? "password" : "text"}
                                     className="form-control"
-                                    // placeholder="Password"
                                     required
                                 />
                                 <i className="fas fa-eye visible"
                                     id='show'
                                     onClick={showPassword}
                                 ></i>
-                                <i class="fas fa-eye-slash visible"
+                                <i className="fas fa-eye-slash visible"
                                     id="hide"
                                     onClick={hidePassword}
                                     style={{ display: "none" }}
                                 ></i>
 
                             </div>
-                            {/* <div className="mb-3 form-check">
-                                <input
-                                    type="checkbox"
-                                    className="form-check-input"
-                                    id="exampleCheck1"
-                                    onClick={(e) => {
-                                        showHidePassword(e);
-                                    }}
-                                />
-                                <label className="form-check-label" htmlFor="exampleCheck1">
-                                    Show password
-                                </label>
-                            </div> */}
 
                             <div className="text-center py-3">
                                 <button
@@ -316,26 +245,10 @@ function SignUp() {
                                     className="btn btn-primary w-100"
                                     onClick={register}
                                 >Submit</button>
-                                {/* <div className="h6 ">
-                                        <a style={{ color: "blue", cursor: "pointer", align: "right" }}
-                                            onClick={registration}>
-                                            Already have an Account</a>
 
-                                    </div> */}
 
                             </div>
-                            {/* <div className="h6 text-end ">
-                                Already registred ?
-                                <a
-                                    className='alreadyAccount'
-                                    style={{ color: "blue", cursor: "pointer" }}
-                                // onClick={registration}
-                                > Sign in
-                                </a>
-                            </div> */}
-                            {/* <button className="btn btn-danger w-100 " onClick={signInWithGoogle}>
-                                Sign up with Google
-                            </button> */}
+
                             <div className='py-2'>
                                 Already have an account? <Link to="/sign-in">Login</Link> now.
                             </div>

@@ -10,7 +10,7 @@ function Footer() {
                         <div className="d-flex flex-column bd-highlight mb-3 " style={{ color: "white" }} >
                             <div className="p-1 bd-highlight">
                                 <img src="./logo/whiteLogo.png" alt="logo" style={{ width: "50px" }} />
-                                <h2 className='ps-2' style={{ display: "unset", textDecoration: "underline" }}>Humanity care</h2>
+                                <h2 className='ps-2' style={{ display: "unset", textDecoration: "underline" }}>Care Humanity</h2>
                             </div>
                             <div className="p-1 bd-highlight">
                                 <span>
@@ -50,7 +50,9 @@ function Footer() {
 
                     <div className="col-lg-6 col-sm-12 col-md-12  ">
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d450.446057194353!2d68.2625117!3d25.419252!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c79699805370b%3A0x269a508c0bc6a24b!2sUniversity%20of%20Sindh!5e0!3m2!1sen!2s!4v1641081234641!5m2!1sen!2s" width="600" height="310" style={{border:0}} allowfullscreen="" loading="lazy"></iframe></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d450.446057194353!2d68.2625117!3d25.419252!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c79699805370b%3A0x269a508c0bc6a24b!2sUniversity%20of%20Sindh!5e0!3m2!1sen!2s!4v1641081234641!5m2!1sen!2s"
+                            width="550" height="340"
+                            style={{ border: 0, margin: "0", padding: '0' }} allowfullscreen="" loading="lazy" ></iframe></div>
                     <div className="col-lg-2 col-sm-12 col-md-12" style={{ color: "white" }}>
                         <div className="d-flex flex-column bd-highlight mb-3">
                             <div className="p-1 bd-highlight">
@@ -89,12 +91,22 @@ function Footer() {
                                 <i className="fas fa-greater-than"></i>
                                 <span> Our History</span>
                             </div>
-
-
-
                         </div>
                     </div>
                 </div>
+
+            </div>
+            <div
+                className="col-12 bg-success  "
+                style={{
+                    color: "white",
+                    height: ' 40px',
+                    display: ' flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                }}
+            >
+                <span>© Copyright 2022 All rights reserved, <b>Care Humanity</b> </span>
             </div>
         </footer>
     )

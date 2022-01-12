@@ -1,22 +1,20 @@
-// import React from 'react';
-import { firestore, auth, db, logout } from "../firebase";
+
+import { firestore, auth, db } from "../firebase";
 import React, { useState, useEffect } from 'react';
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 
 
 const Customers = () => {
 
-    const [user, loading, error] = useAuthState(auth);
-    // const [name, setName] = useState("");
+    const [user, loading] = useAuthState(auth);
     const history = useHistory();
     const [donorData, setDonorData] = useState([])
     const [adminData, setAdminData] = useState([])
     const [seekerData, setSeekerData] = useState([])
     const [seekerRequest, setSeekerRequest] = useState([])
-    // console.log(donorData);
 
     const fetchUserData = async () => {
 
@@ -26,7 +24,6 @@ const Customers = () => {
                 .where("uid", "==", user?.uid)
                 .get();
             const data = await query.docs[0].data();
-            // console.log(data.name);
 
             if (data.userType === "Admin") {
 
@@ -40,45 +37,21 @@ const Customers = () => {
                         users.push(data);
                     })
                 })
-                // console.log(users);
                 setAdminData(users);
 
             } else if (data.userType === "Donor") {
-                let users;
-
-
+              
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "none"
                 document.getElementById("customerDonor").style.display = "inline-table"
-                try {
-                    const query = await db
-                        .collection("users")
-                        .where("uid", "==", user?.uid)
-                        .get();
-                    const data = await query.docs[0].data();
-                    users = data
-                    // console.log("data".data);
-                    // users.push(data)
-                    // setEmail(data.email)
-                    // console.log(data.email);/
-
-                } catch (err) {
-                    // console.error(err);
-                    alert("An error occured while fetching user data");
-                }
-                // console.log("users", users);
-
+               
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
                     querySnapshot.forEach(element => {
-                        var data = element.data()
-                        // console.log(data.name);
-                        // console.log(email);
+                        var donorData = element.data()
 
-                        if (data.email === users.email) {
-                            // console.log("good ho gya");
-                            // console.log(data);
-                            donorDetail.push(data)
+                        if (donorData.email === data.email) {
+                            donorDetail.push(donorData)
                         }
                     })
                     setDonorData(donorDetail)
@@ -86,29 +59,31 @@ const Customers = () => {
 
 
             } else {
-
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "block"
                 document.getElementById("customerDonor").style.display = "none"
+
                 let users = [];
                 await firestore.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach(element => {
                         var data = element.data()
-
                         users.push(data)
                     })
                 })
                 setSeekerData(users)
 
-                let requests = [];
-                await firestore.collection("seeker").get().then((querySnapshot) => {
-                    querySnapshot.forEach(element => {
-                        var data = element.data()
 
-                        requests.push(data)
+                await firestore.collection("seeker").get().then((querySnapshot) => {
+                    let requests = [];
+                    querySnapshot.forEach(element => {
+                        var seekerData = element.data()
+                        if (seekerData.seekerEmail === data.email) {
+                            requests.push(seekerData)
+                        }
+
                     })
+                    setSeekerRequest(requests)
                 })
-                setSeekerRequest(requests)
 
 
             }
@@ -125,10 +100,8 @@ const Customers = () => {
     }, [user, loading]);
 
     return (
-        <>
+       
             <div >
-                {/* <div>{name}</div> */}
-                {/* <div>{email}</div> */}
                 <div className="row">
                     <div className="col-12">
                         <div className="card">
@@ -149,7 +122,7 @@ const Customers = () => {
                                     </thead>
                                     {adminData.map((item, index) => (
 
-                                        <tbody>
+                                        <tbody key={index}>
                                             <tr>
                                                 <th scope="row">{index + 1}</th>
                                                 <td> {item.name}</td>
@@ -165,30 +138,26 @@ const Customers = () => {
                                 </table>
 
                                 {/* Donor */}
+
                                 <table className="table"
                                     id="customerDonor"
                                     style={{ display: "none" }}>
                                     <thead>
                                         <tr>
-                                            {/* <th>Donor</th> */}
                                             <th scope="col">Sr.</th>
-                                            {/* <th scope="col">Name</th> */}
                                             <th scope="col">payment for</th>
                                             <th scope="col">Donation type</th>
                                             <th scope="col">Amount</th>
-                                            {/* <th scope="col">Registred</th> */}
                                         </tr>
                                     </thead>
                                     {donorData.map((item, index) => (
 
-                                        <tbody>
+                                        <tbody key={index}>
                                             <tr>
                                                 <th scope="row">{index + 1}</th>
-                                                {/* <td> {item.name}</td> */}
                                                 <td>{item.payment}</td>
                                                 <td>{item.donationType}</td>
                                                 <td>{item.amount}</td>
-                                                {/* <td>{item.registered}</td> */}
 
                                             </tr>
                                         </tbody>
@@ -196,6 +165,7 @@ const Customers = () => {
                                 </table>
 
                                 {/* Seeker */}
+
                                 <div id="customerSeeker"
                                     style={{ display: "none" }}>
                                     <h3>Donor Detail</h3>
@@ -205,26 +175,16 @@ const Customers = () => {
                                         <thead>
 
                                             <tr>
-                                                {/* <th scope="col">Sr.</th> */}
                                                 <th scope="col">sr.</th>
                                                 <th scope="col">Donor Name</th>
-                                                {/* <th scope="col">Email</th>
-                                        <th scope="col">Phone No</th>
-                                        <th scope="col">User Type</th>
-                                        <th scope="col">Registred</th> */}
                                             </tr>
                                         </thead>
                                         {seekerData.map((item, index) => (
 
-                                            <tbody>
+                                            <tbody key={index}>
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
-                                                    {/* <td>{item.email}</td> */}
-                                                    {/* <td>{item.phone}</td> */}
-                                                    {/* <td>{item.userType}</td> */}
-                                                    {/* <td>{item.registered}</td> */}
-
                                                 </tr>
                                             </tbody>
                                         ))}
@@ -239,25 +199,16 @@ const Customers = () => {
                                         <thead>
 
                                             <tr>
-                                                {/* <th scope="col">Sr.</th> */}
                                                 <th scope="col">sr.</th>
                                                 <th scope="col">Request message</th>
-                                                {/* <th scope="col">Email</th>
-                                        <th scope="col">Phone No</th>
-                                        <th scope="col">User Type</th>
-                                        <th scope="col">Registred</th> */}
                                             </tr>
                                         </thead>
                                         {seekerRequest.map((item, index) => (
 
-                                            <tbody>
+                                            <tbody key={index}>
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.seekerMessage}</td>
-                                                    {/* <td>{item.email}</td> */}
-                                                    {/* <td>{item.phone}</td> */}
-                                                    {/* <td>{item.userType}</td> */}
-                                                    {/* <td>{item.registered}</td> */}
 
                                                 </tr>
                                             </tbody>
@@ -269,7 +220,7 @@ const Customers = () => {
                     </div>
                 </div>
             </div>
-        </>
+        
     )
 }
 
