@@ -324,6 +324,7 @@ const Dashboard = () => {
                             <div className="col-12">
                                 <div className="card">
                                     <div className="card__body">
+                                     <h3>Latest Donations</h3>
 
                                         <table class="table"
                                         >
@@ -347,7 +348,6 @@ const Dashboard = () => {
 
                                                         <td>{item.amount}</td>
                                                         <td>Pending</td>
-
                                                     </tr>
                                                 </tbody>
                                             ))}
