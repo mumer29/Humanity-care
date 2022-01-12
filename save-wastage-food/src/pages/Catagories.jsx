@@ -8,7 +8,6 @@ import medical from './services/medical.jpg'
 import water from './services/water.jpg'
 import ration from './services/ration.jpg'
 
-
 function Catagories() {
     return (
         <div>
