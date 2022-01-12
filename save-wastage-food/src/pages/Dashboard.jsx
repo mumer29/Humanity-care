@@ -326,8 +326,7 @@ const Dashboard = () => {
                                     <div className="card__body">
                                      <h3>Latest Donations</h3>
 
-                                        <table class="table"
-                                        >
+                                        <table className="table" >
                                             <thead>
                                                 <tr>
                                                     <th scope="col">Sr.</th>
@@ -419,7 +418,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card__body">
 
-                                        <table class="table"
+                                        <table className="table"
                                         >
                                             <thead>
                                                 <tr>
@@ -513,7 +512,7 @@ const Dashboard = () => {
                                 <div className="card">
                                     <div className="card__body">
 
-                                        <table class="table"
+                                        <table className="table"
                                         >
                                             <thead>
                                                 <tr>
