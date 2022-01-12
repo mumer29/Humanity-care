@@ -40,40 +40,32 @@ const Customers = () => {
                         users.push(data);
                     })
                 })
-                // console.log(users);
                 setAdminData(users);
 
             } else if (data.userType === "Donor") {
-                let users;
+                // let users;
 
 
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "none"
                 document.getElementById("customerDonor").style.display = "inline-table"
-                try {
-                    const query = await db
-                        .collection("users")
-                        .where("uid", "==", user?.uid)
-                        .get();
-                    const data = await query.docs[0].data();
-                    users = data
-                } catch (err) {
-                    // console.error(err);
-                    alert("An error occured while fetching user data");
-                }
-                // console.log("users", users);
-
+                // try {
+                //     const query = await db
+                //         .collection("users")
+                //         .where("uid", "==", user?.uid)
+                //         .get();
+                //     const data = await query.docs[0].data();
+                //     users = data
+                // } catch (err) {
+                //     alert("An error occured while fetching user data");
+                // }
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
                     querySnapshot.forEach(element => {
-                        var data = element.data()
-                        // console.log(data.name);
-                        // console.log(email);
+                        var donorData = element.data()
 
-                        if (data.email === users.email) {
-                            // console.log("good ho gya");
-                            // console.log(data);
-                            donorDetail.push(data)
+                        if (donorData.email === data.email) {
+                            donorDetail.push(donorData)
                         }
                     })
                     setDonorData(donorDetail)
@@ -81,48 +73,26 @@ const Customers = () => {
 
 
             } else {
-                let result;
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "block"
                 document.getElementById("customerDonor").style.display = "none"
-
-                try {
-                    const query = await db
-                        .collection("users")
-                        .where("uid", "==", user?.uid)
-                        .get();
-                    const data = await query.docs[0].data();
-                    result = data
-                } catch (err) {
-                    // console.error(err);
-                    alert("An error occured while fetching user data");
-                }
-
 
                 let users = [];
                 await firestore.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach(element => {
                         var data = element.data()
-
                         users.push(data)
                     })
                 })
                 setSeekerData(users)
 
 
-
-                
                 await firestore.collection("seeker").get().then((querySnapshot) => {
                     let requests = [];
                     querySnapshot.forEach(element => {
-                        var userdata = element.data()
-                        // console.log("userdata",userdata);
-                        // console.log("result",result);
-                        
-                        
-                        if (userdata.email === result.email) {
-                            console.log("innerdata", userdata);
-                            requests.push(userdata)
+                        var seekerData = element.data()
+                        if (seekerData.seekerEmail === data.email) {
+                            requests.push(seekerData)
                         }
 
                     })
@@ -168,7 +138,7 @@ const Customers = () => {
                                     </thead>
                                     {adminData.map((item, index) => (
 
-                                        <tbody>
+                                        <tbody key={index}>
                                             <tr>
                                                 <th scope="row">{index + 1}</th>
                                                 <td> {item.name}</td>
@@ -184,18 +154,16 @@ const Customers = () => {
                                 </table>
 
                                 {/* Donor */}
+
                                 <table className="table"
                                     id="customerDonor"
                                     style={{ display: "none" }}>
                                     <thead>
                                         <tr>
-                                            {/* <th>Donor</th> */}
                                             <th scope="col">Sr.</th>
-                                            {/* <th scope="col">Name</th> */}
                                             <th scope="col">payment for</th>
                                             <th scope="col">Donation type</th>
                                             <th scope="col">Amount</th>
-                                            {/* <th scope="col">Registred</th> */}
                                         </tr>
                                     </thead>
                                     {donorData.map((item, index) => (
@@ -203,11 +171,9 @@ const Customers = () => {
                                         <tbody>
                                             <tr>
                                                 <th scope="row">{index + 1}</th>
-                                                {/* <td> {item.name}</td> */}
                                                 <td>{item.payment}</td>
                                                 <td>{item.donationType}</td>
                                                 <td>{item.amount}</td>
-                                                {/* <td>{item.registered}</td> */}
 
                                             </tr>
                                         </tbody>
@@ -215,6 +181,7 @@ const Customers = () => {
                                 </table>
 
                                 {/* Seeker */}
+                                
                                 <div id="customerSeeker"
                                     style={{ display: "none" }}>
                                     <h3>Donor Detail</h3>
@@ -224,13 +191,8 @@ const Customers = () => {
                                         <thead>
 
                                             <tr>
-                                                {/* <th scope="col">Sr.</th> */}
                                                 <th scope="col">sr.</th>
                                                 <th scope="col">Donor Name</th>
-                                                {/* <th scope="col">Email</th>
-                                        <th scope="col">Phone No</th>
-                                        <th scope="col">User Type</th>
-                                        <th scope="col">Registred</th> */}
                                             </tr>
                                         </thead>
                                         {seekerData.map((item, index) => (
@@ -239,11 +201,6 @@ const Customers = () => {
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
-                                                    {/* <td>{item.email}</td> */}
-                                                    {/* <td>{item.phone}</td> */}
-                                                    {/* <td>{item.userType}</td> */}
-                                                    {/* <td>{item.registered}</td> */}
-
                                                 </tr>
                                             </tbody>
                                         ))}
@@ -258,13 +215,8 @@ const Customers = () => {
                                         <thead>
 
                                             <tr>
-                                                {/* <th scope="col">Sr.</th> */}
                                                 <th scope="col">sr.</th>
                                                 <th scope="col">Request message</th>
-                                                {/* <th scope="col">Email</th>
-                                        <th scope="col">Phone No</th>
-                                        <th scope="col">User Type</th>
-                                        <th scope="col">Registred</th> */}
                                             </tr>
                                         </thead>
                                         {seekerRequest.map((item, index) => (
@@ -273,10 +225,6 @@ const Customers = () => {
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.seekerMessage}</td>
-                                                    {/* <td>{item.email}</td> */}
-                                                    {/* <td>{item.phone}</td> */}
-                                                    {/* <td>{item.userType}</td> */}
-                                                    {/* <td>{item.registered}</td> */}
 
                                                 </tr>
                                             </tbody>
