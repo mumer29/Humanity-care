@@ -24,6 +24,7 @@ const renderNotificationItem = (item, index) => (
 const Topnav = () => {
     const [user, loading, error] = useAuthState(auth);
     const [name, setName] = useState("");
+    // const [type, setType] = useState("");
     const history = useHistory();
 
     const fetchUserName = async () => {
@@ -33,7 +34,8 @@ const Topnav = () => {
                 .where("uid", "==", user?.uid)
                 .get();
             const data = await query.docs[0].data();
-            setName(data.userType)
+            setName(data.name)
+            // setType(data.userType)
 
         } catch (err) {
             console.error(err);
@@ -54,37 +56,17 @@ const Topnav = () => {
             </div>
             <div className="topnav__right">
                 <div className="topnav__right-item">
-                    {/* <i class="far fa-user dashborad-user"></i> */}
 
-                    <h4
-                        style={{ margin: "0" }}> {name}</h4>
-                    {/* dropdown here */}
-                    {/* <Dropdown
-                        customToggle={() => renderUserToggle(curr_user)}
-                        contentData={user_menu}
-                        renderItems={(item, index) => renderUserMenu(item, index)}
-                    /> */}
-                    {/* <div className="dashboard"> */}
-                    {/* <div className="dashboard__container"> */}
-                    {/* user name */}
-                    {/* <div>{name}</div> */}
-                    {/* <div>{user?.email}</div> */}
-                    {/* <button className="dashboard__btn" onClick={logout}>
-                                Logout
-                            </button> */}
-                    {/* </div> */}
-                    {/* </div> */}
+                    <h4 style={{ margin: "0" }}> {name}</h4>
                 </div>
-                <div className="topnav__right-item">
+                {/* <div className="topnav__right-item">
                     <Dropdown
                         icon='bx bx-bell'
-                        // badge='12'
                         contentData={notifications}
                         renderItems={(item, index) => renderNotificationItem(item, index)}
                         renderFooter={() => <Link to='/dashboard'>View All</Link>}
                     />
-                    {/* dropdown here */}
-                </div>
+                </div> */}
                 <div className="topnav__right-item">
                     <ThemeMenu />
                 </div>
