@@ -1,19 +1,15 @@
 
 
-import { Link, Outlet, useNavigate, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { NonRegisterDonor, auth, db, logout, RegisterDonor, firestore, RegistredSeeker } from '../../firebase'
-import React, { useEffect, useState } from "react";
-import { Form, Button } from 'react-bootstrap';
+import { auth, db } from '../../firebase'
+import React, { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import './sidebar.css'
 
 
-
-
-
-const Sidebar = props => {
-    const [user, loading, error] = useAuthState(auth);
+const Sidebar =() => {
+    const [user, loading] = useAuthState(auth);
     const history = useHistory();
 
     const fetchUserData = async () => {

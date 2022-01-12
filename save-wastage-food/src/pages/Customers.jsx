@@ -1,22 +1,20 @@
-// import React from 'react';
-import { firestore, auth, db, logout } from "../firebase";
+
+import { firestore, auth, db } from "../firebase";
 import React, { useState, useEffect } from 'react';
 
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useHistory } from "react-router-dom";
+import {  useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 
 
 const Customers = () => {
 
-    const [user, loading, error] = useAuthState(auth);
-    // const [name, setName] = useState("");
+    const [user, loading] = useAuthState(auth);
     const history = useHistory();
     const [donorData, setDonorData] = useState([])
     const [adminData, setAdminData] = useState([])
     const [seekerData, setSeekerData] = useState([])
     const [seekerRequest, setSeekerRequest] = useState([])
-    // console.log(donorData);
 
     const fetchUserData = async () => {
 
@@ -26,7 +24,6 @@ const Customers = () => {
                 .where("uid", "==", user?.uid)
                 .get();
             const data = await query.docs[0].data();
-            // console.log(data.name);
 
             if (data.userType === "Admin") {
 
@@ -43,22 +40,11 @@ const Customers = () => {
                 setAdminData(users);
 
             } else if (data.userType === "Donor") {
-                // let users;
-
-
+              
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "none"
                 document.getElementById("customerDonor").style.display = "inline-table"
-                // try {
-                //     const query = await db
-                //         .collection("users")
-                //         .where("uid", "==", user?.uid)
-                //         .get();
-                //     const data = await query.docs[0].data();
-                //     users = data
-                // } catch (err) {
-                //     alert("An error occured while fetching user data");
-                // }
+               
                 await firestore.collection("donor").get().then((querySnapshot) => {
                     let donorDetail = []
                     querySnapshot.forEach(element => {
@@ -114,10 +100,8 @@ const Customers = () => {
     }, [user, loading]);
 
     return (
-        <>
+       
             <div >
-                {/* <div>{name}</div> */}
-                {/* <div>{email}</div> */}
                 <div className="row">
                     <div className="col-12">
                         <div className="card">
@@ -236,7 +220,7 @@ const Customers = () => {
                     </div>
                 </div>
             </div>
-        </>
+        
     )
 }
 

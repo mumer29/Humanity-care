@@ -8,7 +8,6 @@ import Modal2 from "./Modal2";
 import Modal3 from "./Modal3";
 import Modal4 from "./Modal4";
 import Modal5 from "./Modal5";
-import Modal6 from "./Modal6";
 
 
 function OurServices() {

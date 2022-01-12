@@ -1,16 +1,11 @@
 
 
-// import React, { useState } from 'react';
 
-import { useNavigate, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { toast } from 'react-toastify';
-import { NonRegisterDonor, auth, db, logout, RegisterDonor, firestore, RegistredSeeker } from '../firebase'
-
+import { auth, db, RegisterDonor, firestore, RegistredSeeker } from '../firebase'
 import React, { useEffect, useState } from "react";
-import { Form, Button } from 'react-bootstrap';
-
 import { useAuthState } from "react-firebase-hooks/auth";
-// import { firestore, auth, db, logout } from "../firebase";
 
 
 
@@ -18,20 +13,14 @@ import { useAuthState } from "react-firebase-hooks/auth";
 
 function Orders() {
     const history = useHistory();
-    // const [showHide, setShowHide] = useState("hide");
     const [payment, setPayment] = useState("");
     const [amount, setAmount] = useState("");
     const [donationType, setdonationType] = useState("");
     const [PHolder, setPHolder] = useState(true);
-
     const [donorData, setDonorData] = useState([])
-
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
-
-    // Seeker states
-
     const [seekerName, setSeekerName] = useState("");
     const [seekerEmail, setSeekerEmail] = useState("");
     const [seekerPhone, setSeekerPhone] = useState("");
@@ -154,15 +143,14 @@ function Orders() {
             setSeekerPhone("")
             setSeekerEmail("")
             setSeekerMessage("")
-            
+
         }
     }
 
 
     useEffect(() => {
         if (loading) return;
-        if (!user) return history.push("/dashboard");
-        // fetchUserEmail();
+        if (!user) return history.push("/");
         fetchUserData();
 
     }, [user, loading]);
@@ -174,8 +162,6 @@ function Orders() {
                 <h2 className="page-header">
                     Donation History
                 </h2>
-                {/* <div>{name}</div> */}
-                {/* <div>{email}</div> */}
                 <div className="row">
                     <div className="col-12">
                         <div className="card">
@@ -190,9 +176,6 @@ function Orders() {
                                             <th scope="col">Email</th>
                                             <th scope="col">Donation type</th>
                                             <th scope="col">Amount</th>
-
-                                            {/* <th scope="col">Payment for</th>
-                                            <th scope="col">Registred</th> */}
                                         </tr>
                                     </thead>
                                     {donorData.map((item, index) => (
@@ -204,8 +187,6 @@ function Orders() {
                                                 <td>{item.donationType}</td>
 
                                                 <td>{item.amount}</td>
-                                                {/* <td>{item.registered}</td> */}
-
                                             </tr>
                                         </tbody>
                                     ))}

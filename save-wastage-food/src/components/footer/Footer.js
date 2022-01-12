@@ -50,7 +50,7 @@ function Footer() {
 
                     <div className="col-lg-6 col-sm-12 col-md-12  ">
 
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d450.446057194353!2d68.2625117!3d25.419252!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c79699805370b%3A0x269a508c0bc6a24b!2sUniversity%20of%20Sindh!5e0!3m2!1sen!2s!4v1641081234641!5m2!1sen!2s" width="600" height="310" style={{border:0}} allowfullscreen="" loading="lazy"></iframe></div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d450.446057194353!2d68.2625117!3d25.419252!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x394c79699805370b%3A0x269a508c0bc6a24b!2sUniversity%20of%20Sindh!5e0!3m2!1sen!2s!4v1641081234641!5m2!1sen!2s" width="600" height="310" style={{ border: 0 }} allowfullscreen="" loading="lazy" ></iframe></div>
                     <div className="col-lg-2 col-sm-12 col-md-12" style={{ color: "white" }}>
                         <div className="d-flex flex-column bd-highlight mb-3">
                             <div className="p-1 bd-highlight">

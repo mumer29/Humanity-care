@@ -12,7 +12,7 @@ import Routes from './components/Routes';
 
 import React, { useEffect } from 'react'
 
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route} from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ScrollButton from "./components/scrollToTopButton/ScrollButton";
@@ -21,8 +21,8 @@ import SignIn from './components/registrationForm/SignIn';
 import SignUp from './components/registrationForm/SignUp';
 import ForgotPassword from "./components/registrationForm/ForgotPassword";
 // import MyDasdBoard from "./components/myDashboard/MyDashBoard";
-import Layout from "./components/layout/Layout";
-import Topnav from "./components/topnav/TopNav";
+// import Layout from "./components/layout/Layout";
+// import Topnav from "./components/topnav/TopNav";
 
 
 

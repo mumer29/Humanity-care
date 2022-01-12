@@ -1,12 +1,10 @@
 
 
 import firebase from 'firebase/compat/app';
-// import "firebase/auth";
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/database';
 import { toast } from 'react-toastify';
-import { useHistory } from 'react-router-dom';
 
 
 const firebaseConfig = {
@@ -43,8 +41,7 @@ const signInWithGoogle = async () => {
       });
     }
   } catch (err) {
-    // console.log(err.message);
-    alert(err.message);
+    toast.error(err.message)
   }
 };
 
@@ -54,7 +51,6 @@ const signInWithEmailAndPassword = async (email, password) => {
     toast.success("Log in successfully")
 
   } catch (err) {
-    // console.log(err.message);
     if (err.message === "Firebase: The password is invalid or the user does not have a password. (auth/wrong-password).")
       toast.error("Password is incorrect")
 
@@ -77,9 +73,6 @@ const registerWithEmailAndPassword = async (name, email, phone, userType, passwo
     });
     toast.success("Your account has been created successfully")
   } catch (err) {
-    console.log(err.message);
-    // toast.warn(err.message)
-
     if (err.message === "Firebase: The email address is already in use by another account. (auth/email-already-in-use).") {
       toast.warn("The email address is already in use by another account.")
     }
@@ -87,8 +80,6 @@ const registerWithEmailAndPassword = async (name, email, phone, userType, passwo
       toast.warn("Password should be at least 6 characters.")
 
     }
-
-    // alert(err.message);
   }
 };
 
@@ -100,30 +91,21 @@ const sendPasswordResetEmail = async (email) => {
   try {
     await auth.sendPasswordResetEmail(email);
     toast.success("Password reset link is sent on your email address")
-    // alert("Password reset link sent!");
   } catch (err) {
-    // console.log(err.message);
     toast.warn(err.message)
-    // alert(err.message);
   }
 };
 
-// Non register donor
 const NonRegisterDonor = async (name, email, phone, payment, amount, donationType, userType, registered) => {
   try {
-    // const res = await auth.createUserWithEmailAndPassword(email, password);
-    // const user = res.user;
     await db.collection("users").add({
-      // uid: user.uid,
       name, email, phone, payment, amount, donationType, userType, registered
 
     });
     toast.success("Your record has been submitted successfully")
   } catch (err) {
-    // console.log(err.message);
 
     toast.warn(err.message)
-    // alert(err.message);
 
 
   }
@@ -131,37 +113,26 @@ const NonRegisterDonor = async (name, email, phone, payment, amount, donationTyp
 
 const RegisterDonor = async (email, name, payment, amount, donationType) => {
   try {
-    // const res = await auth.createUserWithEmailAndPassword(email, password);
-    // const user = res.user;
     await db.collection("donor").add({
-      // uid: user.uid,
       email, name, payment, amount, donationType
 
     });
     toast.success("Your record has been submitted successfully")
   } catch (err) {
-    // console.log(err.message);
 
     toast.warn(err.message)
-    // alert(err.message);
   }
 };
 
 const RegistredSeeker = async (seekerName, seekerEmail, seekerPhone, seekerMessage) => {
   try {
-    // const res = await auth.createUserWithEmailAndPassword(email, password);
-    // const user = res.user;
     await db.collection("seeker").add({
-      // uid: user.uid,
       seekerName, seekerEmail, seekerPhone, seekerMessage
 
     });
     toast.success("Your record has been submitted successfully")
   } catch (err) {
-    // console.log(err.message);
-
     toast.warn(err.message)
-    // alert(err.message);
   }
 };
 

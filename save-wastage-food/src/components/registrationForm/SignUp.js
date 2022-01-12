@@ -1,21 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import './sign.css'
 import { useAuthState } from "react-firebase-hooks/auth";
-
-import { Link, useNavigate, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { toast } from 'react-toastify'
 import {
     auth,
     registerWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signInWithGoogle,
     firestore
 } from "../../firebase";
-
-// import { auth,  signInWithGoogle } from "../../firebase";
-
-
-
 
 function SignUp() {
 
@@ -25,12 +17,9 @@ function SignUp() {
     const [password, setPassword] = useState("");
     const [name, setName] = useState("");
     const [phone, setPhone] = useState("")
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const [userType, setuserType] = useState("");
-    const [registered, setregistered] = useState("Yes");
-
-
-
+    // const [registered, setregistered] = useState("Yes");
 
     const register = async () => {
         if (!userType) {
@@ -50,11 +39,9 @@ function SignUp() {
             await firestore.collection("users").get().then((querySnapshot) => {
                 querySnapshot.forEach(element => {
                     var data = element.data()
-                    // console.log(data);
                     db.push(data)
                 })
             })
-            // console.log(db);
             let result = db.find((item) => {
 
 
@@ -63,13 +50,11 @@ function SignUp() {
                 }
 
             })
-            console.log(result);
             if (result) {
                 toast.error("Admin is alreay exist")
-                // registerWithEmailAndPassword(name, email, phone, userType, password, registered);
             } else {
+                let registered = "yes"
                 registerWithEmailAndPassword(name, email, phone, userType, password, registered);
-
             }
         }
 
@@ -91,38 +76,17 @@ function SignUp() {
         document.getElementById("hide").style.display = "none";
     }
 
-    // let uniqueIdGenerator = () => {
-    //     return Math.floor((1 + Math.random()) * 0x10000)
-    //         .toString(16)
-    //         .substring(1);
-    // }
-
     function designation(e) {
 
         const userValue = e.target.value;
         if (userValue === "donor") {
-            // setUserDasignation("donor")
-            // let result = uniqueIdGenerator()
-            // let userdezi = "D-"
-            // let final = userdezi.concat(result)
-            // setUserID(final)
             setuserType("Donor")
 
         } else if (userValue === "seeker") {
-            // setUserDasignation("seeker")
-            // let result = uniqueIdGenerator()
-            // let userdezi = "S-"
-            // let final = userdezi.concat(result)
-            // setUserID(final)
             setuserType("Seeker")
 
         }
         else {
-            // setUserDasignation("admin")
-            // let result = uniqueIdGenerator()
-            // let userdesi = "A-"
-            // let final = userdesi.concat(result)
-            // setUserID(final)
             setuserType("Admin")
 
         }
@@ -289,7 +253,7 @@ function SignUp() {
                                     id='show'
                                     onClick={showPassword}
                                 ></i>
-                                <i class="fas fa-eye-slash visible"
+                                <i className="fas fa-eye-slash visible"
                                     id="hide"
                                     onClick={hidePassword}
                                     style={{ display: "none" }}

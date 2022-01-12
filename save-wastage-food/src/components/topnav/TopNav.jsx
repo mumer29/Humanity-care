@@ -1,30 +1,17 @@
-// import React from 'react'
+
 import React, { useEffect, useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useHistory } from "react-router-dom";
+import {useHistory } from "react-router-dom";
 import { auth, db, logout } from "../../firebase";
-
-
 import './topnav.css'
-
-import Dropdown from '../dropdown/Dropdown'
-
 import ThemeMenu from '../thememenu/ThemeMenu'
 
-import notifications from '../../assets/JsonData/notification.json'
 
 
-const renderNotificationItem = (item, index) => (
-    <div className="notification-item" key={index}>
-        <i className={item.icon}></i>
-        <span>{item.content}</span>
-    </div>
-)
 
 const Topnav = () => {
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const [name, setName] = useState("");
-    // const [type, setType] = useState("");
     const history = useHistory();
 
     const fetchUserName = async () => {
@@ -35,8 +22,6 @@ const Topnav = () => {
                 .get();
             const data = await query.docs[0].data();
             setName(data.name)
-            // setType(data.userType)
-
         } catch (err) {
             console.error(err);
             alert("An error occured while fetching user data");
@@ -59,14 +44,6 @@ const Topnav = () => {
 
                     <h4 style={{ margin: "0" }}> {name}</h4>
                 </div>
-                {/* <div className="topnav__right-item">
-                    <Dropdown
-                        icon='bx bx-bell'
-                        contentData={notifications}
-                        renderItems={(item, index) => renderNotificationItem(item, index)}
-                        renderFooter={() => <Link to='/dashboard'>View All</Link>}
-                    />
-                </div> */}
                 <div className="topnav__right-item">
                     <ThemeMenu />
                 </div>

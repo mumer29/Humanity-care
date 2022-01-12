@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './sign.css'
 import { useAuthState } from "react-firebase-hooks/auth";
-import { Link, useNavigate, useHistory } from "react-router-dom";
-import { toast } from 'react-toastify'
-import { firestore, auth, sendPasswordResetEmail } from "../../firebase";
+import { Link,  useHistory } from "react-router-dom";
+import {  auth, sendPasswordResetEmail } from "../../firebase";
 
 
 
@@ -11,7 +10,7 @@ function ForgotPassword() {
 
     const history = useHistory();
     const [email, setEmail] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
     useEffect(() => {
         if (loading) return;
@@ -19,94 +18,6 @@ function ForgotPassword() {
     }, [user, loading]);
 
 
-    // const [password, setPassword] = useState(true)
-    // const [user, setUser] = useState({
-    //     email: "",
-    //     password: "",
-    //     uid: '',
-
-    // })
-
-
-    // let name, value;
-    // const getUserData = (evt) => {
-    //     name = evt.target.name;
-    //     value = evt.target.value;
-    //     setUser({ ...user, [name]: value })
-    // }
-
-    // let db = []
-    // const firestoreDatabase = async () => {
-    //     await firestore.collection("care-humanity").get().then((querySnapshot) => {
-    //         querySnapshot.forEach(element => {
-    //             var data = element.data()
-    //             db.push(data)
-    //         })
-    //     })
-    // }
-
-
-
-
-
-    // const postData = async (e) => {
-    //     e.preventDefault();
-    //     // console.log(user);
-
-    //     // firebase auth
-    //     auth.createUserWithEmailAndPassword(user.email, user.password)
-    //         .then(user => {
-    //             console.log(user);
-    //         }).catch(err => {
-    //             console.log(err);
-    //         })
-
-
-    //     let result = db.find((item) => {
-    //         if (item.uid[0] === user.uid && item.email === user.email && item.password === user.password) {
-    //             return item;
-    //         }
-    //     })
-    //     if (result) {
-    //         toast.success('log in successfully')
-    //         document.getElementById('loginForm').reset()
-    //         navigate("/dashboard")
-    //     } else {
-    //         toast.error("Email or Password or designation is incorect")
-    //         navigate("/sign-in")
-    //     }
-
-    // }
-    // useEffect(() => {
-    //     firestoreDatabase()
-    // }, [])
-
-
-    // function registration() {
-    //     navigate("/sign-up")
-
-    // }
-    // function showPassword() {
-    //     setPassword(false)
-    //     document.getElementById("show").style.display = "none";
-    //     document.getElementById("hide").style.display = "table";
-
-    // }
-    // function hidePassword() {
-    //     setPassword(true)
-    //     document.getElementById("show").style.display = "table";
-    //     document.getElementById("hide").style.display = "none";
-    // }
-    // function designation(e) {
-    //     const userValue = e.target.value;
-    //     if (userValue === "donor") {
-    //         user.uid = "D"
-    //     } else if (userValue === "seeker") {
-    //         user.uid = "S"
-    //     } else {
-    //         user.uid = "A"
-    //     }
-    // }
 
 
     return (

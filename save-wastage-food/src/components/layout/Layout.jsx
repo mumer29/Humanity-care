@@ -4,9 +4,8 @@ import './layout.css'
 
 import Sidebar from '../sidebar/Sidebar'
 import TopNav from '../topnav/TopNav'
-import Routes from '../Routes'
 
-import { BrowserRouter, Route, Outlet } from 'react-router-dom'
+import {  Route } from 'react-router-dom'
 
 import { useSelector, useDispatch } from 'react-redux'
 
@@ -34,10 +33,7 @@ const Layout = () => {
                     <Sidebar {...props}/>
                     <div className="layout__content">
                         <TopNav/>
-                        <div className="layout__content-main">
-                            {/* <DashboardRoutes/> */}
-                            {/* <Outlet/> */}
-                        </div>
+
                     </div>
                 </div>
             )}/>
