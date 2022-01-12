@@ -336,6 +336,7 @@ const Dashboard = () => {
                                                     <th scope="col">Donation type</th>
                                                     <th scope="col">Amount</th>
                                                     <th scope="col">Status</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             {donorServices.map((item, index) => (

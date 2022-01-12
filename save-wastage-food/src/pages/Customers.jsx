@@ -57,11 +57,6 @@ const Customers = () => {
                         .get();
                     const data = await query.docs[0].data();
                     users = data
-                    // console.log("data".data);
-                    // users.push(data)
-                    // setEmail(data.email)
-                    // console.log(data.email);/
-
                 } catch (err) {
                     // console.error(err);
                     alert("An error occured while fetching user data");
@@ -86,10 +81,24 @@ const Customers = () => {
 
 
             } else {
-
+                let result;
                 document.getElementById("customerAdmin").style.display = "none"
                 document.getElementById("customerSeeker").style.display = "block"
                 document.getElementById("customerDonor").style.display = "none"
+
+                try {
+                    const query = await db
+                        .collection("users")
+                        .where("uid", "==", user?.uid)
+                        .get();
+                    const data = await query.docs[0].data();
+                    result = data
+                } catch (err) {
+                    // console.error(err);
+                    alert("An error occured while fetching user data");
+                }
+
+
                 let users = [];
                 await firestore.collection("users").get().then((querySnapshot) => {
                     querySnapshot.forEach(element => {
@@ -100,15 +109,25 @@ const Customers = () => {
                 })
                 setSeekerData(users)
 
-                let requests = [];
-                await firestore.collection("seeker").get().then((querySnapshot) => {
-                    querySnapshot.forEach(element => {
-                        var data = element.data()
 
-                        requests.push(data)
+
+                
+                await firestore.collection("seeker").get().then((querySnapshot) => {
+                    let requests = [];
+                    querySnapshot.forEach(element => {
+                        var userdata = element.data()
+                        // console.log("userdata",userdata);
+                        // console.log("result",result);
+                        
+                        
+                        if (userdata.email === result.email) {
+                            console.log("innerdata", userdata);
+                            requests.push(userdata)
+                        }
+
                     })
+                    setSeekerRequest(requests)
                 })
-                setSeekerRequest(requests)
 
 
             }
@@ -216,7 +235,7 @@ const Customers = () => {
                                         </thead>
                                         {seekerData.map((item, index) => (
 
-                                            <tbody>
+                                            <tbody key={index}>
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.name}</td>
@@ -250,7 +269,7 @@ const Customers = () => {
                                         </thead>
                                         {seekerRequest.map((item, index) => (
 
-                                            <tbody>
+                                            <tbody key={index}>
                                                 <tr>
                                                     <th scope="row">{index + 1}</th>
                                                     <td> {item.seekerMessage}</td>
