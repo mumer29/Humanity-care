@@ -168,7 +168,7 @@ const Customers = () => {
                                     </thead>
                                     {donorData.map((item, index) => (
 
-                                        <tbody>
+                                        <tbody key={index}>
                                             <tr>
                                                 <th scope="row">{index + 1}</th>
                                                 <td>{item.payment}</td>
@@ -181,7 +181,7 @@ const Customers = () => {
                                 </table>
 
                                 {/* Seeker */}
-                                
+
                                 <div id="customerSeeker"
                                     style={{ display: "none" }}>
                                     <h3>Donor Detail</h3>
